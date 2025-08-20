@@ -20,6 +20,7 @@ columns = [
 ]
 df.columns = columns
 
+
 print("Number of rows:", len(df))
 print("\nUnique labels in outcome:", df["outcome"].unique())
 
