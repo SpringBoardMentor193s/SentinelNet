@@ -20,6 +20,7 @@ It leverages **machine learning and deep learning** models to analyze traffic pa
 ---
 
 ## Project Structure  
+```text
 SentinelNet/
 │── data/ # Datasets (NSL-KDD, CIC-IDS 2017)
 │ ├── nslkdd/ # Raw + processed NSL-KDD dataset files
@@ -35,7 +36,7 @@ SentinelNet/
 │
 │── requirements.txt # Python dependencies
 │── README.md # Project documentation
-
+```
 ---
 
 ##  Datasets  
@@ -69,35 +70,35 @@ SentinelNet/
 - Git  
 ---
 ## Install Dependencies
-pip install -r requirements.txt
+- pip install -r requirements.txt
 ---
 ## Usage
-1️⃣ Data Preprocessing
+- 1️⃣ Data Preprocessing
 python scripts/preprocess.py --dataset data/nslkdd/KDDTrain+.csv
-2️⃣ Train Model
+- 2️⃣ Train Model
 python scripts/train.py --dataset data/nslkdd/KDDTrain+.csv --model models/sentinelnet.pkl
-3️⃣ Evaluate Model
+- 3️⃣ Evaluate Model
 python scripts/evaluate.py --model models/sentinelnet.pkl --test data/nslkdd/KDDTest+.csv
-4️⃣ Run Detection
+- 4️⃣ Run Detection
 python scripts/detect.py --input data/sample_traffic.csv
 ---
 ## Example Results
-- •	Attack distribution (Normal vs. Anomaly)
-- •	Confusion Matrix and ROC curves
-- •	Per-class precision, recall, and F1-scores
+- Attack distribution (Normal vs. Anomaly)
+- Confusion Matrix and ROC curves
+- Per-class precision, recall, and F1-scores
 ---
 ## Attack Categories
-- •	DoS (Denial of Service)
-- •	Probe (Information Gathering)
-- •	R2L (Remote to Local)
-- •	U2R (User to Root)
-- •	Others (CIC-IDS 2017): Brute-force, Botnet, DDoS, Infiltration
+- DoS (Denial of Service)
+- Probe (Information Gathering)
+- R2L (Remote to Local)
+- U2R (User to Root)
+- Others (CIC-IDS 2017): Brute-force, Botnet, DDoS, Infiltration
 ---
 ## Future Enhancements
-- •	Transformer-based models for tabular traffic data
-- •	Real-time packet sniffing and classification
-- •	Integration with visualization dashboards (Grafana/ELK)
-- •	Cloud-based deployment (AWS/GCP)
+- Transformer-based models for tabular traffic data
+- Real-time packet sniffing and classification
+- Integration with visualization dashboards (Grafana/ELK)
+- Cloud-based deployment (AWS/GCP)
 ---
 
 ## Contributions are welcome!
