@@ -1,13 +1,13 @@
 # SentinelNet – AI-Powered Intrusion Detection System
 
-📌 Overview
+# 📌 Overview
 
 SentinelNet is a machine learning–driven Network Intrusion Detection System (NIDS) that monitors and analyzes network traffic to detect cyber threats in real time.
 The system learns from historical datasets and classifies connections as legitimate or suspicious, enabling proactive defense against attacks.
 
 With a focus on both data exploration and model experimentation, SentinelNet serves as a foundation for building more advanced AI-based intrusion detection tools.
 
-🎯 Key Goals
+# 🎯 Key Goals
 
 Gain insights into network traffic behavior and attack patterns.
 
@@ -21,7 +21,7 @@ Design a system capable of alerting abnormal network activities.
 
 Document findings with visualizations and reports.
 
-📊 Datasets
+# 📊 Datasets
 
 SentinelNet currently supports two benchmark datasets:
 
@@ -31,7 +31,7 @@ CICIDS2017 Dataset → Dataset Link
 
 Both datasets provide labeled network traffic that distinguishes between normal behavior and multiple attack types.
 
-🧩 Project Modules
+# 🧩 Project Modules
 
 Dataset Loading & Exploration – Summarizing data distributions and attack categories.
 
@@ -45,7 +45,7 @@ Performance Evaluation – Comparing models using metrics and confusion matrices
 
 Alerting & Reporting – Logging anomalies for further security analysis.
 
-🛠️ Technology Stack
+# 🛠️ Technology Stack
 
 Language: Python 3.x
 
@@ -53,7 +53,7 @@ Libraries: Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn
 
 Tools: Jupyter Notebook, Git/GitHub
 
-🚀 Future Enhancements
+# 🚀 Future Enhancements
 
 🔹 Real-time detection with streaming network traffic.
 
@@ -63,7 +63,7 @@ Tools: Jupyter Notebook, Git/GitHub
 
 🔹 Development of a web-based dashboard for visualization & monitoring.
 
-🤝 Contributions
+# 🤝 Contributions
 
 Contributions are always welcome!
 
@@ -75,7 +75,7 @@ Submit a pull request
 
 Let’s make SentinelNet a stronger tool for intrusion detection together.
 
-📜 License
+# 📜 License
 
 This project is licensed under the MIT License – feel free to use, modify, and share responsibly.
 
