@@ -58,9 +58,10 @@ SentinelNet/
 │ └── explore_nsl_kdd.ipynb
 ├── docs/ # Documentation & reports
 │ ├── data_overview.md
+│ ├── nsl_kdd_overview.md
 │ └── reflection.md
-├── scripts/ # Scripts & requirements
-│ └── requirements.md
+├── scripts/ # Scripts
+│ 
 └── README.md
 
 # ️ Setup & Installation
