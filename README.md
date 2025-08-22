@@ -25,7 +25,7 @@ Document findings with visualizations and reports.
 
 SentinelNet currently supports two benchmark datasets:
 
-NSL-KDD Dataset → Dataset Link
+NSL-KDD Dataset → https://www.unb.ca/cic/datasets/nsl.html
 
 CICIDS2017 Dataset → Dataset Link
 
