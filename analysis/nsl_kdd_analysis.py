@@ -96,3 +96,14 @@ plt.title("Attack Category Distribution")
 plt.xlabel("Category")
 plt.ylabel("Count")
 plt.show()
+
+plt.figure(figsize=(6,4))
+nsl_train['attack_category'].value_counts().plot(kind='bar')
+plt.title("Attack Category Distribution")
+plt.xlabel("Category")
+plt.ylabel("Count")
+
+# Save the figure in docs folder
+plt.savefig("docs/attack_category_distribution.png", dpi=300)
+
+plt.show()
