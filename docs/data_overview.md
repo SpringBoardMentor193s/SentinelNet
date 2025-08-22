@@ -7,3 +7,6 @@ DoS (Denial of Service)
 U2R (User to Root)
 R2L (Remote to Local)
 Probe (Probing)
+
+Schema:
+- Duration, protocol_type, service, flag, src_bytes, dst_bytes, …, label.
