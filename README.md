@@ -47,19 +47,20 @@ Evaluation & Reporting – Measure performance (accuracy, precision, recall, F1)
 
 
 # 📂 Project Structure
+
 SentinelNet/
-├── data/                # Dataset folder
-│   └── NSL-KDD/
-│       └── KDDTrain+.txt
-├── analysis/            # Core analysis scripts
-│   └── 
-├── notebooks/           # Jupyter notebooks
-│   └──explore_nsl_kdd.ipynb
-├── docs/                # Documentation & reports
-│   └── data_overview.md
-│   └── reflection.md
-├──scripts/
-│   └── requriments.md   # Scripts & requirements
+├── data/ # Dataset folder
+│ └── NSL-KDD/
+│ └── KDDTrain+.txt
+├── analysis/ # Core analysis scripts
+│ 
+├── notebooks/ # Jupyter notebooks
+│ └── explore_nsl_kdd.ipynb
+├── docs/ # Documentation & reports
+│ ├── data_overview.md
+│ └── reflection.md
+├── scripts/ # Scripts & requirements
+│ └── requirements.md
 └── README.md
 
 # ️ Setup & Installation
