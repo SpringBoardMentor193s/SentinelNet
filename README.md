@@ -27,7 +27,7 @@ SentinelNet currently supports two benchmark datasets:
 
 NSL-KDD Dataset → https://www.unb.ca/cic/datasets/nsl.html
 
-CICIDS2017 Dataset → Dataset Link
+CICIDS2017 Dataset → https://www.unb.ca/cic/datasets/ids-2017.html
 
 Both datasets provide labeled network traffic that distinguishes between normal behavior and multiple attack types.
 
@@ -52,16 +52,6 @@ Language: Python 3.x
 Libraries: Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn
 
 Tools: Jupyter Notebook, Git/GitHub
-
-# 🚀 Future Enhancements
-
-🔹 Real-time detection with streaming network traffic.
-
-🔹 Incorporating deep learning (CNNs, RNNs, LSTMs) for improved accuracy.
-
-🔹 Integration with SIEM platforms for enterprise-scale deployment.
-
-🔹 Development of a web-based dashboard for visualization & monitoring.
 
 # 🤝 Contributions
 
