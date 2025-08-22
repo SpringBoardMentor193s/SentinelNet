@@ -6,7 +6,7 @@
 It leverages **machine learning and deep learning** models to analyze traffic patterns, classify attacks, and enhance cybersecurity defense strategies.  
 
 ---
-##Goal
+## Goal
 The goal of this project is to develop an AI-powered Network Intrusion Detection System (NIDS) capable of identifying malicious network trafic and cyber-attacks in real time. By leveraging machine learning techniques, the system will classify trafic as normal or suspicious based on historical data. 
 ---
 
@@ -50,8 +50,7 @@ SentinelNet/
 - `anomaly` (DoS, Probe, R2L, U2R attacks)  
 
 🔗 **Download NSL-KDD Dataset:**  
-- [UNB Dataset Repository](https://www.unb.ca/cic/datasets/nsl.html)  
-- [Kaggle Link](https://www.kaggle.com/datasets/hassan06/nsl-kdd-dataset)  
+- [Kaggle Link](https://www.kaggle.com/datasets/hassan06/nslkdd)  
 
 ---
 
@@ -61,8 +60,7 @@ SentinelNet/
 - Provides realistic traffic flow data with timestamps and **80+ features**.  
 
 🔗 **Download CIC-IDS 2017 Dataset:**  
-- [CIC Official Dataset Page](https://www.unb.ca/cic/datasets/ids-2017.html)  
-- [Kaggle Mirror Link](https://www.kaggle.com/datasets/cicdataset/cicids2017)  
+- [Kaggle Mirror Link](https://www.kaggle.com/datasets/chethuhn/network-intrusion-dataset)  
 
 ---
 
