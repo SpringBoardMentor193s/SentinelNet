@@ -24,3 +24,4 @@ print("Numerical features:", numerical)
 #Check for missing values and duplicates
 print("\nMissing values per column:\n", data.isnull().sum())
 print("\nNumber of duplicate rows:", data.duplicated().sum())
+
