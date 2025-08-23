@@ -73,6 +73,8 @@ SentinelNet
 |
 └── README.md
 
+`````
+
 ---
 
 # ️ Setup & Installation
@@ -85,7 +87,7 @@ git clone https://github.com/SpringBoardMentor193s/SentinelNet.git
 cd SentinelNet 
 
 
-`````
+```
 # 2️⃣ Install the dependencies:
 
 ```bash
