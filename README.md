@@ -37,7 +37,7 @@ Evaluation & Reporting – Measure performance (accuracy, precision, recall, F1)
 
 # NSL-KDD Dataset
 
-🎯 41 features + 1 target label
+🎯 41 features + 1 target level
 🛑 Attack Types: DoS, Probe, R2L, U2R
 🔗 [NSL-KDD Dataset](https://www.kaggle.com/datasets/hassan06/nslkdd)
 
