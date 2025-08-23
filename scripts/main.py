@@ -52,3 +52,40 @@ print(data.describe())
 #Feature types
 print('Feature types:')
 print(data.dtypes)
+
+# Mapping attacks into categories
+attack_categories = {
+    'normal': 'Normal',
+    # DoS
+    'back': 'DoS','land': 'DoS','neptune': 'DoS','pod': 'DoS','smurf': 'DoS','teardrop': 'DoS',
+    'mailbomb': 'DoS','apache2': 'DoS','processtable': 'DoS','udpstorm': 'DoS',
+    # Probe
+    'satan': 'Probe','ipsweep': 'Probe','nmap': 'Probe','portsweep': 'Probe',
+    'mscan': 'Probe','saint': 'Probe',
+    # U2R
+    'buffer_overflow': 'U2R','loadmodule': 'U2R','perl': 'U2R','rootkit': 'U2R',
+    'xterm': 'U2R','ps': 'U2R','sqlattack': 'U2R','httptunnel': 'U2R',
+    # R2L
+    'ftp_write': 'R2L','guess_passwd': 'R2L','imap': 'R2L','multihop': 'R2L',
+    'phf': 'R2L','spy': 'R2L','warezclient': 'R2L','warezmaster': 'R2L',
+    'sendmail': 'R2L','named': 'R2L','snmpgetattack': 'R2L','snmpguess': 'R2L',
+    'worm': 'R2L','xlock': 'R2L','xsnoop': 'R2L'
+}
+
+# Create a new column for category
+data['category'] = data['outcome'].map(attack_categories)
+
+# Frequency count
+print("\nAttack Category Distribution:")
+print(data['category'].value_counts())
+
+# Plot bar chart for categories
+plt.figure(figsize=(8,6))
+data['category'].value_counts().plot(kind='bar', color='skyblue')
+plt.xlabel('Attack Category')
+plt.ylabel('Count')
+plt.title('Attack Category Distribution in NSL-KDD')
+plt.tight_layout()
+plt.show()
+
+
