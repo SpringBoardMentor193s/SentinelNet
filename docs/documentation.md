@@ -48,13 +48,12 @@ This SentinelNet represents the fusion of cutting-edge AI with practical cyberse
 ---
 
 ## What patterns do you observe in network traffic
-Regular communication patterns such as predictable request-response cycles, consistent protocol usage (HTTP, HTTPS, FTP), and stable packet sizes for common operations.
-
-Normal traffic spikes during business hours or batch processing times.
-
-Flow features like packet count, byte size, and connection duration that remain within a typical range for legitimate users.
-
-Protocol-specific behavior, e.g., DNS requests have small packet sizes, while file transfers (FTP) involve large flows.
+- Websites and apps send and receive data in a predictable way.
+- Most users use common protocols like **HTTP** or **HTTPS**.
+- Data sizes and connection times usually stay within normal limits.
+- Specific activities have expected behaviors — for example:
+  - **DNS requests** are usually very small.
+  - **File downloads** are much larger.
 
 ## Why is it challenging to detect intrusions
 
