@@ -48,22 +48,24 @@ Evaluation & Reporting – Measure performance (accuracy, precision, recall, F1)
 
 # 📂 Project Structure
 
-SentinelNet/
-├── data/ # Dataset folder
-│ └── NSL-KDD/
-│ └── KDDTrain+.txt
-├── analysis/ # Core analysis scripts
-│ 
-├── notebooks/ # Jupyter notebooks
-│ └── explore_nsl_kdd.ipynb
-├── docs/ # Documentation & reports
-│ ├── data_overview.md
-│ ├── nsl_kdd_overview.md
-│ └── reflection.md
-├── scripts/ # Scripts
-│ 
+SentinelNet
+|   README.md
+|
++---analysis
++---data
+|   \---NSL-KDD
+|           KDDTrain+.txt
+|
++---docs
+|       data_overview.md
+|       nsl_kdd_overview.md
+|       reflection.md
+|
++---notebooks
+|       explore_nsl_kdd.ipynb
+|
++---scripts│ 
 └── README.md
-
 # ️ Setup & Installation
 
 # 1️⃣ Clone the Repository
