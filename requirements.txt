@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-pandas==2.3.1
-numpy==2.3.2
-matplotlib==3.10.5
 =======
 pandas==2.3.1
 numpy==2.3.2
 matplotlib==3.10.5
->>>>>>> 81c744bce32f29d0aa36887ca6ecd9c4df5563e1
+=======
