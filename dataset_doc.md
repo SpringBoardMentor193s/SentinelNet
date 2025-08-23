@@ -73,10 +73,9 @@ The dataset has **binary** and **multi-class labels**.
 ## 🧮 Preprocessing Steps
 Before using the dataset for ML:
 1. **Assign column names** (41 features + label)  
-2. **Convert categorical features** (protocol, service, flag) → one-hot encoding  
+2. **Convert categorical features** (protocol, service, flag) → Encoding techniques
 3. **Normalize numeric values** (min-max scaling / standardization)  
 4. **Handle duplicates** → remove redundancy  
-5. **Balance labels** → optional (undersampling/oversampling)  
 
 ---
 
