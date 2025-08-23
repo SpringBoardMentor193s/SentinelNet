@@ -53,7 +53,7 @@ Evaluation & Reporting – Measure performance (accuracy, precision, recall, F1)
 # 📂 Project Structure
 ````` text 
 SentinelNet
-|   README.md
+|   
 |
 +---analysis
 |
