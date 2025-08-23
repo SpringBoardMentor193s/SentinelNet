@@ -21,10 +21,10 @@ Both files contain:
 ---
 
 ## 📐 Dataset Statistics
-| Dataset      | Records | Features | Labels |
-|--------------|---------|----------|--------|
-| KDDTrain+    | 125,973 | 41       | 1      |
-| KDDTest+     | 22,544  | 41       | 1      |
+| Dataset      | Records | Features(x) | Target (y) |
+|--------------|---------|----------   |--------|
+| KDDTrain+    | 125,973 | 41          | 1 (Attack/Normal)     |
+| KDDTest+     | 22,544  | 41          | 1  (Attack/Normal)    |
 
 ---
 
