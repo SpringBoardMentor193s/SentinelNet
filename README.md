@@ -1,5 +1,6 @@
 # 🛡️ SentinelNet: AI-Powered Network Intrusion Detection System (NIDS)
 
+---
 
 SentinelNet is an AI-driven Network Intrusion Detection System (NIDS) designed to identify malicious network traffic and detect cyber-attacks in real time.
 By leveraging machine learning techniques, SentinelNet classifies network traffic as normal or suspicious based on historical patterns, providing an intelligent defense mechanism against modern cyber threats.
@@ -31,6 +32,8 @@ Model Building & Training – Train ML classifiers (Decision Tree, Random Forest
 
 Evaluation & Reporting – Measure performance (accuracy, precision, recall, F1) and document results.
 
+---
+
 # 📊 Datasets
 
 # NSL-KDD Dataset
@@ -45,13 +48,15 @@ Evaluation & Reporting – Measure performance (accuracy, precision, recall, F1)
 🛡️ Modern attacks: DDoS, Botnet, Web Attacks, Brute Force, Heartbleed
 [CICIDS2017 Dataset](https://www.kaggle.com/datasets/sateeshkumar6289/cicids-2017-dataset)
 
+---
 
 # 📂 Project Structure
-
+````` text 
 SentinelNet
 |   README.md
 |
 +---analysis
+|
 +---data
 |   \---NSL-KDD
 |           KDDTrain+.txt
@@ -65,19 +70,32 @@ SentinelNet
 |       explore_nsl_kdd.ipynb
 |
 +---scripts│ 
+|
 └── README.md
+
+---
+
 # ️ Setup & Installation
 
 # 1️⃣ Clone the Repository
+
+```bash
 
 git clone https://github.com/SpringBoardMentor193s/SentinelNet.git
 cd SentinelNet 
 
 
+`````
 # 2️⃣ Install the dependencies:
 
+```bash
+
 pip install package_name
-    
+
+```
+
+---
+
 # 🚀 Usage
 
 # ▶️ Open Jupyter Notebook in VS Code
@@ -93,6 +111,11 @@ Select your Python interpreter / virtual environment from the top-right corner (
 
 Click "Run All" ▶️ or execute cells one by one.
 
+---
+
 # 📖 Documentation
+
+Refer to these documents for more details:  
+
 - 📄 [Data Overview](docs/data_overview.md)
 - 📝 [Reflection](docs/reflection.md)
