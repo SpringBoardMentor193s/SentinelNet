@@ -1,5 +1,7 @@
+#import libraries
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
+
 cols = [
     'duration','protocol_type','service','flag','src_bytes','dst_bytes','land',
     'wrong_fragment','urgent','hot','num_failed_logins','logged_in','num_compromised',
@@ -12,22 +14,32 @@ cols = [
     'dst_host_srv_serror_rate','dst_host_rerror_rate','dst_host_srv_rerror_rate',
     'label','difficulty'
 ]
-data=pd.read_csv("../data/nsl-kdd/KDDTrain+.txt",names=cols)
+#load the dataset
+df=pd.read_csv("../data/nsl-kdd/KDDTrain+.txt",names=cols)
 
-df=pd.DataFrame(data)
+#check the data
 print(df.head())
 print(df.info())
+print(df.isnull().sum())
+
+#Statistical Analysis
 print(df.describe())
 
+
+#Handle Missing Values
 print("Missing values per column:\n",df.isnull().sum())
 df=df.dropna()
 
+#Remove Duplicate Rows
 print("Before removing duplicates:", df.shape)
 df = df.drop_duplicates()
 print("After removing duplicates:", df.shape)
 
+#Encode Categorical Features
 categorical_cols = ['protocol_type', 'service', 'flag']
 df = pd.get_dummies(df, columns=categorical_cols)
+
+#Scale Numerical Features
 scaler = MinMaxScaler()
 num_cols = df.drop(columns=['label']).columns
 df[num_cols] = scaler.fit_transform(df[num_cols])
