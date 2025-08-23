@@ -1,8 +1,8 @@
-# 📊 SentinelNet Dataset Documentation
+#  SentinelNet Dataset Documentation
 
 - [NSL-KDD Dataset on Kaggle](https://www.kaggle.com/datasets/hassan06/nslkdd)  
 
-## 📌 Dataset Overview
+##  Dataset Overview
 The **NSL-KDD dataset** is an improved version of the **KDD Cup 1999 dataset**, widely used for **Network Intrusion Detection (NID)** research.  
 It addresses several issues in the original dataset such as redundant records and imbalance.  
 
@@ -10,7 +10,7 @@ Each record represents a **network connection** with features describing its pro
 
 ---
 
-## 📂 Files Used
+##  Files Used
 - **`KDDTrain+.txt`** → Training dataset  
 - **`KDDTest+.txt`** → Testing dataset  
 
@@ -20,7 +20,7 @@ Both files contain:
 
 ---
 
-## 📐 Dataset Statistics
+##  Dataset Statistics
 | Dataset      | Records | Features(x) | Target (y) |
 |--------------|---------|----------   |--------|
 | KDDTrain+    | 125,973 | 41          | 1 (Attack/Normal)     |
@@ -28,7 +28,7 @@ Both files contain:
 
 ---
 
-## 🧩 Feature Categories
+##  Feature Categories
 The features are grouped into 4 main categories:
 
 1. **Basic Features**  
@@ -45,7 +45,7 @@ The features are grouped into 4 main categories:
 
 ---
 
-## 🎯 Label Information
+##  Label Information
 The dataset has **binary** and **multi-class labels**.
 
 - **Normal**: Legitimate traffic  
@@ -55,11 +55,11 @@ The dataset has **binary** and **multi-class labels**.
   - **R2L (Remote to Local)** → `guess_passwd`, `ftp_write`, `multihop`  
   - **U2R (User to Root)** → `buffer_overflow`, `loadmodule`, `rootkit`  
 
-👉 Attacks can be mapped into **4 categories**: DoS, Probe, R2L, U2R.  
+ Attacks can be mapped into **4 categories**: DoS, Probe, R2L, U2R.  
 
 ---
 
-## 🔎 Example Record
+## Example Record
 - `0` → duration  
 - `tcp` → protocol type  
 - `http` → service  
@@ -70,7 +70,7 @@ The dataset has **binary** and **multi-class labels**.
 
 ---
 
-## 🧮 Preprocessing Steps
+##  Preprocessing Steps
 Before using the dataset for ML:
 1. **Assign column names** (41 features + label)  
 2. **Convert categorical features** (protocol, service, flag) → Encoding techniques
