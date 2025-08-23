@@ -1,0 +1,40 @@
+About datasets:-
+
+NSL-KDD Dataset
+
+Number of Features:
+The NSL-KDD dataset contains 41 features per record 
+
+Types of Attacks:
+It includes attacks categorized primarily into four types:
+Denial of Service (DoS)
+Probe (reconnaissance)
+User-to-Root (U2R)
+Remote-to-Local (R2L) 
+
+Differences / Characteristics:
+
+NSL-KDD is an improved and cleaned version of the older KDD-99 dataset. It removes redundant records, addressing biases present in the original data 
+While simpler and smaller, it can still suffer from outdated attack scenarios and limited realism (simulated rather than real traffic).
+
+
+CICIDS2017 Dataset
+
+Number of Features:
+CICIDS2017 provides more than 80 features per network flow, extracted via tools like CICFlowMeter
+
+Types of Attacks:
+It includes a wide and more modern array of attack types:
+Brute Force FTP and SSH
+Denial of Service (DoS)
+Distributed DoS (DDoS)
+Infiltration attacks
+Web-based attacks (including XSS, SQL Injection)
+Heartbleed
+Botnets
+Port scanning 
+
+Differences / Advantages:
+Contains realistic network traffic, generated over a 5-day period with simulated normal user behavior and coordinated attacks 
+More traffic diversity, labeled flows, various protocols (HTTP, HTTPS, FTP, SSH, email), and comprehensive metadata make it far more representative of modern threats.
+Significantly larger and richer than NSL-KDD, with modern, real-world relevance.

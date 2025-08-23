@@ -1,0 +1,17 @@
+Why AI is Critical in Cybersecurity & What Excites Me about Building SentinelNet?
+
+In today’s digital world, cybersecurity acts as a primary defense against increasingly complex cyber threats.
+Traditional systems that rely on signatures can find it difficult to identify new or changing attacks. 
+This is where AI proves essential. Machine learning models can recognize patterns from large amounts of network data, detect anomalies, and continually improve, making them crucial for proactive intrusion detection.
+
+What excites me most about building SentinelNet is the chance to combine rigorous academic study with real-world effects.
+Using datasets like NSL-KDD offers a clean and structured base for initial learning and testing, which is useful for refining models with a limited number of features. 
+At the same time, CICIDS2017 adds realism and complexity by including over 80 features that reflect diverse protocols and modern attacks like Heartbleed, botnets, and infiltration, closely resembling actual network conditions.
+
+Working on SentinelNet allows me to engage with the entire machine learning lifecycle.
+This includes data ingestion and preprocessing, feature engineering, and training and tuning useful classifiers like Random Forests or SVMs. 
+The idea of transforming raw traffic data into precise, real-time security alerts is incredibly motivating.
+
+AI’s ability to grow and streamline defense systems will be essential for future cybersecurity. 
+Developing SentinelNet not only sharpens my technical skills but also has the potential to make networks safer and more durable. 
+That’s what truly drives me: blending AI innovation with meaningful protection.

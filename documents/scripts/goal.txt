@@ -1,0 +1,17 @@
+Project statement and goals
+
+Develop a real-time AI-powered Network Intrusion Detection System (NIDS) that analyzes network traffic 
+to identify and differentiate between normal (benign) activities and malicious (suspicious) ones.
+
+Use machine learning models like Decision Tree, Random Forest, and SVM to classify network flows.
+This system will generate alerts or logs for any detected anomalies.
+
+Implement key modules, including:
+
+- Dataset acquisition and exploration  
+- Data cleaning and preprocessing  
+- Feature engineering and selection  
+- Model building and training  
+
+Utilize publicly available datasets, such as NSL-KDD and CICIDS2017, to train and test the system. 
+Also, prepare a presentation or report that summarizes the work.
