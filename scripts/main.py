@@ -1,6 +1,9 @@
 #Libraries
 import pandas as pd
 import matplotlib.pyplot as plt
+import IPython.display as display #For better visualization
+from sklearn.preprocessing import LabelEncoder
+from sklearn.preprocessing import MinMaxScaler
 
 #Loading Dataset
 path=r"..\data\KDDTrain+.txt"
@@ -53,7 +56,7 @@ print(data.describe())
 print('Feature types:')
 print(data.dtypes)
 
-# Mapping attacks into categories
+#Mapping attacks into categories
 attack_categories = {
     'normal': 'Normal',
     # DoS
@@ -72,14 +75,14 @@ attack_categories = {
     'worm': 'R2L','xlock': 'R2L','xsnoop': 'R2L'
 }
 
-# Create a new column for category
+#Create a new column for category
 data['category'] = data['outcome'].map(attack_categories)
 
-# Frequency count
+#Frequency count
 print("\nAttack Category Distribution:")
 print(data['category'].value_counts())
 
-# Plot bar chart for categories
+#Plot bar chart for categories
 plt.figure(figsize=(8,6))
 data['category'].value_counts().plot(kind='bar', color='skyblue')
 plt.xlabel('Attack Category')
@@ -88,4 +91,69 @@ plt.title('Attack Category Distribution in NSL-KDD')
 plt.tight_layout()
 plt.show()
 
+#Identify categorical vs. numerical features
+categorical_features = data.select_dtypes(include=['object']).columns.tolist()
+numerical_features = data.select_dtypes(exclude=['object']).columns.tolist()
+print("Categorical Features:", categorical_features)
+print("Numerical Features:", numerical_features)
+
+#Checking for missing values and duplicates
+#Missing values
+print("Missing values per column:")
+print(data.isnull().sum())
+#For duplicates
+num_duplicates = data.duplicated().sum()
+print(f"Number of duplicate rows: {num_duplicates}")
+
+#Create a schema mapping table
+binary = {"land","logged_in","root_shell","su_attempted","is_host_login","is_guest_login"}
+drop = {"num_outbound_cmds","is_host_login","level"}
+special = {"src_bytes":"Log-transform + Normalize","dst_bytes":"Log-transform + Normalize"}
+labels = {"outcome":"Label encode","category":"Label encode"}
+def infer_type(col, s):
+    if col in binary: return "Binary"
+    if s.dtype=="object": return "Categorical"
+    return "Numerical"
+def preprocessing(col, t):
+    if col in drop: return "Drop"
+    if col in special: return special[col]
+    if col in labels: return labels[col]
+    if t=="Binary": return "Keep as is (0/1)"
+    if t=="Categorical": return "One-hot encode / Label encode"
+    if t=="Numerical": return "Already normalized" if "_rate" in col else "Normalize/Standardize"
+    return "Check"
+schema = [{"Feature":c,
+           "Type":infer_type(c,data[c]),
+           "Preprocessing":preprocessing(c,infer_type(c,data[c])),
+           "Semantic":"Label" if c in ["outcome","category"] else "Feature"}
+          for c in data.columns]
+schema_df = pd.DataFrame(schema)
+display.display(schema_df)
+
+#Identify and handle missing values in NSL-KDD dataset
+for col in data.columns:
+    if data[col].isnull().sum() > 0:
+        if data[col].dtype == 'object':  
+            data[col].fillna(data[col].mode()[0], inplace=True)
+        else:
+            data[col].fillna(data[col].median(), inplace=True)
+print("Missing values handled.")
+
+#Remove Duplicate Rows
+data = data.drop_duplicates()
+print("Duplicates removed. Current shape:", data.shape)
+
+#Encoding categorical features using one-hot encoding
+le = LabelEncoder()
+data['outcome'] = le.fit_transform(data['outcome'])
+data['category'] = le.fit_transform(data['category'])
+categorical_cols = ['protocol_type','service','flag']
+data = pd.get_dummies(data, columns=categorical_cols, drop_first=True)
+print("Categorical features encoded. Current shape:", data.shape)
+
+#Scale numerical features using MinMaxScaler
+numerical_cols = [col for col in data.columns if col not in ['outcome','category']]
+scaler = MinMaxScaler()
+data[numerical_cols] = scaler.fit_transform(data[numerical_cols])
+print("Numerical features scaled.")
 
