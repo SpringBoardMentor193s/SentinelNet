@@ -1,11 +1,28 @@
 import pandas as pd
-df = pd.read_csv("/workspaces/SentinelNet/nsl-kdd/KDDTest+.txt",header=None)
-columns = ["duration","protocol_type","service","flag","src_bytes","dst_bytes","label"]
-df.columns = columns +[f"feature_{i}" for i in range(len(df.columns)-len(columns))]
-print(df.head())
-print("\nData Types:\n",df.dtypes)
-print("\nDetailed Info:\n")
-df.info()
-print("\nMissing values per column:\n",df.isnull().sum())
-duplicates = df.duplicated().sum()
-print(f"\nNumber of duplicate rows:{duplicates}")
+
+file_path = "NIDS dataset/KDDTest+.txt"
+df = pd.read_csv(file_path, header=None)
+
+base_cols = ["duration", "protocol_type", "service", "flag", "src_bytes", "dst_bytes", "label"]
+extra_cols = [f"extra_{i}" for i in range(df.shape[1] - len(base_cols))]
+df.columns = base_cols + extra_cols
+
+print(" Dataset Preview:")
+print(df.sample(5))   
+
+print("\n Shape of dataset:", df.shape)
+print(" Column Data Types:")
+print(df.dtypes.value_counts())
+
+print("\n DataFrame Info:")
+df.info(verbose=True)
+
+missing = df.isna().sum()
+print("\n Missing Values (per column):")
+print(missing[missing > 0] if missing.sum() > 0 else "No missing values")
+
+dup_count = df.duplicated().sum()
+print(f"\n Number of duplicate rows: {dup_count}")
+
+print("\n Numerical Columns Summary:")
+print(df.describe().T)
