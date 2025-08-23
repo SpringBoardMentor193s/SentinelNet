@@ -18,29 +18,57 @@
 
 AI is critical in cybersecurity because it enables systems to detect, analyze, and respond to threats at a scale and speed unattainable by humans alone. With the increasing complexity and volume of cyberattacks, traditional rule-based systems struggle to keep up. AI-driven solutions can learn from vast datasets, identify subtle patterns, and adapt to new attack strategies in real time. This proactive approach is essential for defending against sophisticated threats like zero-day exploits and advanced persistent threats.
 
-Scalability: Human analysts cannot manually inspect millions of packets per second; AI automates and scales detection.
+**Scalability**: Human analysts cannot manually inspect millions of packets per second; AI automates and scales detection.
 
-Speed: AI detects and responds faster than traditional, signature-based systems.
+**Speed**: AI detects and responds faster than traditional, signature-based systems.
 
-Adaptability: Machine learning can evolve with new patterns and threats, not just known signatures.
+**Adaptability**: Machine learning can evolve with new patterns and threats, not just known signatures.
 
-Reduced Human Error: AI minimizes oversight by tirelessly applying detection logic.
+**Reduced Human Error**: AI minimizes oversight by tirelessly applying detection logic.
 
-Threat Intelligence: AI uncovers hidden or novel threat patterns by learning from huge data volumes.
+**Threat Intelligence**: AI uncovers hidden or novel threat patterns by learning from huge data volumes.
 
 ---
 
 
 ## What Excites Me About Building SentinelNet
 
-Innovation Potential: Bringing together machine learning, cybersecurity, and network engineering to fight sophisticated threats.
+**Innovation Potential**: Bringing together machine learning, cybersecurity, and network engineering to fight sophisticated threats.
 
-Social Impact: Greater safety for orgs and individuals, potentially catching threats early and preventing major breaches.
+**Social Impact**: Greater safety for orgs and individuals, potentially catching threats early and preventing major breaches.
 
-Continuous Challenge: Need to outsmart attackers who constantly change tactics, driving ongoing learning and improvement.
+**Continuous Challenge**: Need to outsmart attackers who constantly change tactics, driving ongoing learning and improvement.
 
-Real-World Value: Seeing your tool make a difference—detecting attacks, reducing risks, and empowering defenders.
+**Real-World Value**: Seeing your tool make a difference—detecting attacks, reducing risks, and empowering defenders.
 
-Learning Opportunity: Sharpening expertise in data science, security, and software engineering—all within a practical, high-impact domain.
+**Learning Opportunity**: Sharpening expertise in data science, security, and software engineering—all within a practical, high-impact domain.
 
 This SentinelNet represents the fusion of cutting-edge AI with practical cybersecurity defense.SentinelNet offers the opportunity to make a tangible impact—protecting organizations and individuals from ever-evolving cyber risks. The prospect of leveraging AI to create smarter, more resilient security solutions is both intellectually stimulating and socially meaningful.
+
+---
+
+## What patterns do you observe in network traffic
+Regular communication patterns such as predictable request-response cycles, consistent protocol usage (HTTP, HTTPS, FTP), and stable packet sizes for common operations.
+
+Normal traffic spikes during business hours or batch processing times.
+
+Flow features like packet count, byte size, and connection duration that remain within a typical range for legitimate users.
+
+Protocol-specific behavior, e.g., DNS requests have small packet sizes, while file transfers (FTP) involve large flows.
+
+## Why is it challenging to detect intrusions
+
+**High Volume of Data**: Networks generate massive traffic, making manual monitoring impractical.
+
+**Evolving Attack Patterns**: Attackers constantly develop new strategies, making static rules obsolete.
+
+**Similarity to Normal Behavior**: Some attacks mimic legitimate traffic patterns to avoid detection.
+
+**Imbalanced Data**: Most traffic is normal, and attacks form a small fraction, making detection harder.
+
+**Encrypted Traffic**: Increased use of HTTPS and VPNs hides payload details, reducing visibility.
+
+**False Positives and Negatives**: Traditional systems often misclassify, leading to alert fatigue or missed threats.
+
+---
+
