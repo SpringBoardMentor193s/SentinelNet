@@ -1,4 +1,4 @@
-# SentinelNet Project Statement – In My Own Words
+# 🔐 SentinelNet Project Statement – In My Own Words
 
 SentinelNet aims to build a **smart Network Intrusion Detection System (NIDS)** powered by **AI and machine learning**.  
 The central goal is to automatically **identify and respond to suspicious or potentially harmful network traffic and cyber-attacks in real time**.  
@@ -11,9 +11,9 @@ Using historical data, machine learning models will be trained to:
 
 ---
 
-## Datasets: NSL-KDD and CICIDS2017
+## 📂 **Datasets: NSL-KDD and CICIDS2017**
 
-### **NSL-KDD Dataset**
+### 🌐 **NSL-KDD Dataset**
 A refined dataset designed to reduce redundancy, widely used as a benchmark for evaluating intrusion detection models in research.
 
 - **Removes duplicate records**, reducing bias in training and testing.  
@@ -38,7 +38,7 @@ A refined dataset designed to reduce redundancy, widely used as a benchmark for 
 
 ---
 
-### **CICIDS2017 Dataset**
+### 🌐 **CICIDS2017 Dataset**
 Simulates **real-world enterprise network traffic** with both normal activity and diverse cyberattacks.  
 
 - Reflects realistic enterprise traffic combining benign and malicious flows.  
@@ -62,7 +62,7 @@ Simulates **real-world enterprise network traffic** with both normal activity an
 
 ---
 
-## 📊 Differences Between Datasets
+## 📊 **Differences Between Datasets**
 
 <table>
 <tr>
@@ -99,8 +99,8 @@ Simulates **real-world enterprise network traffic** with both normal activity an
 
 ---
 
-## Why is AI Critical in Cybersecurity?  
-### 🚀 What Excites Me About Building SentinelNet
+## 🔐 **Why is AI Critical in Cybersecurity?**  
+### 🚀 **What Excites Me About Building SentinelNet**
 
 Cybersecurity is one of the **most urgent challenges today**, with threats growing rapidly in both complexity and scale.  
 Traditional rule-based methods struggle against evolving attacks, but **AI enables:**
@@ -117,7 +117,7 @@ What excites me is the **fusion of technical innovation with real-world impact**
 
 ---
 
-## 🔍 Observed Patterns in Network Traffic
+## 🔍 **Observed Patterns in Network Traffic**
 
 - **Normal traffic:** Predictable flows (regular request–response, consistent packet sizes, familiar IPs)  
 - **Malicious traffic:** Anomalies (sudden spikes, high connection rates, port scans, repeated probes)  
@@ -135,14 +135,14 @@ What excites me is the **fusion of technical innovation with real-world impact**
 
 ---
 
-## ⚖️ Class Imbalance & Mitigation Strategies
+## ⚖️ **Class Imbalance & Mitigation Strategies**
 
 Both **NSL-KDD** and **CICIDS2017** suffer from **imbalanced attack classes**.  
 - Majority (DoS, DDoS) dominate  
 - Minority (U2R, R2L) are rare but critical  
 - High accuracy can still mean poor detection of rare threats  
 
-### ✅ Mitigation Strategies
+### ✅ **Mitigation Strategies**
 
 **1. Data-Level Methods**  
 - **Oversampling (SMOTE):** Generate synthetic rare-class samples  
