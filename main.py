@@ -1,39 +1,23 @@
 import pandas as pd
 
-# Load the dataset
-path = "NIDS dataset/KDDTest+.txt"
-data = pd.read_csv(path, header=None)
+cols = [
+    'duration','protocol_type','service','flag','src_bytes','dst_bytes','land',
+    'wrong_fragment','urgent','hot','num_failed_logins','logged_in','num_compromised',
+    'root_shell','su_attempted','num_root','num_file_creations','num_shells',
+    'num_access_files','num_outbound_cmds','is_host_login','is_guest_login',
+    'count','srv_count','serror_rate','srv_serror_rate','rerror_rate','srv_rerror_rate',
+    'same_srv_rate','diff_srv_rate','srv_diff_host_rate','dst_host_count',
+    'dst_host_srv_count','dst_host_same_srv_rate','dst_host_diff_srv_rate',
+    'dst_host_same_src_port_rate','dst_host_srv_diff_host_rate','dst_host_serror_rate',
+    'dst_host_srv_serror_rate','dst_host_rerror_rate','dst_host_srv_rerror_rate',
+    'label','difficulty'
+]
+data = pd.read_csv("../data/nsl-kdd/KDDTrain+.txt", names=cols)
+print(data.head())
+print(data.describe())
+print(data.info())
 
-# Assign column names
-main_features = ["duration", "protocol", "service", "flag", "src_bytes", "dst_bytes", "attack_type"]
-other_features = [f"feature_{j}" for j in range(data.shape[1] - len(main_features))]
-data.columns = main_features + other_features
-
-# Quick look at data
-print("\n=== Random Records Preview ===")
-print(data.sample(n=5))
-
-# Dataset overview
-print("\nTotal rows and columns:", data.shape)
-print("\nData types distribution:")
-print(data.dtypes.value_counts())
-
-print("\n=== DataFrame Overview ===")
-data.info(verbose=False)
-
-# Missing values check
-missing_values = data.isnull().sum()
-if missing_values.sum() == 0:
-    print("\nNo missing values found.")
-else:
-    print("\nMissing Values per Column:")
-    print(missing_values[missing_values > 0])
-
-# Duplicate rows check
-duplicates = data.duplicated().sum()
-print(f"\nDuplicate entries in dataset: {duplicates}")
-
-# Numerical stats
-print("\n=== Summary of Numeric Columns ===")
-print(data.describe(include='all').T)
-
+print(f"Total rows: {len(data)}")
+data = data.drop(columns=['difficulty'])
+print("Unique labels:", data['label'].unique())
+print("Top 5 attack types:\n",data['label'].value_counts().head())
