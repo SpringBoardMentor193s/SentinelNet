@@ -53,17 +53,6 @@ Libraries: Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn
 
 Tools: Jupyter Notebook, Git/GitHub
 
-# 🤝 Contributions
-
-Contributions are always welcome!
-
-Fork the repo
-
-Create a feature branch
-
-Submit a pull request
-
-Let’s make SentinelNet a stronger tool for intrusion detection together.
 
 # 📜 License
 
