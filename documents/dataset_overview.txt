@@ -3,7 +3,7 @@ About datasets:-
 NSL-KDD Dataset
 
 Number of Features:
-The NSL-KDD dataset contains 41 features per record 
+The NSL-KDD dataset contains 42 features per record 
 
 Types of Attacks:
 It includes attacks categorized primarily into four types:
