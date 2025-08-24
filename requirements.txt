@@ -1,0 +1,5 @@
+#Libraries
+pandas==2.3.1
+numpy==2.1.1
+matplotlib==3.9.2
+scikit-learn==1.7.1
