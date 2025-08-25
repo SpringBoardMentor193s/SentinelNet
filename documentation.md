@@ -9,7 +9,7 @@ Using historical data, machine learning models will be trained to:
 - Classify threats  
 - Trigger alerts to help network defenders respond quickly and effectively  
 
----
+
 
 ## 📂 **Datasets: NSL-KDD and CICIDS2017**
 
@@ -36,7 +36,7 @@ A refined dataset designed to reduce redundancy, widely used as a benchmark for 
 - **User to Root (U2R):** Privilege escalation (e.g., *buffer_overflow, rootkit*)  
 - **Remote to Local (R2L):** Unauthorized local access (e.g., *ftp_write, guess_passwd*)  
 
----
+
 
 ### 🌐 **CICIDS2017 Dataset**
 Simulates **real-world enterprise network traffic** with both normal activity and diverse cyberattacks.  
@@ -60,7 +60,7 @@ Simulates **real-world enterprise network traffic** with both normal activity an
 - **Botnet & Infiltration:** Malicious bot activity and external break-ins  
 - **Reconnaissance & Exploits:** PortScan, Heartbleed  
 
----
+
 
 ## 📊 **Differences Between Datasets**
 
@@ -97,7 +97,7 @@ Simulates **real-world enterprise network traffic** with both normal activity an
 </tr>
 </table>
 
----
+
 
 ## 🔐 **Why is AI Critical in Cybersecurity?**  
 ### 🚀 **What Excites Me About Building SentinelNet**
@@ -115,7 +115,7 @@ What excites me is the **fusion of technical innovation with real-world impact**
 - Delivering **actionable alerts** that truly help defenders  
 - Contributing to the **next generation of network protection**  
 
----
+
 
 ## 🔍 **Observed Patterns in Network Traffic**
 
@@ -133,7 +133,7 @@ What excites me is the **fusion of technical innovation with real-world impact**
 - Encrypted traffic hides content; reliance only on metadata  
 - Balancing **false positives vs false negatives** is complex  
 
----
+
 
 ## ⚖️ **Class Imbalance & Mitigation Strategies**
 
@@ -159,6 +159,6 @@ Both **NSL-KDD** and **CICIDS2017** suffer from **imbalanced attack classes**.
 - Use **Precision, Recall, F1-score**  
 - Check **AUC-ROC / PR curves** and **macro averages**  
 
----
+
 
 ✨ *SentinelNet represents the vision of an intelligent, flexible, and resilient intrusion detection system, built to evolve alongside modern cyber threats.*  
