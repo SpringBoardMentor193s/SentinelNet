@@ -1,68 +1,86 @@
-# 🔐 SentinelNet Project Statement – In My Own Words
+<h1>🔐 SentinelNet Project Statement – In My Own Words</h1>
 
-SentinelNet aims to build a **smart Network Intrusion Detection System (NIDS)** powered by **AI and machine learning**.  
-The central goal is to automatically **identify and respond to suspicious or potentially harmful network traffic and cyber-attacks in real time**.  
+<p>
+SentinelNet aims to build a <b>smart Network Intrusion Detection System (NIDS)</b> powered by <b>AI and machine learning</b>.<br>
+The central goal is to automatically <b>identify and respond to suspicious or potentially harmful network traffic and cyber-attacks in real time</b>.
+</p>
 
-Using historical data, machine learning models will be trained to:
-- Distinguish between normal and malicious activities  
-- Extract crucial features  
-- Classify threats  
-- Trigger alerts to help network defenders respond quickly and effectively  
+<p>Using historical data, machine learning models will be trained to:</p>
+<ul>
+<li>Distinguish between normal and malicious activities</li>
+<li>Extract crucial features</li>
+<li>Classify threats</li>
+<li>Trigger alerts to help network defenders respond quickly and effectively</li>
+</ul>
 
+<h2>📂 <b>Datasets: NSL-KDD and CICIDS2017</b></h2>
 
+<h3>🌐 <b>NSL-KDD Dataset</b></h3>
+<p>A refined dataset designed to reduce redundancy, widely used as a benchmark for evaluating intrusion detection models in research.</p>
 
-## 📂 **Datasets: NSL-KDD and CICIDS2017**
+<ul>
+<li><b>Removes duplicate records</b>, reducing bias in training and testing.</li>
+</ul>
 
-### 🌐 **NSL-KDD Dataset**
-A refined dataset designed to reduce redundancy, widely used as a benchmark for evaluating intrusion detection models in research.
+<p><b>a) Features:</b></p>
+<ul>
+<li>Number of Features: <b>41</b></li>
+<li>Captures both basic (protocol, service, bytes) and traffic-level indicators (flags, error rates, etc.)</li>
+</ul>
 
-- **Removes duplicate records**, reducing bias in training and testing.  
+<p><b>Volume:</b></p>
+<ul>
+<li>Training set: <b>125,973 records</b></li>
+<li>Test set: <b>22,544 records</b></li>
+</ul>
 
-**a) Features:**  
-- Number of Features: **41**  
-- Captures both basic (protocol, service, bytes) and traffic-level indicators (flags, error rates, etc.)  
+<p><b>Data Format:</b></p>
+<ul>
+<li>Structured tabular format with clearly labeled classes</li>
+<li>Suitable for supervised learning</li>
+</ul>
 
-**Volume:**  
-- Training set: **125,973 records**  
-- Test set: **22,544 records**  
+<p><b>b) Attack Types:</b></p>
+<ul>
+<li><b>Denial of Service (DoS):</b> Overwhelming services with excessive traffic (e.g., <i>smurf, neptune</i>)</li>
+<li><b>Probe:</b> Network scanning and reconnaissance (e.g., <i>portsweep, nmap</i>)</li>
+<li><b>User to Root (U2R):</b> Privilege escalation (e.g., <i>buffer_overflow, rootkit</i>)</li>
+<li><b>Remote to Local (R2L):</b> Unauthorized local access (e.g., <i>ftp_write, guess_passwd</i>)</li>
+</ul>
 
-**Data Format:**  
-- Structured tabular format with clearly labeled classes  
-- Suitable for supervised learning  
+<h3>🌐 <b>CICIDS2017 Dataset</b></h3>
+<p>Simulates <b>real-world enterprise network traffic</b> with both normal activity and diverse cyberattacks.</p>
 
-**b) Attack Types:**  
-- **Denial of Service (DoS):** Overwhelming services with excessive traffic (e.g., *smurf, neptune*)  
-- **Probe:** Network scanning and reconnaissance (e.g., *portsweep, nmap*)  
-- **User to Root (U2R):** Privilege escalation (e.g., *buffer_overflow, rootkit*)  
-- **Remote to Local (R2L):** Unauthorized local access (e.g., *ftp_write, guess_passwd*)  
+<ul>
+<li>Reflects realistic enterprise traffic combining benign and malicious flows.</li>
+</ul>
 
+<p><b>Features:</b></p>
+<ul>
+<li>Number of Features: <b>78–83</b></li>
+<li>Includes flow, statistical, and packet-level features (packet size, timing, byte counts).</li>
+</ul>
 
+<p><b>Volume:</b></p>
+<ul>
+<li>Over <b>2.8 million labeled flow records</b> generated across 5 consecutive days.</li>
+</ul>
 
-### 🌐 **CICIDS2017 Dataset**
-Simulates **real-world enterprise network traffic** with both normal activity and diverse cyberattacks.  
+<p><b>Data Format:</b></p>
+<ul>
+<li>Available as <b>CSV</b> files (ML-ready) and <b>PCAP</b> files (detailed packet analysis).</li>
+</ul>
 
-- Reflects realistic enterprise traffic combining benign and malicious flows.  
+<p><b>Attack Types:</b></p>
+<ul>
+<li><b>DoS/DDoS:</b> Hulk, GoldenEye, Slowloris, LOIC</li>
+<li><b>Brute Force:</b> FTP, SSH, web logins</li>
+<li><b>Web Attacks:</b> SQL Injection, XSS, Web Brute Force</li>
+<li><b>Botnet & Infiltration:</b> Malicious bot activity and external break-ins</li>
+<li><b>Reconnaissance & Exploits:</b> PortScan, Heartbleed</li>
+</ul>
 
-**Features:**  
-- Number of Features: **78–83**  
-- Includes flow, statistical, and packet-level features (packet size, timing, byte counts).  
-
-**Volume:**  
-- Over **2.8 million labeled flow records** generated across 5 consecutive days.  
-
-**Data Format:**  
-- Available as **CSV** files (ML-ready) and **PCAP** files (detailed packet analysis).  
-
-**Attack Types:**  
-- **DoS/DDoS:** Hulk, GoldenEye, Slowloris, LOIC  
-- **Brute Force:** FTP, SSH, web logins  
-- **Web Attacks:** SQL Injection, XSS, Web Brute Force  
-- **Botnet & Infiltration:** Malicious bot activity and external break-ins  
-- **Reconnaissance & Exploits:** PortScan, Heartbleed  
-
-
-
-## 📊 **Differences Between Datasets**
+<h2>📊 <b>Differences Between Datasets</b></h2>
 
 <table>
 <tr>
@@ -97,68 +115,83 @@ Simulates **real-world enterprise network traffic** with both normal activity an
 </tr>
 </table>
 
+<h2>🔐 <b>Why is AI Critical in Cybersecurity?</b></h2>
+<h3>🚀 <b>What Excites Me About Building SentinelNet</b></h3>
 
+<p>
+Cybersecurity is one of the <b>most urgent challenges today</b>, with threats growing rapidly in both complexity and scale.<br>
+Traditional rule-based methods struggle against evolving attacks, but <b>AI enables:</b>
+</p>
 
-## 🔐 **Why is AI Critical in Cybersecurity?**  
-### 🚀 **What Excites Me About Building SentinelNet**
+<ul>
+<li>Detecting subtle attack patterns in massive data streams</li>
+<li>Continuous learning from historical + new data</li>
+<li>Identifying zero-day threats never seen before</li>
+<li>Automating detection and response for proactive defense</li>
+</ul>
 
-Cybersecurity is one of the **most urgent challenges today**, with threats growing rapidly in both complexity and scale.  
-Traditional rule-based methods struggle against evolving attacks, but **AI enables:**
-- Detecting subtle attack patterns in massive data streams  
-- Continuous learning from historical + new data  
-- Identifying zero-day threats never seen before  
-- Automating detection and response for proactive defense  
+<p>What excites me is the <b>fusion of technical innovation with real-world impact</b>:</p>
+<ul>
+<li>Working with advanced datasets and algorithms</li>
+<li>Building evolving, self-improving models</li>
+<li>Delivering <b>actionable alerts</b> that truly help defenders</li>
+<li>Contributing to the <b>next generation of network protection</b></li>
+</ul>
 
-What excites me is the **fusion of technical innovation with real-world impact**:  
-- Working with advanced datasets and algorithms  
-- Building evolving, self-improving models  
-- Delivering **actionable alerts** that truly help defenders  
-- Contributing to the **next generation of network protection**  
+<h2>🔍 <b>Observed Patterns in Network Traffic</b></h2>
 
+<ul>
+<li><b>Normal traffic:</b> Predictable flows (regular request–response, consistent packet sizes, familiar IPs)</li>
+<li><b>Malicious traffic:</b> Anomalies (sudden spikes, high connection rates, port scans, repeated probes)</li>
+</ul>
 
+<p><b>Examples:</b></p>
+<ul>
+<li>DoS floods → repetitive requests</li>
+<li>Probing → systematic service testing</li>
+</ul>
 
-## 🔍 **Observed Patterns in Network Traffic**
+<p><b>Challenges in Detection:</b></p>
+<ul>
+<li>Attackers disguise malicious traffic as normal</li>
+<li>Massive data volume hides subtle anomalies</li>
+<li>Rare attacks (U2R, R2L) are underrepresented</li>
+<li>Encrypted traffic hides content; reliance only on metadata</li>
+<li>Balancing <b>false positives vs false negatives</b> is complex</li>
+</ul>
 
-- **Normal traffic:** Predictable flows (regular request–response, consistent packet sizes, familiar IPs)  
-- **Malicious traffic:** Anomalies (sudden spikes, high connection rates, port scans, repeated probes)  
+<h2>⚖️ <b>Class Imbalance & Mitigation Strategies</b></h2>
 
-**Examples:**  
-- DoS floods → repetitive requests  
-- Probing → systematic service testing  
+<p>
+Both <b>NSL-KDD</b> and <b>CICIDS2017</b> suffer from <b>imbalanced attack classes</b>.
+</p>
+<ul>
+<li>Majority (DoS, DDoS) dominate</li>
+<li>Minority (U2R, R2L) are rare but critical</li>
+<li>High accuracy can still mean poor detection of rare threats</li>
+</ul>
 
-**Challenges in Detection:**  
-- Attackers disguise malicious traffic as normal  
-- Massive data volume hides subtle anomalies  
-- Rare attacks (U2R, R2L) are underrepresented  
-- Encrypted traffic hides content; reliance only on metadata  
-- Balancing **false positives vs false negatives** is complex  
+<h3>✅ <b>Mitigation Strategies</b></h3>
 
+<p><b>1. Data-Level Methods</b></p>
+<ul>
+<li><b>Oversampling (SMOTE):</b> Generate synthetic rare-class samples</li>
+<li><b>Undersampling:</b> Reduce majority classes</li>
+<li><b>Hybrid:</b> Combine both for balance</li>
+</ul>
 
+<p><b>2. Algorithm-Level Methods</b></p>
+<ul>
+<li>Use <b>class weights</b> during training</li>
+<li>Apply <b>Focal Loss</b> for hard-to-detect samples</li>
+<li>Use <b>ensemble models</b> (Random Forest, XGBoost)</li>
+</ul>
 
-## ⚖️ **Class Imbalance & Mitigation Strategies**
+<p><b>3. Evaluation Metrics</b></p>
+<ul>
+<li>Don’t rely on <b>accuracy</b> alone</li>
+<li>Use <b>Precision, Recall, F1-score</b></li>
+<li>Check <b>AUC-ROC / PR curves</b> and <b>macro averages</b></li>
+</ul>
 
-Both **NSL-KDD** and **CICIDS2017** suffer from **imbalanced attack classes**.  
-- Majority (DoS, DDoS) dominate  
-- Minority (U2R, R2L) are rare but critical  
-- High accuracy can still mean poor detection of rare threats  
-
-### ✅ **Mitigation Strategies**
-
-**1. Data-Level Methods**  
-- **Oversampling (SMOTE):** Generate synthetic rare-class samples  
-- **Undersampling:** Reduce majority classes  
-- **Hybrid:** Combine both for balance  
-
-**2. Algorithm-Level Methods**  
-- Use **class weights** during training  
-- Apply **Focal Loss** for hard-to-detect samples  
-- Use **ensemble models** (Random Forest, XGBoost)  
-
-**3. Evaluation Metrics**  
-- Don’t rely on **accuracy** alone  
-- Use **Precision, Recall, F1-score**  
-- Check **AUC-ROC / PR curves** and **macro averages**  
-
-
-
-✨ *SentinelNet represents the vision of an intelligent, flexible, and resilient intrusion detection system, built to evolve alongside modern cyber threats.*  
+<p>✨ <i>SentinelNet represents the vision of an intelligent, flexible, and resilient intrusion detection system, built to evolve alongside modern cyber threats.</i></p>
