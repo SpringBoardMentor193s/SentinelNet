@@ -29,7 +29,7 @@
   </li>
 </ul>
 
-<hr>
+
 
 <h2>2. 📂 CICIDS2017 Dataset</h2>
 
@@ -59,7 +59,7 @@
   </li>
 </ul>
 
-<hr>
+
 
 <h2>📌 Summary</h2>
 <p>
