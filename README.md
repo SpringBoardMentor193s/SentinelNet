@@ -79,7 +79,7 @@ SentinelNet/
 
 ---
 
-## Reflection (200 Words)
+## Reflection
 
 When analyzing the NSL-KDD dataset, clear patterns emerge in network traffic. Normal traffic often shows consistent usage of well-known services such as HTTP, SMTP, and FTP, while attacks are characterized by irregular patterns like repeated connections, abnormal port access, and unusually high traffic volumes. For instance, DoS attacks can be identified through floods of packets, while probing attempts involve scanning multiple IPs or ports.
 
