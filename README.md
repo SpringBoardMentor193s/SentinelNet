@@ -48,7 +48,7 @@ By leveraging machine learning techniques, the system classifies traffic as norm
 
 <h2>👥 Team Information</h2>
 <ul>
-  <li><b>Upasnapa Prabhakar</b> – upasanaprabhakar35@gmail.com</li>
+  <li><b>Upasana Prabhakar</b> – upasanaprabhakar35@gmail.com</li>
   <li><b>Bhavana Thota</b> – bhavanathota2006@gmail.com</li>
   <li><b>Saravanan S</b> – itssaravanan03@gmail.com</li>
   <li><b>Shreyanshi Srivastava</b> – shreyanshisrivastava19@gmail.com</li>
