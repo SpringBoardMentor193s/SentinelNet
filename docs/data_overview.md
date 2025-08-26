@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Network Intrusion Detection Datasets Overview</title>
-</head>
-<body>
-
 <h1>🔐 Network Intrusion Detection Datasets Overview</h1>
 
 <h2>1. 📂 NSL-KDD Dataset</h2>
@@ -75,6 +67,3 @@
   <strong>NSL-KDD</strong>  is smaller, classical, and widely used for quick experimentation.  
   <strong>CICIDS2017</strong>  is large-scale, modern, and closely reflects real-world traffic patterns and attack behaviors.  
 </p>
-
-</body>
-</html>
