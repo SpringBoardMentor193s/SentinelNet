@@ -9,7 +9,9 @@ The project is structured for collaborative development, reproducibility, and sc
 ---
 
 ## Mentor
-**Dr. N Jagan Mohan** – Experienced Data Scientist guiding the project with expertise in AI, data engineering, and network security.
+**Dr. N Jagan Mohan** – Experienced Data Scientist with a PhD in Computer Vision and Medical Image Processing.  
+Expertise in Machine Learning, Deep Learning, and Algorithm Development for real-world imaging applications.  
+Published researcher with contributions in top-tier journals and conferences, and active reviewer for multiple international peer-reviewed journals. 
 
 ---
 
