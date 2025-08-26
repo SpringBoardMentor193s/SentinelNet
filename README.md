@@ -79,15 +79,6 @@ SentinelNet/
 
 ---
 
-## Reflection
-
-When analyzing the NSL-KDD dataset, clear patterns emerge in network traffic. Normal traffic often shows consistent usage of well-known services such as HTTP, SMTP, and FTP, while attacks are characterized by irregular patterns like repeated connections, abnormal port access, and unusually high traffic volumes. For instance, DoS attacks can be identified through floods of packets, while probing attempts involve scanning multiple IPs or ports.
-
-However, detecting intrusions is challenging due to several reasons. First, many attack patterns are subtle and mimic legitimate behavior, making them hard to distinguish. Second, the datasets themselves are highly imbalanced, with far fewer examples of rare attacks such as U2R and R2L compared to common attacks like DoS. This creates difficulty in training models that can generalize well across all attack types. Additionally, the evolution of cyberattacks means that static datasets often become outdated, as attackers continuously adapt and find new vulnerabilities. Finally, network traffic data is high-dimensional, and extracting meaningful features without losing critical information requires domain knowledge and careful preprocessing.
-
-These challenges highlight the importance of AI and machine learning in building adaptive, intelligent intrusion detection systems that go beyond rule-based detection to learn complex patterns in real-world network traffic.
-
----
 
 ## Future Work
 - Preprocessing pipelines for both datasets
