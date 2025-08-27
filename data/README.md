@@ -11,7 +11,7 @@ This folder contains sample data files used for demonstration and testing within
 | `KDDTrain+.txt`                  | NSL-KDD   | The full training dataset used to build intrusion detection models. |
 | `KDDTest+.txt`                   | NSL-KDD   | A full test subset from the NSL-KDD dataset, commonly used for evaluating model performance. |
 | `KDDTrain+_20Percent.txt`        | NSL-KDD   | A 20% sample of the training data, useful for faster experimentation. |
-| `Friday-WorkingHours-Morning-DDos.csv` | CICIDS2017 | A sample file from the CICIDS 2017 dataset, containing DDoS attack traffic captured on Friday Morning working hours. |
+
 
 These sample files are provided to keep the repository lightweight while allowing quick experimentation.
 
@@ -45,7 +45,7 @@ data/
 ├── KDDTrain+.txt               # NSL-KDD training dataset
 ├── KDDTest+.txt                # NSL-KDD test dataset
 ├── KDDTrain+_20Percent.txt     # 20% sample of NSL-KDD training dataset
-└── Friday-WorkingHours-Morning-DDos.csv  # CICIDS2017 subset
+
 
 ```
 
