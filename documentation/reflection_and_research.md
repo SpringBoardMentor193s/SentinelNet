@@ -38,6 +38,8 @@ One promising approach is using **Transformers for tabular data**, which have re
 
 📄 **Reference Paper:**  
 Gorishniy, Yury, et al. *"Revisiting Deep Learning Models for Tabular Data."* Advances in Neural Information Processing Systems (NeurIPS), 2021.
+[Revisiting Deep Learning Models for Tabular Data (NeurIPS 2021)](https://proceedings.neurips.cc/paper_files/paper/2021/file/9d86d83f925f2149e9edb0ac3b49229c-Paper.pdf)
+
 
 ### Key Ideas:
 - Traditionally, **tree-based methods (XGBoost, Random Forest)** outperform deep learning for tabular data.  
