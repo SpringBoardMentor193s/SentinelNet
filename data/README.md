@@ -38,15 +38,15 @@ Due to size constraints, the complete datasets are **not included** in this repo
   - E.g., `Monday-WorkingHours.pcap_ISCX.csv`, `Friday-WorkingHours-Afternoon-DDos.pcap_ISCX.csv`, etc.  
 
 ---
+## 📂 Data Folder Structure
 
-## 📂 File Structure
-
+```plaintext
 data/
-├── KDDTrain+.txt           # NSL-KDD training dataset
-├── KDDTest+.txt            # NSL-KDD test dataset
-├── KDDTest-21.txt          # 20% subset of NSL-KDD
-├── Friday-WorkingHours.csv # CICIDS2017 dataset (subset)
-└── README.md               # This file
+├── KDDTrain+.txt               # NSL-KDD training dataset
+├── KDDTest+.txt                # NSL-KDD test dataset
+├── KDDTrain+_20Percent.txt     # 20% sample of NSL-KDD training dataset
+└── Friday-WorkingHours-Afternoon-DDos.csv  # CICIDS2017 subset
+
 
 
 ## 📌 Notes
