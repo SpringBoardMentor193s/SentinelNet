@@ -6,7 +6,10 @@ By leveraging **machine learning techniques**, the system processes network traf
 
 The project utilizes two benchmark datasets:
 - **NSL-KDD** – Classical dataset with 42 features, focusing on 4 main attack categories (DoS, Probe, U2R, R2L).  
-- **CICIDS2017** – A modern dataset with over 80 features, covering diverse attacks like DDoS, Brute Force, SQL Injection, Botnets, Port Scanning, etc.  
+- **CICIDS2017** – A modern dataset with over 80 features, covering diverse attacks like DDoS, Brute Force, SQL Injection, Botnets, Port Scanning, etc.
+- NSL-KDD Dataset → https://www.unb.ca/cic/datasets/nsl.html
+- CICIDS2017 Dataset → https://www.unb.ca/cic/datasets/ids-2017.html
+
 
 Key Highlights:
 - Data preprocessing and feature engineering.  
@@ -16,7 +19,7 @@ Key Highlights:
 
 
 
-## 👥 Team Information
+## Team Information
 **Members:**
 1. Bhavana Thota – bhavanathota2006@gmail.com  
 2. Saravanan S – itssaravanan03@gmail.com  
