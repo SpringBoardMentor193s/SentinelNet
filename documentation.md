@@ -194,4 +194,48 @@ Both <b>NSL-KDD</b> and <b>CICIDS2017</b> suffer from <b>imbalanced attack class
 <li>Check <b>AUC-ROC / PR curves</b> and <b>macro averages</b></li>
 </ul>
 
+<p>✨ <i>SentinelNet represents the vision of an intelligent, flexible, and resilient intrusion detection system, built to evolve alongside modern cyber threats.</i></p>  
+
+<h2>📘 <b>Linear Regression Model</b></h2>
+
+<p>
+Linear Regression is one of the most <b>fundamental and interpretable machine learning models</b>, widely used to model relationships between variables.<br>
+It assumes a <b>linear relationship</b> between independent variables (features) and the dependent variable (target).
+</p>
+
+<p><b>Core Idea:</b></p>
+<ul>
+<li>Predicts an outcome <b>y</b> as a weighted sum of input features <b>x</b> plus a bias term.</li>
+<li>Equation: <b>y = w<sub>1</sub>x<sub>1</sub> + w<sub>2</sub>x<sub>2</sub> + … + w<sub>n</sub>x<sub>n</sub> + b</b></li>
+<li>Weights (<b>w</b>) are learned during training by minimizing the error (loss function).</li>
+</ul>
+
+<p><b>Training Process:</b></p>
+<ul>
+<li>Uses methods like <b>Ordinary Least Squares</b> or <b>Gradient Descent</b>.</li>
+<li>Minimizes the difference between predicted and actual values (Mean Squared Error).</li>
+</ul>
+
+<p><b>Applications:</b></p>
+<ul>
+<li>Forecasting (e.g., predicting future network load)</li>
+<li>Risk analysis</li>
+<li>Baseline models before moving to complex algorithms</li>
+</ul>
+
+<p><b>Strengths:</b></p>
+<ul>
+<li>Simple and fast to train</li>
+<li>Easily interpretable coefficients</li>
+<li>Works well with linearly separable data</li>
+</ul>
+
+<p><b>Limitations:</b></p>
+<ul>
+<li>Struggles with <b>non-linear relationships</b></li>
+<li>Sensitive to outliers</li>
+<li>Performance drops with highly correlated (multicollinear) features</li>
+</ul>
+
 <p>✨ <i>SentinelNet represents the vision of an intelligent, flexible, and resilient intrusion detection system, built to evolve alongside modern cyber threats.</i></p>
+
