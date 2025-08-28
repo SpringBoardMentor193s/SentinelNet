@@ -1,5 +1,9 @@
 # NSL-KDD Dataset
+# project summary
+SentinelNet is an AI-powered Network Intrusion Detection System (NIDS) designed to detect and classify malicious network traffic in real time. By leveraging machine learning techniques, the system processes network traffic data, extracts relevant features, trains classification models, and generates alerts for anomalies. The project uses two well-known datasets:
 
+NSL-KDD – classical benchmark dataset for intrusion detection.
+CICIDS2017 – modern, realistic dataset containing diverse cyberattacks.
 # Number of Features:
 The NSL-KDD dataset contains 42 features for each record.
 
