@@ -194,7 +194,6 @@ Both <b>NSL-KDD</b> and <b>CICIDS2017</b> suffer from <b>imbalanced attack class
 <li>Check <b>AUC-ROC / PR curves</b> and <b>macro averages</b></li>
 </ul>
 
-<p>✨ <i>SentinelNet represents the vision of an intelligent, flexible, and resilient intrusion detection system, built to evolve alongside modern cyber threats.</i></p>  
 
 <h2>📘 <b>Linear Regression Model</b></h2>
 
