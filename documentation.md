@@ -31,6 +31,13 @@ While smaller and simpler, it still faces limitations such as outdated attack sc
 
 CICIDS2017 Dataset
 
+Captures realistic traffic generated over a 5-day period, blending normal user behavior with planned attack scenarios.
+
+Offers greater diversity, with labeled flows, multiple protocols (HTTP, HTTPS, FTP, SSH, email), and rich metadata.
+
+Much larger and more comprehensive than NSL-KDD, making it highly relevant to modern cybersecurity research.
+
+
 # Number of Features:
 CICIDS2017 provides over 80 features per network flow, extracted using tools like CICFlowMeter.
 
@@ -51,11 +58,31 @@ Botnets
 
 Port scanning
 
-# Key Characteristics:
-
-Captures realistic traffic generated over a 5-day period, blending normal user behavior with planned attack scenarios.
-
-Offers greater diversity, with labeled flows, multiple protocols (HTTP, HTTPS, FTP, SSH, email), and rich metadata.
-
-Much larger and more comprehensive than NSL-KDD, making it highly relevant to modern cybersecurity research.
+# Team Information
+Members:
+Bhavana Thota – bhavanathota2006@gmail.com
+Saravanan S – itssaravanan03@gmail.com
+Shreyanshi Srivastava – shreyanshisrivastava19@gmail.com
+Surya Sindhu Guthula – 22a314408.pragati@gmail.com
+Mehak Tripathi – 2k22.cse.2212471@gmail.com
+Amit Yadav – 2k23.cs2314011@gmail.com
+Anisetty Bhavitha – bhavithaanisetty@gmail.com
+Prathyay V – vprathap0703@gmail.com
+Vimala Reddy Tummuru – 22501a0514@pvpsit.ac.in
+Indhuja V – 230754.ec@rmkec.ac.in
+Poornitha S – 240061.cs@rmkec.ac.in
+Khushaldhia Giduthuri – khushaldhiagiduthuri@gmail.com
+Bhaskar Mekala – bhaskarmekala209@gmail.com
+Chaganti Sai Sarvani – saisarvani.chaganti@gmail.com
+Yasaswita – yasaswita9@gmail.com
+Upasnapa Prabhakar – upasnapa07@gmail.com
+Sumithra G – sumiad107@rmkec.ac.in
+Sai Sathvik Balabhadra – balabhadrasaisathvik@gmail.com
+Krushna Shinde – krushnashinde9860@gmail.com
+Omkar Marakwar – omkarmarakwar5680@gmail.com
+Vitesh Bhardwaj Mallibhat – viteshbhardwaj2186@gmail.com
+Mohan Raaj C – cmohanraaj0319@gmail.com
+Aarifa R – roylamd02@gmail.com
+Katherine Olivia R – katherineolivia.r@gmail.com
+Naga Lakshmi Durga Enugu – 24b05a1206@svcew.edu.in
 
