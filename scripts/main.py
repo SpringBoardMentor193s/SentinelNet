@@ -22,10 +22,11 @@ print(train_data.head())
 print(test_data.head())
 
 # Number of rows
-print("Rows & Columns:", df.shape)
+print("Rows & Columns:", train_data.shape)
+print("Rows & Columns:", test_data.shape)
 
-# Unique labels
-print("Unique labels:", df.iloc[:, -1].unique())
+# Missinfg data
+print(train_data.isnull().sum())
 
 # Top 5 frequent attack types
 print("Top 5 frequent attacks:")
