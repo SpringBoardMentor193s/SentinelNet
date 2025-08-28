@@ -21,3 +21,13 @@ test_data.columns = columns
 print(train_data.head())
 print(test_data.head())
 
+# Number of rows
+print("Rows & Columns:", df.shape)
+
+# Unique labels
+print("Unique labels:", df.iloc[:, -1].unique())
+
+# Top 5 frequent attack types
+print("Top 5 frequent attacks:")
+print(df.iloc[:, -1].value_counts().head())
+
