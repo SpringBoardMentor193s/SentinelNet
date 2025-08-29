@@ -12,10 +12,12 @@
 - File Used: `KDDTrain+.txt`  
 - Overview: Each row represents a network connection record. Duplicate records were removed to reduce bias, resulting in cleaner training/testing splits.
 
-**Key Characteristics**  
-- Built to eliminate duplicate and redundant records from KDD Cup ’99  
-- Cleaner training/testing splits  
-- Still older and less representative of modern traffic patterns  
+## Types of Attacks:
+Attacks are grouped into four main categories:
+1.Denial of Service (DoS)
+2.Probe (Surveillance & Probing)
+3.Remote to Local (R2L)
+4.User to Root (U2R)
 
 
 **Best Use**  
@@ -30,18 +32,30 @@
 - File Example: `DoS-Wednesday-no-metadata.parquet`  
 - Overview: Simulates real-world network traffic collected over 5+ days, containing both benign and malicious flows
 
+## Types of Attacks:
+The attacks represented in CICIDS2017 include:
 
-
-**Key Characteristics**  
-- Modern dataset with real-world PCAP captures  
-- Diverse protocols: HTTP, HTTPS, FTP, SSH, email  
-- Rich flow-based metadata for fine-grained insights  
-- Larger feature set and more complex attack scenarios  
-- Realistic class imbalance reflecting modern networks  
+1.Brute Force (FTP and SSH)
+2.DoS and DDoS
+3.Heartbleed
+4.Web Attacks (including SQL Injection, XSS, HTTP Brute Force)
+5.Infiltration
+6.Botnet
+7.Port Scans
 
 **Best Use**  
 - Large, realistic dataset for evaluating advanced NIDS models  
 ---------------------------------------------------------------------------------------------
+
+## Dataset Comparison Table
+
+| **Aspect**             | **NSL-KDD**                       | **CICIDS2017**               |
+| **Number of Features** | 41                                | \~80                         |
+| **Types of Attacks**   | DoS, Probe, R2L, U2R              | DoS/DDoS, Brute Force, Heartbleed, Botnet, Web, Infiltration, Port Scan |
+| **Nature of Dataset**  | Improved version of KDD Cup ’99   | Real-world traffic from 2017 |
+| **Strengths**          | Clean, compact, easy to prototype | Realistic, diverse, modern   |
+| **Weaknesses**         | Outdated, limited attacks         | Large resource-heavy         |
+
 ## Summary
 
 - **NSL-KDD**: Compact, clean, suitable for basic IDS testing and prototyping.  
