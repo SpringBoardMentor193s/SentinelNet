@@ -168,4 +168,4 @@ def create_schema(df, dataset_name):
 
 
 schema_nsl = create_schema(df, "NSL-KDD")
-schema_cicids = create_schema(cicids, "CICIDS2017")
+schema_cicids = create_schema(cicids, "CICIDS2017") 
