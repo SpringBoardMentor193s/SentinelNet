@@ -49,12 +49,16 @@ The attacks represented in CICIDS2017 include:
 
 ## Dataset Comparison Table
 
-| **Aspect**             | **NSL-KDD**                       | **CICIDS2017**               |
-| **Number of Features** | 41                                | \~80                         |
-| **Types of Attacks**   | DoS, Probe, R2L, U2R              | DoS/DDoS, Brute Force, Heartbleed, Botnet, Web, Infiltration, Port Scan |
-| **Nature of Dataset**  | Improved version of KDD Cup ’99   | Real-world traffic from 2017 |
-| **Strengths**          | Clean, compact, easy to prototype | Realistic, diverse, modern   |
-| **Weaknesses**         | Outdated, limited attacks         | Large resource-heavy         |
+| Aspect                 | **NSL-KDD**                                                                     | **CICIDS2017**                                                                                     |
+| ---------------------- | ------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| **Number of Features** | 41 features                                                                     | \~80 features (flows include more detailed metadata like packet size, duration, byte counts, etc.) |
+| **Types of Attacks**   | DoS, Probe, R2L (Remote to Local), U2R (User to Root)                           | DoS/DDoS, Brute Force, Heartbleed, Botnet, Web attacks, Infiltration, Port Scan                    |
+| **Nature of Dataset**  | Improved version of KDD Cup ’99 (removes redundancy, better class distribution) | Modern dataset collected from real-world traffic at the Canadian Institute for Cybersecurity       |
+| **Time Period**        | Created in early 2000s                                                          | Collected in 2017                                                                                  |
+| **Relevance**          | Useful for academic benchmarking but considered outdated                        | More realistic representation of present-day cyberattacks                                          |
+| **Strengths**          | Simpler, easy to understand, widely used for teaching and benchmarking          | Rich, diverse, and modern dataset reflecting real-world attack patterns                            |
+| **Weaknesses**         | Limited attack diversity, not representative of current threats                 | Large and complex, requires more resources to process and analyze                                  |
+
 
 ## Summary
 
