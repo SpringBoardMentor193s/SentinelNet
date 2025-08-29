@@ -221,6 +221,6 @@ It assumes a <b>linear relationship</b> between independent variables (features)
   <li>Minimizes the difference between predicted and actual values (Mean Squared Error).</li>
 </ul>
 
-<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Exam_pass_logistic_curve.svg/600px-Exam_pass_logistic_curve.svg.png" alt="Logistic Curve" style="width:100%; height:300px; margin:10px 0;"></p>
+<p style="margin-left:40px;"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Exam_pass_logistic_curve.svg/600px-Exam_pass_logistic_curve.svg.png" alt="Logistic Curve" style="width:500px; height:400px; margin:10px 0;"> </p> <p style="margin-left:40px; font-style: italic; font-size: 14px; color: #555;">Image source: Wikimedia Commons - Logistic Curve illustrating exam pass rates</p>
 
 <p>✨ <i>SentinelNet represents the vision of an intelligent, flexible, and resilient intrusion detection system, built to evolve alongside modern cyber threats.</i></p>
