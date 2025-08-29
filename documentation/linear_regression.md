@@ -73,5 +73,5 @@ Before trusting the model, check these assumptions:
 - Requires those assumptions (above) to hold true.  
 
 ---
-PS: I have included a pretty basic implementation of linear regression on two different datasets and compared their accuracy and efficieny. Do check it out !
+PS: I have included a pretty basic implementation of linear regression on two different datasets and compared their accuracy and efficieny. Do check it out in the /notebooks folder !
 ---
