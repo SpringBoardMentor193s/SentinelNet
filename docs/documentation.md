@@ -15,8 +15,11 @@
 ## Types of Attacks:
 Attacks are grouped into four main categories:
 1.Denial of Service (DoS)
+
 2.Probe (Surveillance & Probing)
+
 3.Remote to Local (R2L)
+
 4.User to Root (U2R)
 
 
@@ -36,11 +39,17 @@ Attacks are grouped into four main categories:
 The attacks represented in CICIDS2017 include:
 
 1.Brute Force (FTP and SSH)
+
 2.DoS and DDoS
+
 3.Heartbleed
+
 4.Web Attacks (including SQL Injection, XSS, HTTP Brute Force)
+
 5.Infiltration
+
 6.Botnet
+
 7.Port Scans
 
 **Best Use**  
