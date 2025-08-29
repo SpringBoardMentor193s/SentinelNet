@@ -29,6 +29,8 @@ SentinelNet/
 │── scripts/ # Python scripts for modular workflows
 │ └── main.py # Main pipeline script
 │
+│── notebooks # Colab notebooks
+│
 │── docs/ # Documentation, reports, research notes
 │ ├── reflection_docs/ # Reflections & notes
 │ ├── data_overview.md # Dataset summary
@@ -87,26 +89,11 @@ python scripts/detect.py --input data/sample_traffic.csv
 - Confusion Matrix and ROC curves
 - Per-class precision, recall, and F1-scores
 ---
-## Attack Categories
-- DoS (Denial of Service)
-- Probe (Information Gathering)
-- R2L (Remote to Local)
-- U2R (User to Root)
-- Others (CIC-IDS 2017): Brute-force, Botnet, DDoS, Infiltration
----
 ## Future Enhancements
 - Transformer-based models for tabular traffic data
 - Real-time packet sniffing and classification
 - Integration with visualization dashboards (Grafana/ELK)
 - Cloud-based deployment (AWS/GCP)
----
-
-## Contributions are welcome!
-- 1.	Fork this repo
-- 2.	Create your feature branch (git checkout -b feature-name)
-- 3.	Commit changes (git commit -m "Add feature")
-- 4.	Push to branch (git push origin feature-name)
-- 5.	Open a Pull Request
 ---
 ## License
 - This project is licensed under the MIT License – see LICENSE for details.
