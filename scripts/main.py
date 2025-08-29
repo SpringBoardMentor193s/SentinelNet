@@ -33,10 +33,11 @@ attack_counts = df["outcome"].value_counts().head(10)
 plt.figure(figsize=(10, 6))
 attack_counts.plot(kind="bar")
 plt.title("Top 10 Attack Types in NSL-KDD Dataset")
-plt.xlabel("Attack Type")
-plt.ylabel("Count")
+plt.xlabel("Attack Type", fontsize=12)
+plt.ylabel("Count", fontsize=12)
 plt.xticks(rotation=90)
 plt.show()
+
 
 # Dataset overview
 print("\n--- Dataset Overview ---")
