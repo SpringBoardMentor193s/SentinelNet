@@ -48,36 +48,36 @@ By leveraging machine learning techniques, the system classifies traffic as norm
 
 <h2>👥 Team Information</h2>
 <ul>
-  <li><b>Upasana Prabhakar</b> – upasanaprabhakar35@gmail.com</li>
-  <li><b>Bhavana Thota</b> – bhavanathota2006@gmail.com</li>
-  <li><b>Saravanan S</b> – itssaravanan03@gmail.com</li>
-  <li><b>Shreyanshi Srivastava</b> – shreyanshisrivastava19@gmail.com</li>
-  <li><b>Surya Sindhu Guthula</b> – 22a314408.pragati@gmail.com</li>
-  <li><b>Mehak Tripathi</b> – 2k22.cse.2212471@gmail.com</li>
-  <li><b>Amit Yadav</b> – 2k23.cs2314011@gmail.com</li>
-  <li><b>Anisetty Bhavitha</b> – bhavithaanisetty@gmail.com</li>
-  <li><b>Prathyay V</b> – vprathap0703@gmail.com</li>
-  <li><b>Vimala Reddy Tummuru</b> – 22501a0514@pvpsit.ac.in</li>
-  <li><b>Indhuja V</b> – 230754.ec@rmkec.ac.in</li>
-  <li><b>Poornitha S</b> – 240061.cs@rmkec.ac.in</li>
-  <li><b>Khushaldhia Giduthuri</b> – khushaldhiagiduthuri@gmail.com</li>
-  <li><b>Bhaskar Mekala</b> – bhaskarmekala209@gmail.com</li>
-  <li><b>Chaganti Sai Sarvani</b> – saisarvani.chaganti@gmail.com</li>
-  <li><b>Yasaswita</b> – yasaswita9@gmail.com</li>
-  <li><b>Sumithra G</b> – sumiad107@rmkec.ac.in</li>
-  <li><b>Sai Sathvik Balabhadra</b> – balabhadrasaisathvik@gmail.com</li>
-  <li><b>Krushna Shinde</b> – krushnashinde9860@gmail.com</li>
-  <li><b>Omkar Marakwar</b> – omkarmarakwar5680@gmail.com</li>
-  <li><b>Vitesh Bhardwaj Mallibhat</b> – viteshbhardwaj2186@gmail.com</li>
-  <li><b>Mohan Raaj C</b> – cmohanraaj0319@gmail.com</li>
-  <li><b>Aarifa R</b> – roylamd02@gmail.com</li>
-  <li><b>Katherine Olivia R</b> – katherineolivia.r@gmail.com</li>
-  <li><b>Naga Lakshmi Durga Enugu</b> – 24b05a1206@svcew.edu.in</li>
+  <li><b>Upasana Prabhakar</b> – <a href="mailto:upasanaprabhakar35@gmail.com">upasanaprabhakar35@gmail.com</a></li>
+  <li><b>Bhavana Thota</b> – <a href="mailto:bhavanathota2006@gmail.com">bhavanathota2006@gmail.com</a></li>
+  <li><b>Saravanan S</b> – <a href="mailto:itssaravanan03@gmail.com">itssaravanan03@gmail.com</a></li>
+  <li><b>Shreyanshi Srivastava</b> – <a href="mailto:shreyanshisrivastava19@gmail.com">shreyanshisrivastava19@gmail.com</a></li>
+  <li><b>Surya Sindhu Guthula</b> – <a href="mailto:22a314408.pragati@gmail.com">22a314408.pragati@gmail.com</a></li>
+  <li><b>Mehak Tripathi</b> – <a href="mailto:2k22.cse.2212471@gmail.com">2k22.cse.2212471@gmail.com</a></li>
+  <li><b>Amit Yadav</b> – <a href="mailto:2k23.cs2314011@gmail.com">2k23.cs2314011@gmail.com</a></li>
+  <li><b>Anisetty Bhavitha</b> – <a href="mailto:bhavithaanisetty@gmail.com">bhavithaanisetty@gmail.com</a></li>
+  <li><b>Prathyay V</b> – <a href="mailto:vprathap0703@gmail.com">vprathap0703@gmail.com</a></li>
+  <li><b>Vimala Reddy Tummuru</b> – <a href="mailto:22501a0514@pvpsit.ac.in">22501a0514@pvpsit.ac.in</a></li>
+  <li><b>Indhuja V</b> – <a href="mailto:230754.ec@rmkec.ac.in">230754.ec@rmkec.ac.in</a></li>
+  <li><b>Poornitha S</b> – <a href="mailto:240061.cs@rmkec.ac.in">240061.cs@rmkec.ac.in</a></li>
+  <li><b>Khushaldhia Giduthuri</b> – <a href="mailto:khushaldhiagiduthuri@gmail.com">khushaldhiagiduthuri@gmail.com</a></li>
+  <li><b>Bhaskar Mekala</b> – <a href="mailto:bhaskarmekala209@gmail.com">bhaskarmekala209@gmail.com</a></li>
+  <li><b>Chaganti Sai Sarvani</b> – <a href="mailto:saisarvani.chaganti@gmail.com">saisarvani.chaganti@gmail.com</a></li>
+  <li><b>Yasaswita</b> – <a href="mailto:yasaswita9@gmail.com">yasaswita9@gmail.com</a></li>
+  <li><b>Sumithra G</b> – <a href="mailto:sumiad107@rmkec.ac.in">sumiad107@rmkec.ac.in</a></li>
+  <li><b>Sai Sathvik Balabhadra</b> – <a href="mailto:balabhadrasaisathvik@gmail.com">balabhadrasaisathvik@gmail.com</a></li>
+  <li><b>Krushna Shinde</b> – <a href="mailto:krushnashinde9860@gmail.com">krushnashinde9860@gmail.com</a></li>
+  <li><b>Omkar Marakwar</b> – <a href="mailto:omkarmarakwar5680@gmail.com">omkarmarakwar5680@gmail.com</a></li>
+  <li><b>Vitesh Bhardwaj Mallibhat</b> – <a href="mailto:viteshbhardwaj2186@gmail.com">viteshbhardwaj2186@gmail.com</a></li>
+  <li><b>Mohan Raaj C</b> – <a href="mailto:cmohanraaj0319@gmail.com">cmohanraaj0319@gmail.com</a></li>
+  <li><b>Aarifa R</b> – <a href="mailto:roylamd02@gmail.com">roylamd02@gmail.com</a></li>
+  <li><b>Katherine Olivia R</b> – <a href="mailto:katherineolivia.r@gmail.com">katherineolivia.r@gmail.com</a></li>
+  <li><b>Naga Lakshmi Durga Enugu</b> – <a href="mailto:24b05a1206@svcew.edu.in">24b05a1206@svcew.edu.in</a></li>
 </ul>
 
 <h2>📄 License</h2>
 <p>This project is licensed under the <strong>MIT License</strong></p>
 
-<blockquote style="border-left: 4px solid #28a745; padding-left: 12px; ;  font-size:15px; margin-top: 32px;">
+<blockquote style="border-left: 4px solid #28a745; padding-left: 12px; font-size:15px; margin-top: 32px;">
   Thank you for exploring SentinelNet — together, let's build a safer digital future.
 </blockquote>
