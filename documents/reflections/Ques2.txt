@@ -1,0 +1,19 @@
+
+
+What patterns do you observe in network traffic? Why is it challenging to detect intrusions?
+
+
+When looking at network traffic, clear patterns appear. Most harmless traffic follows predictable behaviors,
+like stable packet sizes, regular intervals, and common protocols such as HTTP, HTTPS, or FTP. 
+In contrast, harmful traffic often shows unusual signs: sudden spikes in requests, like in DoS or DDoS attacks, 
+repeated login attempts from brute force attacks, or irregular flows that don’t match typical usage. 
+For instance, probing attacks may create many short-lived connections to different ports, while botnet traffic can show strange communication patterns with external servers.
+
+The difficulty in spotting intrusions comes from the overlap between harmless and harmful patterns.
+Attackers often mask their actions to imitate normal traffic, making it hard for basic rule-based systems to find threats. 
+For example, a legitimate file transfer and a harmful data theft can look very similar at the packet level. 
+Plus, the large amount of network traffic means that unusual activity can easily blend in with normal variations.
+
+AI is crucial because it can learn fine distinctions within large datasets and apply that knowledge to unfamiliar threats.
+By examining correlations and timing patterns, machine learning models help reveal intrusions that people or traditional systems might overlook. 
+This ability to adapt is vital in today's quickly changing cybersecurity environment.
