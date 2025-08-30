@@ -141,8 +141,8 @@ SENTINELNET/
     <td><a href="mailto:sumiad107@rmkec.ac.in">sumiad107@rmkec.ac.in</a></td>
   </tr>
   <tr>
-    <td>Sai Sathvik Balabhadra</td>
-    <td><a href="mailto:balabhadrasaisathvik@gmail.com">balabhadrasaisathvik@gmail.com</a></td>
+    <td>Sai Sathwik Balabhadra</td>
+    <td><a href="mailto:balabhadrasaisathwik@gmail.com">balabhadrasaisathwik@gmail.com</a></td>
   </tr>
   <tr>
     <td>Krushna Shinde</td>
