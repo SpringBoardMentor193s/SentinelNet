@@ -1,5 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
 
 
 # NSL-KDD Dataset
@@ -120,7 +122,7 @@ print("Categorical:", categorical_features_cicids)
 print("Numerical:", numerical_features_cicids)
 
 
-#  Check for missing values and duplicates
+# Check for missing values and duplicates
 
 print("\nMissing values check (NSL-KDD):")
 print(df.isnull().sum().sum(), "missing values")
@@ -132,7 +134,8 @@ print(cicids.isnull().sum().sum(), "missing values")
 
 print("Duplicate rows in CICIDS2017:", cicids.duplicated().sum())
 
-# 6. Schema mapping table 
+
+# Schema mapping table
 
 def create_schema(df, dataset_name):
     schema = []
@@ -169,4 +172,43 @@ def create_schema(df, dataset_name):
 
 
 schema_nsl = create_schema(df, "NSL-KDD")
-schema_cicids = create_schema(cicids, "CICIDS2017") 
+schema_cicids = create_schema(cicids, "CICIDS2017")
+
+
+#Feature Scaling & Train-Test Split
+
+#NSL-KDD
+X_nsl = df.drop(columns=['outcome', 'category', 'level'])
+y_nsl = df['category']
+
+# Scale numerical features
+numerical_features_nsl = X_nsl.select_dtypes(include=['int64', 'float64']).columns
+scaler_nsl = StandardScaler()
+X_nsl_scaled = X_nsl.copy()
+X_nsl_scaled[numerical_features_nsl] = scaler_nsl.fit_transform(X_nsl_scaled[numerical_features_nsl])
+X_nsl = X_nsl_scaled
+
+# Train-test split
+X_train_nsl, X_test_nsl, y_train_nsl, y_test_nsl = train_test_split(
+    X_nsl, y_nsl, test_size=0.2, random_state=42, stratify=y_nsl
+)
+
+print("\nNSL-KDD: Train shape:", X_train_nsl.shape, "Test shape:", X_test_nsl.shape)
+
+#CICIDS2017 
+if "Label" in cicids.columns:
+    X_cic = cicids.drop(columns=['Label'])
+    y_cic = cicids['Label']
+
+    numerical_features_cic = X_cic.select_dtypes(include=['int64', 'float64']).columns
+    scaler_cic = StandardScaler()
+    X_cic_scaled = X_cic.copy()
+    X_cic_scaled[numerical_features_cic] = scaler_cic.fit_transform(X_cic_scaled[numerical_features_cic])
+    X_cic = X_cic_scaled
+
+    # Train-test split
+    X_train_cic, X_test_cic, y_train_cic, y_test_cic = train_test_split(
+        X_cic, y_cic, test_size=0.2, random_state=42, stratify=y_cic
+    )
+
+    print("\nCICIDS2017: Train shape:", X_train_cic.shape, "Test shape:", X_test_cic.shape)
