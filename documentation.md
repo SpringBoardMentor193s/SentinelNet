@@ -223,4 +223,74 @@ It assumes a <b>linear relationship</b> between independent variables (features)
 
 <p style="margin-left:40px;"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Exam_pass_logistic_curve.svg/600px-Exam_pass_logistic_curve.svg.png" alt="Logistic Curve" style="width:500px; height:400px; margin:10px 0;"> </p> <p style="margin-left:40px; font-style: italic; font-size: 14px; color: #555;">Image source: Wikimedia Commons - Logistic Curve illustrating exam pass rates</p>
 
+<h2>📊 Train-Test Split</h2>
+<p>
+The <b>Train-Test Split</b> is a fundamental step in machine learning to evaluate how well a model generalizes to unseen data. 
+The dataset is divided into:
+</p>
+<ul>
+  <li><b>Training Set:</b> Used to train the model and learn patterns from data.</li>
+  <li><b>Test Set:</b> Used to evaluate model performance on unseen examples.</li>
+</ul>
+<p><b>Importance:</b> Helps prevent overfitting, ensures reliable performance metrics, and provides a realistic estimate of how the model will perform in real-world scenarios.</p>
+
+<h2>⚙️ StandardScaler in scikit-learn</h2>
+<p>
+The <b>StandardScaler</b> is a preprocessing tool in scikit-learn that standardizes numerical features by removing the mean and scaling to unit variance:
+</p>
+<ul>
+  <li>Centers each feature around zero by subtracting the mean.</li>
+  <li>Scales features by dividing by their standard deviation.</li>
+</ul>
+<p><b>Why it matters:</b> Many machine learning algorithms (like SVM, KNN, and Neural Networks) are sensitive to feature scales. Standardization ensures all features contribute equally and improves convergence during training.</p>
+
+<h2>📏 Scaling vs Normalization</h2>
+<p>
+Though both scaling and normalization adjust feature values, they serve different purposes:
+</p>
+<table>
+  <tr>
+    <th>Aspect</th>
+    <th>Scaling (Standardization)</th>
+    <th>Normalization (Min-Max)</th>
+  </tr>
+  <tr>
+    <td>Definition</td>
+    <td>Transforms features to have mean=0 and standard deviation=1</td>
+    <td>Rescales features to a fixed range, usually [0, 1]</td>
+  </tr>
+  <tr>
+    <td>Purpose</td>
+    <td>Handles varying feature scales for better ML performance</td>
+    <td>Ensures features are comparable and bounded for algorithms like Neural Networks</td>
+  </tr>
+  <tr>
+    <td>Use Cases</td>
+    <td>Algorithms assuming Gaussian distribution (SVM, Logistic Regression)</td>
+    <td>Algorithms sensitive to feature bounds (NNs, image data)</td>
+  </tr>
+  <tr>
+    <td>Effect on Outliers</td>
+    <td>Less sensitive to outliers</td>
+    <td>Highly affected by outliers</td>
+  </tr>
+</table>
+
+<h2>🎯 Role of Random Seed</h2>
+<p>
+The <b>Random Seed</b> ensures reproducibility in machine learning experiments. It initializes the random number generator, so operations like train-test splitting, shuffling, and weight initialization yield the same result every time the code runs.
+</p>
+<p><b>Without a fixed seed:</b> Every run may produce different results, making debugging and comparison difficult.</p>
+
+<h2>🧮 Role of Stratify in Train-Test Split</h2>
+<p>
+Stratification preserves the <b>original class distribution</b> in both training and testing sets. This is crucial when dealing with imbalanced datasets like NSL-KDD or CICIDS2017:
+</p>
+<ul>
+  <li>Ensures rare attack types (e.g., U2R, R2L) appear proportionally in both sets.</li>
+  <li>Prevents biased models that overfit to majority classes.</li>
+</ul>
+<p>Using stratify along with train-test split guarantees a fair and representative sampling for model evaluation.</p>
+
+
 <p>✨ <i>SentinelNet represents the vision of an intelligent, flexible, and resilient intrusion detection system, built to evolve alongside modern cyber threats.</i></p>
