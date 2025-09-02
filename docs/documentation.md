@@ -116,3 +116,38 @@ Linear regression is a fundamental machine learning algorithm used for predictin
 
 ---
 
+## Major Difference Between Scaling and Normalization
+
+**Scaling** and **normalization** are preprocessing techniques used to adjust the range and distribution of feature values in a dataset:
+
+- **Scaling** transforms data so that features have a specific range, typically [0, 1] or [-1, 1]. It preserves the shape of the original distribution but changes the scale. Common methods include Min-Max scaling and Standardization (z-score scaling).
+
+- **Normalization** adjusts values so that they conform to a specific statistical property, often making the data have unit norm (e.g., sum of squares equals 1). It is commonly used when features need to be compared on the same scale, especially in algorithms sensitive to magnitude, like k-nearest neighbors.
+
+**Key Difference:**  
+- Scaling changes the range of data values.  
+- Normalization changes the data distribution or magnitude, often to unit norm.
+
+---
+
+## Machine Learning Models
+
+- **Linear Regression**: Predicts a continuous output by modeling the relationship between input features and the target variable with a straight line.
+
+- **Logistic Regression**: Used for binary classification problems; models the probability that an input belongs to a particular class using a logistic (sigmoid) function.
+
+- **Decision Trees**: Models that split data into branches based on feature values, making decisions at each node. Useful for classification and regression tasks.
+
+- **Random Forests**: Ensembles of decision trees that aggregate their predictions for improved accuracy and robustness.
+
+- **Support Vector Machines (SVM)**: Find the optimal boundary (hyperplane) that separates classes in the feature space. Effective for classification with clear margins.
+
+- **K-Nearest Neighbors (KNN)**: Classifies data points based on the majority label among their closest neighbors. Simple and intuitive, but can be slow with large datasets.
+
+- **Naive Bayes**: Probabilistic model based on Bayes’ theorem, assuming feature independence. Fast and effective for text classification and spam detection.
+
+- **Neural Networks**: Composed of interconnected layers of nodes (“neurons”) that learn complex patterns. Used for image, speech, and text tasks.
+
+- **K-Means Clustering**: An unsupervised algorithm that groups data into a specified number of clusters based on feature similarity.
+
+Each model has strengths and weaknesses, and the choice depends on the problem, data size, and desired interpretability.
