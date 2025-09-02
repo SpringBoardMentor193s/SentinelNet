@@ -1,5 +1,5 @@
 # Ignore dataset files and large data
 /data/NSL-KDD/*
-/data/CICIDS2017/*
+/data/CICIDS/*
 !data/NSL-KDD/README.md
-!data/CICIDS2017/README.md
+!data/CICIDS/README.md
