@@ -281,6 +281,8 @@ Though both scaling and normalization adjust feature values, they serve differen
 The <b>Random Seed</b> ensures reproducibility in machine learning experiments. It initializes the random number generator, so operations like train-test splitting, shuffling, and weight initialization yield the same result every time the code runs.
 </p>
 <p><b>Without a fixed seed:</b> Every run may produce different results, making debugging and comparison difficult.</p>
+<p>Using a fixed seed also allows other researchers to <b>replicate your results</b> exactly, which is essential for scientific rigor and collaboration.</p>
+
 
 <h2>🧮 Role of Stratify in Train-Test Split</h2>
 <p>
