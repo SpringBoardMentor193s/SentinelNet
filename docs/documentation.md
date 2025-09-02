@@ -71,3 +71,47 @@ This SentinelNet represents the fusion of cutting-edge AI with practical cyberse
 
 ---
 
+## Key Types of Machine Learning
+
+- **Supervised Learning**: Models are trained on labeled data to predict outcomes (e.g., classifying network traffic as normal or malicious).
+- **Unsupervised Learning**: Finds patterns or groupings in unlabeled data (e.g., clustering similar network behaviors).
+- **Semi-Supervised Learning**: Combines a small amount of labeled data with a large amount of unlabeled data to improve learning accuracy.
+- **Reinforcement Learning**: Agents learn optimal actions through trial and error, receiving feedback from the environment (e.g., adapting intrusion detection strategies).
+- **Deep Learning**: Uses neural networks with multiple layers to automatically extract complex features from raw data, often applied to large-scale cybersecurity problems.
+
+---
+
+## Linear Regression Model
+
+Linear regression is a fundamental machine learning algorithm used for predicting a continuous output variable based on one or more input features. It models the relationship between the dependent variable (target) and independent variables (features) by fitting a straight line (in simple linear regression) or a hyperplane (in multiple linear regression).
+
+### How It Works
+
+- The model assumes a linear relationship:  
+  `y = w1*x1 + w2*x2 + ... + b`
+  - `y`: predicted value
+  - `x1, x2, ...`: input features
+  - `w1, w2, ...`: weights (coefficients)
+  - `b`: bias (intercept)
+
+- The algorithm finds the best-fitting line by minimizing the difference between predicted and actual values, typically using **Mean Squared Error (MSE)** as the loss function.
+
+### Applications
+
+- Predicting house prices based on features like size and location
+- Estimating sales based on advertising spend
+- Forecasting trends in time series data
+
+### Advantages
+
+- Simple and easy to interpret
+- Fast to train and predict
+- Works well when the relationship is approximately linear
+
+### Limitations
+
+- Assumes linearity between features and target
+- Sensitive to outliers
+- Not suitable for complex, non-linear relationships
+
+---
