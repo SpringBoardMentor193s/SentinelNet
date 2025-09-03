@@ -38,9 +38,8 @@ Each section includes:
 ## 🔹 1. Linear Regression
 - **Purpose:** Predicts continuous values.  
 - **Formula:**  
-  \[
-  y = \beta_0 + \beta_1x_1 + \beta_2x_2 + ... + \beta_nx_n + \epsilon
-  \]  
+  y = β0 + β1·x1 + β2·x2 + … + βn·xn + ε  
+
 - **Working Principle:** Fits a straight line that minimizes the Mean Squared Error (MSE).  
 - **Example Use Case:** House price prediction.  
 
@@ -57,9 +56,8 @@ Each section includes:
 ## 🔹 2. Logistic Regression
 - **Purpose:** Binary classification (Yes/No, 0/1).  
 - **Formula:**  
-  \[
-  P(Y=1|X) = \frac{1}{1 + e^{-(\beta_0 + \beta_1x_1 + ... + \beta_nx_n)}}
-  \]  
+  P(Y=1|X) = 1 / (1 + e^-(β0 + β1·x1 + … + βn·xn))  
+
 - **Working Principle:** Uses sigmoid function to map output between 0 and 1.  
 - **Example Use Case:** Email spam detection.  
 
@@ -76,14 +74,9 @@ Each section includes:
 ## 🔹 3. Decision Tree
 - **Purpose:** Handles both classification & regression.  
 - **Formula (Splitting Criteria):**  
-  - **Gini Index:**  
-    \[
-    Gini = 1 - \sum p_i^2
-    \]  
-  - **Entropy (Information Gain):**  
-    \[
-    Entropy = - \sum p_i \log_2(p_i)
-    \]  
+  - **Gini Index:** Gini = 1 − Σ(pᵢ²)  
+  - **Entropy:** Entropy = − Σ(pᵢ log₂(pᵢ))  
+
 - **Working Principle:** Splits data recursively into branches using rules.  
 - **Example Use Case:** Customer churn prediction.  
 
@@ -100,9 +93,10 @@ Each section includes:
 ## 🔹 4. Random Forest
 - **Purpose:** Ensemble of decision trees (Bagging method).  
 - **Formula (Prediction):**  
-  \[
-  \hat{y} = \frac{1}{N} \sum_{i=1}^N h_i(x)
-  \]  
+  ŷ = (1/N) Σ hᵢ(x)  
+
+  where hᵢ(x) = prediction of the i-th decision tree.  
+
 - **Working Principle:** Builds multiple decision trees on random subsets of data; uses majority vote/average.  
 - **Example Use Case:** Fraud detection.  
 
@@ -119,13 +113,11 @@ Each section includes:
 ## 🔹 5. Support Vector Machine (SVM)
 - **Purpose:** Classification (and regression).  
 - **Formula (Hyperplane):**  
-  \[
-  w^Tx + b = 0
-  \]  
-  Maximize margin:  
-  \[
-  \text{Maximize } \frac{2}{||w||}
-  \]  
+  wᵀx + b = 0  
+
+- **Optimization Objective:**  
+  Maximize margin = 2 / ||w||  
+
 - **Working Principle:** Finds optimal hyperplane that separates classes with maximum margin; supports kernels for non-linear data.  
 - **Example Use Case:** Handwritten digit classification.  
 
@@ -141,14 +133,19 @@ Each section includes:
 
 ## 📊 Summary Table  
 
-| Algorithm            | Type            | Formula / Principle                | Pros                          | Cons                          |
+| Algorithm            | Type            | Formula / Principle               | Pros                          | Cons                          |
 |-----------------------|----------------|-----------------------------------|-------------------------------|-------------------------------|
-| Linear Regression     | Regression     | \( y = \beta_0 + \beta_1x_1 + ...\)| Simple, interpretable         | Sensitive to outliers         |
-| Logistic Regression   | Classification | Sigmoid: \( \frac{1}{1+e^{-z}} \) | Probabilistic output          | Linear boundary only          |
-| Decision Tree         | Both           | Gini / Entropy                    | Easy to visualize             | Overfitting, unstable         |
-| Random Forest         | Both (Ensemble)| Bagging of decision trees          | High accuracy, less overfit   | Hard to interpret             |
-| SVM                   | Classification | Max margin hyperplane              | Works in high dimensions      | Slow on large datasets        |
+| Linear Regression     | Regression     | y = β0 + β1·x1 + … + βn·xn + ε   | Simple, interpretable         | Sensitive to outliers         |
+| Logistic Regression   | Classification | Sigmoid: 1 / (1 + e^(-z))        | Probabilistic output          | Linear boundary only          |
+| Decision Tree         | Both           | Gini / Entropy splits            | Easy to visualize             | Overfitting, unstable         |
+| Random Forest         | Both (Ensemble)| Average of many trees             | High accuracy, less overfit   | Hard to interpret             |
+| SVM                   | Classification | Max margin hyperplane             | Works in high dimensions      | Slow on large datasets        |
 
 ---
 
+## 🚀 Next Steps
+- Implement these models using Python & scikit-learn.  
+- Test them on small datasets (House Prices, Spam Detection, Iris, Digits).  
+- Write short project reports with results.  
 
+---
