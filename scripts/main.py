@@ -1,9 +1,13 @@
 #Libraries
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 import IPython.display as display #For better visualization
 from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import classification_report, confusion_matrix,accuracy_score
 
 #Loading Dataset
 path=r"..\data\KDDTrain+.txt"
@@ -157,3 +161,25 @@ scaler = MinMaxScaler()
 data[numerical_cols] = scaler.fit_transform(data[numerical_cols])
 print("Numerical features scaled.")
 
+#  Train-Test-Split
+X = data.drop(columns=['outcome','category'])   
+y = data['category']  
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42, stratify=y)
+print("Training set shape:", X_train.shape)
+print("Testing set shape:", X_test.shape)
+
+# LinearRegression Model
+lr = LinearRegression()
+lr.fit(X_train, y_train)
+
+# Predictions
+y_pred = lr.predict(X_test)
+y_pred_class = np.rint(y_pred).astype(int)
+y_pred_class = np.clip(y_pred_class, y.min(), y.max()) 
+
+# Evaluation
+print("Accuracy Score:", accuracy_score(y_test, y_pred_class))
+print("\nConfusion Matrix:")
+print(confusion_matrix(y_test, y_pred_class))
+print("\nClassification Report:")
+print(classification_report(y_test, y_pred_class))
