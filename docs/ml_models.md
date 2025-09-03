@@ -1,9 +1,5 @@
 # 📘 Machine Learning Models Documentation  
 
-This repository contains simple implementations and explanations of fundamental Machine Learning algorithms.  
-The goal is to **understand the intuition, math, and applications** of each model through small projects.  
-
----
 
 ## 📌 Table of Contents
 1. [Introduction](#-introduction)  
@@ -143,9 +139,3 @@ Each section includes:
 
 ---
 
-## 🚀 Next Steps
-- Implement these models using Python & scikit-learn.  
-- Test them on small datasets (House Prices, Spam Detection, Iris, Digits).  
-- Write short project reports with results.  
-
----
