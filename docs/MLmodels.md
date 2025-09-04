@@ -1,4 +1,4 @@
- ### 📘 Simple Documentation for ML Models:
+ # 📘 Simple Documentation for ML Models:
 ## 🔹 1. Linear Regression
 
 Definition: A supervised ML algorithm used to predict a continuous value based on input features.
@@ -11,7 +11,7 @@ Pros: Simple, easy to understand, interpretable.
 
 Cons: Assumes linear relationship, sensitive to outliers.
 
-# Example: Predict house price from square footage.
+### Example: Predict house price from square footage.
 
 ## 🔹 2. Logistic Regression
 
@@ -25,7 +25,7 @@ Pros: Simple, easy to understand, interpretable.
 
 Cons: Assumes linear relationship, sensitive to outliers.
 
-# Example: Predicting house price based on square footage.
+### Example: Predicting house price based on square footage.
 
 ## 🔹 3.Decision Tree
 
@@ -39,7 +39,7 @@ Advantages: Easy to visualize, handles categorical & numerical data.
 
 Limitations: Can overfit easily, unstable with small changes in data.
 
-# Example: Approving or rejecting a loan application based on income and credit score.
+### Example: Approving or rejecting a loan application based on income and credit score.
 
 ## 🔹4. Random Forest
 
@@ -53,7 +53,7 @@ Pros: Reduces overfitting, works well with large datasets, more accurate than a 
 
 Cons: Computationally expensive, less interpretable.
 
-# Example: Predicting whether a transaction is fraudulent.
+### Example: Predicting whether a transaction is fraudulent.
 
 ## 🔹5. Support Vector Machine (SVM)
 
@@ -67,7 +67,7 @@ Pros: Effective in high-dimensional spaces, works well for small datasets.
 
 Cons: Slow with large datasets, harder to interpret.
 
-# Example: Classifying handwritten digits (0–9).
+### Example: Classifying handwritten digits (0–9).
 
 ## 🔹6. Support Vector Machine (SVM)
 
@@ -81,10 +81,10 @@ Pros: Works well with high-dimensional data, effective with clear separation.
 
 Cons: Slow on large datasets, harder to interpret, sensitive to parameters.
 
-# Example: Classifying handwritten digits (0–9).
+### Example: Classifying handwritten digits (0–9).
 
 
-### 📊 Machine Learning Algorithms – Summary Table
+# 📊 Machine Learning Algorithms – Summary Table
 
 
 | **Algorithm**           | **Type**                           | **Formula / Principle**             |
