@@ -151,3 +151,24 @@ Linear regression is a fundamental machine learning algorithm used for predictin
 - **K-Means Clustering**: An unsupervised algorithm that groups data into a specified number of clusters based on feature similarity.
 
 Each model has strengths and weaknesses, and the choice depends on the problem, data size, and desired interpretability.
+
+---
+
+
+The F1 score is a metric used to evaluate the performance of classification models, especially when classes are imbalanced.
+
+**Definition**:
+The F1 score is the harmonic mean of precision and recall.
+
+Precision: How many predicted positives are actually positive.
+Recall: How many actual positives were correctly predicted.
+Formula:
+F1 = 2 × (Precision × Recall) / (Precision + Recall)
+
+**Importance**:
+
+Balances precision and recall, giving a single score that considers both false positives and false negatives.
+Useful when you need to find an optimal balance between precision and recall, especially in cases where one is more important than the other (e.g., medical diagnosis, spam detection).
+More informative than accuracy when classes are imbalanced.
+
+---
