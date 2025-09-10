@@ -43,6 +43,37 @@ Here are recommended datasets for intrusion detection:
 - Apply **reinforcement learning** for adaptive intrusion prevention  
 
 ---
+## **Team Members**
+
+| Name                        | Email                                 |
+|-----------------------------|---------------------------------------|
+| Vimala Reddy Tummuru        | 22501a05i4@pvpsit.ac.in               |
+| Upasana Prabhakar           | upasanaprabhakar35@gmail.com          |
+| Bhavana Thota               | bhavanathota2006@gmail.com            |
+| Saravanan S                 | itssaravanan03@gmail.com              |
+| Shreyanshi Srivastava       | shreyanshisrivastava19@gmail.com      |
+| Surya Sindhu Guthula        | 22a314408.pragati@gmail.com           |
+| Mehak Tripathi              | 2k22.cse.2212471@gmail.com            |
+| Amit Yadav                  | 2k23.cs2314011@gmail.com              |
+| Anisetty Bhavitha           | bhavithaanisetty@gmail.com            |
+| Prathyay V                  | vprathap0703@gmail.com                |
+| Indhuja V                   | 230754.ec@rmkec.ac.in                 |
+| Poornitha S                 | 240061.cs@rmkec.ac.in                 |
+| Khushaldhia Giduthuri       | khushaldhiagiduthuri@gmail.com        |
+| Bhaskar Mekala              | bhaskarmekala209@gmail.com            |
+| Chaganti Sai Sarvani        | saisarvani.chaganti@gmail.com         |
+| Yasaswita                   | yasaswita9@gmail.com                  |
+| Sumithra G                  | sumiad107@rmkec.ac.in                 |
+| Sai Sathwik Balabhadra      | balabhadrasaisathwik@gmail.com        |
+| Krushna Shinde              | krushnashinde9860@gmail.com           |
+| Omkar Marakwar              | omkarmarakwar5680@gmail.com           |
+| Vitesh Bhardwaj Mallibhat   | viteshbhardwaj2186@gmail.com          |
+| Mohan Raaj C                | cmohanraaj0319@gmail.com              |
+| Aarifa R                    | roylamd02@gmail.com                   |
+| Katherine Olivia R          | katherineolivia.r@gmail.com           |
+| Naga Lakshmi Durga Enugu    | 24b05a1206@svcew.edu.in               |
+
+---
 
 ## **License**  
 This project is licensed under the **MIT License**.  
