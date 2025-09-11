@@ -93,10 +93,20 @@ The dataset contains **125,973 network connection records** with **43 columns**.
 
 
   ---
+  
+# CICIDS2017 Dataset Overview
 
-## CICIDS2017 Dataset
+## Dataset Source
+The CICIDS2017 dataset is a modern benchmark dataset for network intrusion detection, created by the Canadian Institute for Cybersecurity (CIC).  
+**Source:** [CICIDS2017 Dataset](https://www.kaggle.com/datasets/sateeshkumar6289/cicids-2017-dataset)
 
-### Description
+**Files Used:**
+* `Monday-WorkingHours.pcap_ISCX.csv` – Commonly used subset for experiments  
+* Other CSV files corresponding to different attack scenarios and benign activities
+
+
+
+## Dataset Description
 The CICIDS2017 dataset is a more modern and realistic benchmark created by the Canadian Institute for Cybersecurity. It contains benign traffic and contemporary, common attacks, captured in a structured environment over multiple days. The traffic is provided as raw PCAP files, with extracted flow-based features using the CICFlowMeter tool.
 
 ### Key Statistics
