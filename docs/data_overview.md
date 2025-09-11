@@ -128,7 +128,6 @@ This dataset is crucial for the final validation phase of SentinelNet. It tests 
 - CICIDS2017 is better for building realistic and modern intrusion detection systems.  
 
 ---
----
 
 ## Visualizations
 
