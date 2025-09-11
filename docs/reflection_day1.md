@@ -1,6 +1,6 @@
-# Reflection: The Role of AI in Cybersecurity
+# Reflection: The Role of AI in Cybersecurity  
 
-**Why is AI critical in cybersecurity, and what excites me about building SentinelNet?**
+**Why is AI critical in cybersecurity, and what excites me about building SentinelNet?**  
 
 AI has become critical in cybersecurity because the scale and sophistication of modern cyber threats have completely outpaced human-led, traditional defense methods. Rule-based systems and signature detection are ineffective against novel, evolving attacks and the massive volume of network traffic generated every second. AI, particularly machine learning, changes the game. It can process millions of events in real-time, learn the unique "pattern of life" for a network, and identify subtle, anomalous behaviors that would be invisible to a human analyst. This shifts the paradigm from reactive—responding to known threats—to proactive—predicting and neutralizing threats before they cause harm.
 
