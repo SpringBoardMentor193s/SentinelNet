@@ -104,7 +104,7 @@ The CICIDS2017 dataset is a modern benchmark dataset for network intrusion detec
 * `Monday-WorkingHours.pcap_ISCX.csv` – Commonly used subset for experiments  
 * Other CSV files corresponding to different attack scenarios and benign activities
 
-
+---
 
 ## Dataset Description
 The CICIDS2017 dataset is a more modern and realistic benchmark created by the Canadian Institute for Cybersecurity. It contains benign traffic and contemporary, common attacks, captured in a structured environment over multiple days. The traffic is provided as raw PCAP files, with extracted flow-based features using the CICFlowMeter tool.
