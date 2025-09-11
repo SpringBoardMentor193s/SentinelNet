@@ -104,3 +104,33 @@ The dataset contains **125,973 network connection records** with **43 columns**.
 
 * Dataset has **mixed numeric and categorical features**
 * Used for training ML models for **network intrusion detection**
+
+## CICIDS2017 Dataset
+
+### Description
+The CICIDS2017 dataset is a more modern and realistic benchmark created by the Canadian Institute for Cybersecurity. It contains benign traffic and contemporary, common attacks, captured in a structured environment over multiple days. The traffic is provided as raw PCAP files, with extracted flow-based features using the CICFlowMeter tool.
+
+### Key Statistics
+- **Total Features:** Over 80 features per network flow (e.g., 78 in the commonly used `Monday-WorkingHours.pcap_ISCX.csv` file).
+- **Feature Types:** Primarily flow-based features (e.g., `Flow Duration`, `Total Fwd Packets`, `Fwd Packet Length Max`, `Flow Bytes/s`), which are more representative of modern intrusion detection systems.
+- **Attack Types:** Includes a range of modern attacks:
+    - **Brute Force** (FTP-BruteForce, SSH-BruteForce)
+    - **Heartbleed** Exploit
+    - **Denial of Service (DoS)** (DoS Hulk, DoS GoldenEye, DoS Slowloris, DoS Slowhttptest)
+    - **Distributed Denial of Service (DDoS)**
+    - **Web Attacks** (Brute Force, XSS, SQL Injection)
+    - **Infiltration** (from inside the network using a dropbox download)
+    - **Botnet** Traffic
+
+### Relevance to SentinelNet
+This dataset is crucial for the final validation phase of SentinelNet. It tests the system's efficacy against modern, realistic attack vectors, ensuring the model doesn't just perform well on historical academic data but is also robust in a near-real-world environment.
+
+## Comparison Summary: NSL-KDD vs. CICIDS2017
+
+| Aspect | NSL-KDD | CICIDS2017 |
+| :--- | :--- | :--- |
+| **Era & Relevance** | **Historical Benchmark** (1999) | **Modern Benchmark** (2017) |
+| **Data Nature** | Synthetic, connection-based records | **Realistic**, based on **raw PCAPs** |
+| **Feature Type** | 41 hand-crafted features | 80+ **flow-based** features |
+| **Attack Types** | Older styles (e.g., `sendmail`, `perl`) | **Contemporary attacks** (e.g., Heartbleed, Botnet, Web Attacks) |
+| **Primary Use in SentinelNet** | **Ideal for initial model training** and algorithm comparison due to simplicity and manageable size. | **Essential for final validation** and testing against modern threats to prove real-world applicability. |
