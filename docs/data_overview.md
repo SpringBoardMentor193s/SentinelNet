@@ -91,21 +91,6 @@ The dataset contains **125,973 network connection records** with **43 columns**.
 * **Numeric stats:** Mean, Std, Min, Max, Quartiles available for numeric features
 * **No missing values** in the dataset
 
----
-
-## Notes
-
-* Dataset has **mixed numeric and categorical features**
-* Used for training ML models for **network intrusion detection**
-
----
-
-## Visualizations
-
-* Bar chart of attack categories: shows count per category
-* Grouped counts by `attack_category` and `label`
-
-
 
   ---
 
@@ -138,6 +123,21 @@ This dataset is crucial for the final validation phase of SentinelNet. It tests 
 | **Feature Type** | 41 hand-crafted features | 80+ **flow-based** features |
 | **Attack Types** | Older styles (e.g., `sendmail`, `perl`) | **Contemporary attacks** (e.g., Heartbleed, Botnet, Web Attacks) |
 | **Primary Use in SentinelNet** | **Ideal for initial model training** and algorithm comparison due to simplicity and manageable size. | **Essential for final validation** and testing against modern threats to prove real-world applicability. |
+
+---
+
+## Notes
+
+* Dataset has **mixed numeric and categorical features**
+* Used for training ML models for **network intrusion detection**
+
+---
+
+## Visualizations
+
+* Bar chart of attack categories: shows count per category
+* Grouped counts by `attack_category` and `label`
+
 
 **Conclusion:**  
 - NSL-KDD is good for learning and prototyping (smaller, simpler).  
