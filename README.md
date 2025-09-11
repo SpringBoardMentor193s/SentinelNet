@@ -52,7 +52,7 @@ Key Highlights:
 ## 🛠️ Tech Stack
 - **Language**: Python 3.x  
 - **Libraries**: Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn  
-- **Tools**: VS Code, Git/GitHub  
+- **Tools**: VS Code, Git/GitHub.
 
 ---
 
