@@ -11,7 +11,7 @@ By leveraging machine learning techniques, the system classifies traffic as norm
 SENTINELNET/
 ├── .venv/
 ├── data/
-│   ├── DoS-Wednesday-noon.csv
+│   ├── DoS-Wednesday-no-metadata.parquet
 │   ├── KDDTest+.arff
 │   ├── KDDTest+.txt
 │   ├── KDDTrain+_processed.csv
@@ -21,10 +21,13 @@ SENTINELNET/
 ├── docs/
 │   └── data_overview.md
 ├── notebooks/
-│   └── preprocessing.ipynb
+│   ├── attack_visualization.ipynb
+│   ├── cicids_model_train.ipynb
+│   └── nslkdd_mode_train.ipynb
+├── results/
 ├── scripts/
 │   └── main.py
-├── documentation.md
+├── documentation.pdf
 ├── LICENSE
 ├── README.md
 └── requirements.txt
