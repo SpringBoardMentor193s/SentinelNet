@@ -25,12 +25,14 @@ SENTINELNET/
 │   ├── cicids_model_train.ipynb
 │   └── nslkdd_mode_train.ipynb
 ├── results/
+│   └── visual plots (PNG images)
 ├── scripts/
 │   └── main.py
 ├── documentation.pdf
 ├── LICENSE
 ├── README.md
 └── requirements.txt
+
 </pre>
 
 <h2>🎯 Objectives</h2>
