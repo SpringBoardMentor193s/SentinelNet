@@ -23,38 +23,135 @@ User-to-Root (U2R)
 
 Remote-to-Local (R2L)
 
-## Key Characteristics:
+.
 
-NSL-KDD is a refined and cleaned version of the older KDD-99 dataset, with redundant records removed to reduce bias.
+# Documentation for NSL-KDD Preprocessing and Visualization
+1. Introduction
 
-While smaller and simpler, it still faces limitations such as outdated attack scenarios and traffic that is simulated rather than real.
+The NSL-KDD dataset is an improved version of the KDD’99 dataset, widely used for network intrusion detection research. It contains both normal traffic and different categories of attacks (e.g., DoS, Probe, R2L, U2R).
 
-CICIDS2017 Dataset
+Since the raw dataset contains categorical features, redundant values, and an imbalanced class distribution, preprocessing is essential to make it suitable for machine learning models.
 
-Captures realistic traffic generated over a 5-day period, blending normal user behavior with planned attack scenarios.
+2. Data Loading
 
-Offers greater diversity, with labeled flows, multiple protocols (HTTP, HTTPS, FTP, SSH, email), and rich metadata.
+We work with two files:
 
-Much larger and more comprehensive than NSL-KDD, making it highly relevant to modern cybersecurity research.
+KDDTrain+.txt → Training data
+
+KDDTest+.txt → Testing data
+
+Columns include 41 features + 1 label + 1 difficulty column.
+
+Example features: duration, protocol_type, service, flag, src_bytes, dst_bytes, etc.
+
+Label column indicates whether the connection is normal or an attack type.
+
+Difficulty column is not relevant for classification and is removed.
+
+train_df, test_df = load_data("KDDTrain+.txt", "KDDTest+.txt")
+
+3. Preprocessing Steps
+3.1 Drop Unnecessary Columns
+
+The difficulty column is dropped as it does not contribute to classification.
+
+3.2 Handle Categorical Features
+
+Three categorical features:
+
+protocol_type (e.g., tcp, udp, icmp)
+
+service (e.g., http, ftp, smtp)
+
+flag (e.g., SF, S0, REJ)
+
+Converted into numerical representation using One-Hot Encoding (pd.get_dummies).
+
+3.3 Label Encoding
+
+Binary classification:
+
+normal → normal
+
+All other attack types → attack
+
+Multi-class classification:
+
+Each unique attack label is preserved.
+
+Labels are transformed using LabelEncoder.
+
+3.4 Feature Scaling
+
+Numerical features are scaled using StandardScaler so all features are on a similar range.
+
+4. Exploratory Data Analysis (EDA) and Visualization
+4.1 Binary Classification Visualization
+
+We create a new column called binary:
+
+df['binary'] = df['label'].apply(lambda x: 'normal' if x == 'normal' else 'attack')
 
 
-## Number of Features:
-CICIDS2017 provides over 80 features per network flow, extracted using tools like CICFlowMeter.
+Plot distribution of protocol types vs binary classes:
 
-## Attack Categories:
-It covers a wider and more modern range of cyber-attacks, including:
+plt.figure(figsize=(5,4))
+sns.countplot(x='protocol_type', data=df, palette='colorblind', hue='binary')
+plt.title('Attack vs Normal Distribution - NSL-KDD (Binary)')
+plt.xlabel('Protocol Type')
+plt.ylabel('Count')
+plt.show()
 
-Brute Force (FTP and SSH)
 
-Denial of Service (DoS) and Distributed DoS (DDoS)
+This shows how different protocols (TCP, UDP, ICMP) are distributed across normal and attack categories.
 
-Infiltration attacks
+4.2 Multi-class Classification Visualization
 
-Web-based attacks (e.g., XSS, SQL Injection)
+To visualize multi-class labels:
 
-Heartbleed
+plt.figure(figsize=(7,5))
+sns.countplot(x='protocol_type', data=df, palette='colorblind', hue='label')
+plt.title('Attack Category Distribution - NSL-KDD (Multiclass)')
+plt.xlabel('Protocol Type')
+plt.ylabel('Count')
+plt.legend(title='Attack Types', bbox_to_anchor=(1.05, 1), loc='upper left')
+plt.show()
 
-Botnets
 
-Port scanning
+This shows how multiple attack categories (e.g., smurf, neptune, back) vary with protocol types.
 
+5. Train-Test Preparation
+
+After preprocessing:
+
+Features (X) and target (y) are separated.
+
+Train and Test data are both encoded and scaled consistently.
+
+Stratified splitting ensures class balance in training and testing.
+
+X_train, y_train = preprocess_data(train_df, binary=True)
+X_test, y_test   = preprocess_data(test_df, binary=True)
+
+
+Output example:
+
+Train shape: (125973, 120)
+
+Test shape: (22544, 120)
+
+6. Conclusion
+
+The NSL-KDD dataset requires careful preprocessing:
+
+Dropping difficulty column
+
+Encoding categorical features
+
+Handling binary vs multi-class labels
+
+Scaling numerical features
+
+Visualizations (countplots) reveal class imbalances and protocol distributions.
+
+This preprocessing pipeline is suitable for both binary intrusion detection and multi-class attack classification.
