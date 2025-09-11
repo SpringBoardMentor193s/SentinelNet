@@ -138,4 +138,58 @@ Each section includes:
 | SVM                   | Classification | Max margin hyperplane             | Works in high dimensions      | Slow on large datasets        |
 
 ---
+## ML Metrics 
 
+# ML Performance Metrics Demo
+
+This project demonstrates **model evaluation metrics** for binary classification using scikit-learn.
+
+---
+
+## 📌 Steps Covered
+1. **Data Preprocessing**
+   - Synthetic imbalanced dataset created using `make_classification`.
+   - Train-test split with stratification.
+
+2. **Model Training**
+   - Logistic Regression trained on the dataset.
+
+3. **Performance Metrics**
+   - **Confusion Matrix** → Shows TP, FP, FN, TN.
+   - **Accuracy** → (TP + TN) / Total.
+   - **Precision** → TP / (TP + FP).
+   - **Recall** → TP / (TP + FN).
+   - **F1-Score** → Harmonic mean of Precision & Recall.
+   - **ROC-AUC** → Area under ROC curve.
+
+4. **Visualization**
+   - Confusion Matrix heatmap.
+   - ROC Curve with AUC score.
+
+---
+
+## 📊 Why F1-Score Always?
+- Accuracy can be **misleading** in imbalanced datasets.
+  - Example: If 95% of samples are class 0, predicting all as 0 gives 95% accuracy but **0 recall for class 1**.
+- Precision focuses on "how many predicted positives were correct".
+- Recall focuses on "how many actual positives were found".
+- **F1-score balances both** → It is especially important when:
+  - Classes are imbalanced.
+  - Both false positives & false negatives matter.
+
+---
+
+## 🔑 Importance of F1-Score
+- Provides a **single metric** combining **precision & recall**.
+- Useful in:
+  - **Fraud detection** (false negatives costly).
+  - **Medical diagnosis** (false negatives very risky).
+  - **Cybersecurity** (both FP & FN are important).
+- Helps ensure models do not just memorize majority class but also detect minority class.
+
+---
+
+## 🚀 How to Run
+```bash
+pip install scikit-learn matplotlib seaborn
+python ml_metrics_demo.py
