@@ -36,7 +36,6 @@ jupyter==1.1.1       # Interactive notebooks
 
 pyarrow==17.0.0      # Handling Apache Parquet files (used in CIC-IDS-2017)
 fastparquet==2024.5.0# Alternative Parquet support
-h5py==3.12.1         # HDF5 file support for model storage
-
+h5py==3.12.1         # HDF5 file support for model
 
 
