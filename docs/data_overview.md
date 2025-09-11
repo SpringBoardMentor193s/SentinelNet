@@ -93,6 +93,22 @@ The dataset contains **125,973 network connection records** with **43 columns**.
 
 ---
 
+## Notes
+
+* Dataset has **mixed numeric and categorical features**
+* Used for training ML models for **network intrusion detection**
+
+---
+
+## Visualizations
+
+* Bar chart of attack categories: shows count per category
+* Grouped counts by `attack_category` and `label`
+
+
+
+  ---
+
 ## CICIDS2017 Dataset
 
 ### Description
@@ -127,16 +143,3 @@ This dataset is crucial for the final validation phase of SentinelNet. It tests 
 - NSL-KDD is good for learning and prototyping (smaller, simpler).  
 - CICIDS2017 is better for building realistic and modern intrusion detection systems.  
 
----
-
-## Visualizations
-
-* Bar chart of attack categories: shows count per category
-* Grouped counts by `attack_category` and `label`
-
----
-
-## Notes
-
-* Dataset has **mixed numeric and categorical features**
-* Used for training ML models for **network intrusion detection**
