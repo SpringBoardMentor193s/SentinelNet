@@ -193,3 +193,67 @@ This project demonstrates **model evaluation metrics** for binary classification
 ```bash
 pip install scikit-learn matplotlib seaborn
 python ml_metrics_demo.py
+
+```
+
+# NSL-KDD Performance Metrics Demo
+
+This project demonstrates **model evaluation metrics** for binary classification on the **NSL-KDD dataset**.
+
+---
+
+## 📌 Steps
+1. **Data Preprocessing**
+   - Load `KDDTrain+` and `KDDTest+` files.
+   - Convert labels → `0 = normal`, `1 = attack`.
+   - One-hot encode categorical features (`protocol_type`, `service`, `flag`).
+   - Scale numerical features.
+
+2. **Model Training**
+   - Logistic Regression trained on preprocessed features.
+
+3. **Performance Metrics**
+   - **Confusion Matrix** (TP, FP, FN, TN).
+   - **Accuracy** → `(TP+TN) / Total`.
+   - **Precision** → `TP / (TP+FP)`.
+   - **Recall** → `TP / (TP+FN)`.
+   - **F1-Score** → harmonic mean of Precision & Recall.
+   - **ROC-AUC** → probability-based evaluation.
+
+4. **Visualization**
+   - Confusion Matrix heatmap.
+   - ROC Curve with AUC score.
+
+---
+
+## 📊 Why F1-Score Always?
+- Accuracy is misleading on **imbalanced datasets** (NSL-KDD has many more attacks).
+- Precision shows how many predicted attacks were correct.
+- Recall shows how many actual attacks were caught.
+- **F1-Score balances both**, making it the most reliable metric for IDS.
+
+---
+
+## 🚀 Run
+```bash
+pip install scikit-learn matplotlib seaborn pandas
+python nsl_kdd_metrics.py
+```
+# ML Training Notebook
+
+This package includes:
+- `ml_training_notebook.ipynb` — auto-detect dataset, perform EDA, train multiple ML models, evaluate, save results.
+
+## How to use
+1. Place your dataset CSV in the notebook folder (or name it `data.csv`).
+2. Run all notebook cells.
+3. Outputs:
+   - `results_summary.csv` — model test scores
+   - `best_model.joblib` — best pipeline
+   - `grid_best_estimator.joblib` — optional GridSearch best model
+
+## Notes
+- Classification: target categorical or ≤15 unique numeric values.
+- Regression: target continuous numeric.
+- Includes feature importances plot for RandomForest.
+- Requires: Python 3.8+, pandas, numpy, scikit-learn, matplotlib, joblib.
