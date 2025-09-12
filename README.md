@@ -111,7 +111,7 @@ Refer to [Data Overview](https://github.com/SpringBoardMentor193s/SentinelNet/bl
 - **Language:** Python  
 - **Libraries:** Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn 
 ---
-##🧩 Modules to be Implemented
+## 🧩 Modules to be Implemented
 
 - Dataset Acquisition and Exploration – Collect and explore network traffic datasets.
 - Data Cleaning and Preprocessing – Handle missing values, encode categorical data, normalize datasets.
