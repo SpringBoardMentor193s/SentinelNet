@@ -85,9 +85,9 @@ python download_data.py
 
 Refer to [Data Overview](https://github.com/SpringBoardMentor193s/SentinelNet/blob/10bb40432b8b25131207bacf99b0d9a88d76481c/docs/data_overview.md) for details on dataset sources, schema, and summary statistics.
 
-```bash
----
-```
+
+
+
 ## 👥 Team Members
 
 | Name                        | Email                                         |
