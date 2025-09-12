@@ -12,6 +12,16 @@ The goal of this project is to develop an AI-powered Network Intrusion Detection
 - Generate alerts or logs for detected threats.
 - Prepare a detailed report and presentation showcasing the project.
 ---
+## SentinelNet Presentation
+
+You can view the project presentation below.  
+If the PDF does not load on GitHub, please use the backup link provided.  
+
+- [Presentation (PDF on GitHub)](https://github.com/SpringBoardMentor193s/SentinelNet/blob/amityadav/docs/SentinelNet.pdf)  
+- [Backup Link (Google Drive)](https://drive.google.com/file/d/1p0RIC0ciI-xYFEFCfuNjSPeHeRyYmwDI/view?usp=sharing)  
+
+---
+
 ## 📂 Project Structure
 
 ````
