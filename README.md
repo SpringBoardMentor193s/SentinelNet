@@ -1,26 +1,48 @@
 # 🛡️ SentinelNet
 
-**SentinelNet** is an AI-powered Network Intrusion Detection System (NIDS) capable of identifying malicious network traffic and cyber-attacks in real time. By leveraging machine learning techniques, the system classifies network traffic as normal or suspicious based on historical data, so organizations can detect intrusions faster and more accurately than with traditional systems.
+The goal of this project is to develop an AI-powered Network Intrusion Detection System (NIDS) capable of identifying malicious network traffic and cyber-attacks in real time. 🛡️ By leveraging machine learning techniques, the system classifies traffic as normal or suspicious based on historical data. It processes network traffic records, extracts relevant features, trains classification models, and generates alerts for detected anomalies.
 
 ---
-
+```
 ## 📂 Project Structure
 
 ````text
-SentinelNet/
-├─ data/
-│  └─ NSL-KDD/
-│     └─ KDDTrain+.txt
-├─ analysis/
-│  └─ nsl_kdd_analysis.py
-├─ notebooks/
-│  └─ load_and_explore.py
-├─ docs/
-│  └─ data_overview.md
-└─ README.md
-
+SENTINELNET/
+├── .venv/
+├── data/
+│   ├── DoS-Wednesday-no-metadata.parquet
+│   ├── KDDTest+.arff
+│   ├── KDDTest+.txt
+│   ├── KDDTrain+_processed.csv
+│   ├── KDDTrain+.arff
+│   ├── KDDTrain+.txt
+│   └── WebAttacks-Thursday.csv
+├── docs/
+│   └── data_overview.md
+├── notebooks/
+│   ├── attack_visualization.ipynb
+│   ├── cicids_model_train.ipynb
+│   └── nslkdd_mode_train.ipynb
+├── results/
+│   └── visual plots (PNG images)
+├── scripts/
+│   └── main.py
+├── documentation.pdf
+├── LICENSE
+├── README.md
+└── requirements.txt
+```
 ---
+## 🎯 Objectives
 
+- Understand network traffic data and common types of cyberattacks.
+- Apply machine learning algorithms to detect intrusions.
+- Build and evaluate classification models (e.g., Decision Tree, Random Forest, SVM).
+- Perform feature engineering and anomaly detection.
+- Generate alerts or logs for detected threats.
+- Prepare a detailed report and presentation showcasing the project.
+---
+```
 ## 🐍 Setup & Installation
 
 1. **Clone the repository:**
@@ -85,9 +107,24 @@ python download_data.py
 
 Refer to [Data Overview](https://github.com/SpringBoardMentor193s/SentinelNet/blob/10bb40432b8b25131207bacf99b0d9a88d76481c/docs/data_overview.md) for details on dataset sources, schema, and summary statistics.
 
+---
+## 🛠️ Tech Stack
 
+- **Language:** Python  
+- **Libraries:** Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn 
 
+---
+## 🚀 Future Work
 
+- Extend the system to handle **real-time traffic streams** for continuous network monitoring.  
+- Explore **deep learning models** such as CNN, LSTM, and autoencoders for improved intrusion detection accuracy.  
+- Integrate with **SIEM tools** for enterprise deployment and automated threat response.  
+- Implement **adaptive learning** so the system can update models as new types of attacks emerge.  
+- Enhance **visualization and reporting dashboards** for better insights and decision-making.  
+- Optimize for **scalability** to handle large-scale network environments and high-throughput traffic.  
+- Investigate **cross-dataset generalization** to ensure models perform well on diverse network datasets.  
+
+---
 ## 👥 Team Members
 
 | Name                        | Email                                         |
