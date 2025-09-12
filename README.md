@@ -133,6 +133,11 @@ Refer to [Data Overview](https://github.com/SpringBoardMentor193s/SentinelNet/bl
 - Investigate **cross-dataset generalization** to ensure models perform well on diverse network datasets.  
 
 ---
+
+## Real-World Impact
+Cyber threats are constantly evolving, and organizations require proactive defenses. SentinelNet aims to **reduce the risk of data breaches, financial loss, and downtime** by providing an intelligent, adaptive intrusion detection solution that goes beyond traditional approaches.
+
+---
 ## 👥 Team Members
 
 | Name                        | Email                                         |
