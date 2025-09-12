@@ -13,7 +13,7 @@ The goal of this project is to develop an AI-powered Network Intrusion Detection
 ---
 ## 📂 Project Structure
 
-````text
+````
 SENTINELNET/
 ├── .venv/
 ├── data/
@@ -110,7 +110,20 @@ Refer to [Data Overview](https://github.com/SpringBoardMentor193s/SentinelNet/bl
 
 - **Language:** Python  
 - **Libraries:** Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn 
+---
+##🧩 Modules to be Implemented
 
+Dataset Acquisition and Exploration – Collect and explore network traffic datasets.
+
+Data Cleaning and Preprocessing – Handle missing values, encode categorical data, normalize datasets.
+
+Feature Engineering and Selection – Extract and select relevant features.
+
+Model Building and Training – Implement models like Decision Tree, Random Forest, and SVM.
+
+Evaluation and Performance Analysis – Evaluate models using accuracy, precision, recall, F1-score.
+
+Alerts and Reporting – Generate alerts and summary reports.
 ---
 ## 🚀 Future Work
 
