@@ -1,0 +1,42 @@
+
+# SentinelNet - Network Intrusion Detection Project
+# Requirements file (requirements.txt)
+
+# Install all dependencies:
+   pip install -r requirements.txt
+
+numpy==1.26.4        # Fast numerical computations
+pandas==2.2.2        # Data manipulation and analysis
+scipy==1.14.1        # Scientific computing utilities
+
+# Machine Learning
+
+scikit-learn==1.5.1  # Machine learning algorithms and preprocessing
+xgboost==2.1.1       # Gradient boosting (often used in IDS tasks)
+lightgbm==4.5.0      # Efficient gradient boosting (alternative to XGBoost)
+
+# Deep Learning
+
+torch==2.4.1         # PyTorch for deep learning models
+torchvision==0.19.1  # PyTorch vision utilities (if using CNNs)
+tensorflow==2.17.0   # TensorFlow/Keras for deep learning (optional alternative)
+
+# Visualization
+
+matplotlib==3.9.2    # Data visualization
+seaborn==0.13.2      # Statistical plots
+plotly==5.24.1       # Interactive visualizations
+
+
+
+jupyter==1.1.1       # Interactive notebooks
+
+
+# Data Handling
+
+pyarrow==17.0.0      # Handling Apache Parquet files (used in CIC-IDS-2017)
+fastparquet==2024.5.0# Alternative Parquet support
+h5py==3.12.1         # HDF5 file support for model storage
+
+
+
