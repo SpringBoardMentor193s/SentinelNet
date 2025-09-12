@@ -1,6 +1,7 @@
 # 🛡️ SentinelNet
----
-The goal of this project is to develop an AI-powered Network Intrusion Detection System (NIDS) capable of identifying malicious network traffic and cyber-attacks in real time. By leveraging machine learning techniques, the system classifies traffic as normal or suspicious based on historical data. It processes network traffic records, extracts relevant features, trains classification models, and generates alerts for detected anomalies.
+
+### The goal of this project is to develop an AI-powered Network Intrusion Detection System (NIDS) capable of identifying malicious network traffic and cyber-attacks in real time. By leveraging machine learning techniques, the system classifies traffic as normal or suspicious based on historical data. It processes network traffic records, extracts relevant features, trains classification models, and generates alerts for detected anomalies.
+
 ---
 ## 🎯 Objectives
 
