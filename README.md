@@ -100,7 +100,6 @@ The project uses the **NSL-KDD dataset**, which includes features describing net
 
 * **Training dataset:** ```https://github.com/SpringBoardMentor193s/SentinelNet/blob/amityadav/data/NSL-KDD/KDDTrain%2B.txt```
 * Explore dataset via Pandas for statistics and visualizations.
----
 
 ## CICIDS2017 Dataset
 
