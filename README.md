@@ -83,12 +83,16 @@ python download_data.py
 
 ## 📖 Documentation
 
-Refer to `https://github.com/SpringBoardMentor193s/SentinelNet/blob/10bb40432b8b25131207bacf99b0d9a88d76481c/docs/data_overview.md` for details on dataset sources, schema, and summary statistics.
+Refer to [Data Overview](https://github.com/SpringBoardMentor193s/SentinelNet/blob/10bb40432b8b25131207bacf99b0d9a88d76481c/docs/data_overview.md) for details on dataset sources, schema, and summary statistics.
 
 ---
 
-<h2>👥 Team Information</h2>
-<table  cellpadding="5" cellspacing="0">
+<table>
+
+ <tr>
+    <td>Amit Yadav</td>
+    <td><a href="mailto:2k23.cs2314011@gmail.com">2k23.cs2314011@gmail.com</a></td>
+  </tr>
   <tr>
     <td>Upasana Prabhakar</td>
     <td><a href="mailto:upasanaprabhakar35@gmail.com">upasanaprabhakar35@gmail.com</a></td>
@@ -112,10 +116,6 @@ Refer to `https://github.com/SpringBoardMentor193s/SentinelNet/blob/10bb40432b8b
   <tr>
     <td>Mehak Tripathi</td>
     <td><a href="mailto:2k22.cse.2212471@gmail.com">2k22.cse.2212471@gmail.com</a></td>
-  </tr>
-  <tr>
-    <td>Amit Yadav</td>
-    <td><a href="mailto:2k23.cs2314011@gmail.com">2k23.cs2314011@gmail.com</a></td>
   </tr>
   <tr>
     <td>Anisetty Bhavitha</td>
@@ -190,4 +190,5 @@ Refer to `https://github.com/SpringBoardMentor193s/SentinelNet/blob/10bb40432b8b
     <td><a href="mailto:24b05a1206@svcew.edu.in">24b05a1206@svcew.edu.in</a></td>
   </tr>
 </table>
+
 
