@@ -98,11 +98,11 @@ jupyter notebook notebooks/load_and_explore.py
 
 The project uses the **NSL-KDD dataset**, which includes features describing network connections and labels for attack types or normal traffic.
 
-* **Training dataset:** `https://github.com/SpringBoardMentor193s/SentinelNet/blob/amityadav/data/NSL-KDD/KDDTrain%2B.txt`
+* **Training dataset:** ```https://github.com/SpringBoardMentor193s/SentinelNet/blob/amityadav/data/NSL-KDD/KDDTrain%2B.txt```
 * Explore dataset via Pandas for statistics and visualizations.
 ```
 ##  CICIDS2017 Dataset
-
+---
 Since the dataset is too large for GitHub, you can download and extract it automatically:
 
 
