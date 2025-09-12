@@ -139,9 +139,9 @@ Refer to [Data Overview](https://github.com/SpringBoardMentor193s/SentinelNet/bl
 |-----------------------------|-----------------------------------------------|
 | Amit Yadav                  | [2k23.cs2314011@gmail.com](mailto:2k23.cs2314011@gmail.com) |
 | Upasana Prabhakar           | [upasanaprabhakar35@gmail.com](mailto:upasanaprabhakar35@gmail.com) |
+| Shreyanshi Srivastava       | [shreyanshisrivastava19@gmail.com](mailto:shreyanshisrivastava19@gmail.com) |
 | Bhavana Thota               | [bhavanathota2006@gmail.com](mailto:bhavanathota2006@gmail.com) |
 | Saravanan S                 | [itssaravanan03@gmail.com](mailto:itssaravanan03@gmail.com) |
-| Shreyanshi Srivastava       | [shreyanshisrivastava19@gmail.com](mailto:shreyanshisrivastava19@gmail.com) |
 | Surya Sindhu Guthula        | [22a314408.pragati@gmail.com](mailto:22a314408.pragati@gmail.com) |
 | Mehak Tripathi              | [2k22.cse.2212471@gmail.com](mailto:2k22.cse.2212471@gmail.com) |
 | Anisetty Bhavitha           | [bhavithaanisetty@gmail.com](mailto:bhavithaanisetty@gmail.com) |
