@@ -1,9 +1,16 @@
 # 🛡️ SentinelNet
 
 The goal of this project is to develop an AI-powered Network Intrusion Detection System (NIDS) capable of identifying malicious network traffic and cyber-attacks in real time. 🛡️ By leveraging machine learning techniques, the system classifies traffic as normal or suspicious based on historical data. It processes network traffic records, extracts relevant features, trains classification models, and generates alerts for detected anomalies.
-
 ---
-```
+## 🎯 Objectives
+
+- Understand network traffic data and common types of cyberattacks.
+- Apply machine learning algorithms to detect intrusions.
+- Build and evaluate classification models (e.g., Decision Tree, Random Forest, SVM).
+- Perform feature engineering and anomaly detection.
+- Generate alerts or logs for detected threats.
+- Prepare a detailed report and presentation showcasing the project.
+---
 ## 📂 Project Structure
 
 ````text
@@ -31,20 +38,11 @@ SENTINELNET/
 ├── LICENSE
 ├── README.md
 └── requirements.txt
-```
----
-## 🎯 Objectives
 
-- Understand network traffic data and common types of cyberattacks.
-- Apply machine learning algorithms to detect intrusions.
-- Build and evaluate classification models (e.g., Decision Tree, Random Forest, SVM).
-- Perform feature engineering and anomaly detection.
-- Generate alerts or logs for detected threats.
-- Prepare a detailed report and presentation showcasing the project.
 ---
-```
+````
 ## 🐍 Setup & Installation
-
+```
 1. **Clone the repository:**
 ```bash
 git clone https://github.com/SpringBoardMentor193s/SentinelNet.git
