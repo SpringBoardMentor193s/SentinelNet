@@ -86,31 +86,178 @@ python download_data.py
 Refer to [Data Overview](https://github.com/SpringBoardMentor193s/SentinelNet/blob/10bb40432b8b25131207bacf99b0d9a88d76481c/docs/data_overview.md) for details on dataset sources, schema, and summary statistics.
 
 ---
-
-## 👥 Team Information
-
-- **Amit Yadav** — [2k23.cs2314011@gmail.com](mailto:2k23.cs2314011@gmail.com)  
-- **Upasana Prabhakar** — [upasanaprabhakar35@gmail.com](mailto:upasanaprabhakar35@gmail.com)  
-- **Bhavana Thota** — [bhavanathota2006@gmail.com](mailto:bhavanathota2006@gmail.com)  
-- **Saravanan S** — [itssaravanan03@gmail.com](mailto:itssaravanan03@gmail.com)  
-- **Shreyanshi Srivastava** — [shreyanshisrivastava19@gmail.com](mailto:shreyanshisrivastava19@gmail.com)  
-- **Surya Sindhu Guthula** — [22a314408.pragati@gmail.com](mailto:22a314408.pragati@gmail.com)  
-- **Mehak Tripathi** — [2k22.cse.2212471@gmail.com](mailto:2k22.cse.2212471@gmail.com)  
-- **Anisetty Bhavitha** — [bhavithaanisetty@gmail.com](mailto:bhavithaanisetty@gmail.com)  
-- **Prathyay V** — [vprathap0703@gmail.com](mailto:vprathap0703@gmail.com)  
-- **Vimala Reddy Tummuru** — [22501a0514@pvpsit.ac.in](mailto:22501a0514@pvpsit.ac.in)  
-- **Indhuja V** — [230754.ec@rmkec.ac.in](mailto:230754.ec@rmkec.ac.in)  
-- **Poornitha S** — [240061.cs@rmkec.ac.in](mailto:240061.cs@rmkec.ac.in)  
-- **Khushaldhia Giduthuri** — [khushaldhiagiduthuri@gmail.com](mailto:khushaldhiagiduthuri@gmail.com)  
-- **Bhaskar Mekala** — [bhaskarmekala209@gmail.com](mailto:bhaskarmekala209@gmail.com)  
-- **Chaganti Sai Sarvani** — [saisarvani.chaganti@gmail.com](mailto:saisarvani.chaganti@gmail.com)  
-- **Yasaswita** — [yasaswita9@gmail.com](mailto:yasaswita9@gmail.com)  
-- **Sumithra G** — [sumiad107@rmkec.ac.in](mailto:sumiad107@rmkec.ac.in)  
-- **Sai Sathwik Balabhadra** — [balabhadrasaisathwik@gmail.com](mailto:balabhadrasaisathwik@gmail.com)  
-- **Krushna Shinde** — [krushnashinde9860@gmail.com](mailto:krushnashinde9860@gmail.com)  
-- **Omkar Marakwar** — [omkarmarakwar5680@gmail.com](mailto:omkarmarakwar5680@gmail.com)  
-- **Vitesh Bhardwaj Mallibhat** — [viteshbhardwaj2186@gmail.com](mailto:viteshbhardwaj2186@gmail.com)  
-- **Mohan Raaj C** — [cmohanraaj0319@gmail.com](mailto:cmohanraaj0319@gmail.com)  
-- **Aarifa R** — [roylamd02@gmail.com](mailto:roylamd02@gmail.com)  
-- **Katherine Olivia R** — [katherineolivia.r@gmail.com](mailto:katherineolivia.r@gmail.com)  
-- **Naga Lakshmi Durga Enugu** — [24b05a1206@svcew.edu.in](mailto:24b05a1206@svcew.edu.in)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Information</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .description {
+            font-size: 1.1rem;
+            color: #7f8c8d;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .table-container {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        th {
+            background-color: #3498db;
+            color: white;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        tr:hover {
+            background-color: #e8f4fc;
+        }
+        
+        .email {
+            color: #2980b9;
+            text-decoration: none;
+        }
+        
+        .email:hover {
+            text-decoration: underline;
+        }
+        
+        .team-size {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 1.2rem;
+            color: #7f8c8d;
+        }
+        
+        @media (max-width: 768px) {
+            th, td {
+                padding: 12px 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            th, td {
+                padding: 10px 8px;
+                font-size: 0.9rem;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>👥 Team Information</h1>
+            <p class="description">Here is the list of our project team members along with their email addresses:</p>
+        </header>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Amit Yadav</td><td><a href="mailto:2k23.cs2314011@gmail.com" class="email">2k23.cs2314011@gmail.com</a></td></tr>
+                    <tr><td>Upasana Prabhakar</td><td><a href="mailto:upasanaprabhakar35@gmail.com" class="email">upasanaprabhakar35@gmail.com</a></td></tr>
+                    <tr><td>Bhavana Thota</td><td><a href="mailto:bhavanathota2006@gmail.com" class="email">bhavanathota2006@gmail.com</a></td></tr>
+                    <tr><td>Saravanan S</td><td><a href="mailto:itssaravanan03@gmail.com" class="email">itssaravanan03@gmail.com</a></td></tr>
+                    <tr><td>Shreyanshi Srivastava</td><td><a href="mailto:shreyanshisrivastava19@gmail.com" class="email">shreyanshisrivastava19@gmail.com</a></td></tr>
+                    <tr><td>Surya Sindhu Guthula</td><td><a href="mailto:22a314408.pragati@gmail.com" class="email">22a314408.pragati@gmail.com</a></td></tr>
+                    <tr><td>Mehak Tripathi</td><td><a href="mailto:2k22.cse.2212471@gmail.com" class="email">2k22.cse.2212471@gmail.com</a></td></tr>
+                    <tr><td>Anisetty Bhavitha</td><td><a href="mailto:bhavithaanisetty@gmail.com" class="email">bhavithaanisetty@gmail.com</a></td></tr>
+                    <tr><td>Prathyay V</td><td><a href="mailto:vprathap0703@gmail.com" class="email">vprathap0703@gmail.com</a></td></tr>
+                    <tr><td>Vimala Reddy Tummuru</td><td><a href="mailto:22501a0514@pvpsit.ac.in" class="email">22501a0514@pvpsit.ac.in</a></td></tr>
+                    <tr><td>Indhuja V</td><td><a href="mailto:230754.ec@rmkec.ac.in" class="email">230754.ec@rmkec.ac.in</a></td></tr>
+                    <tr><td>Poornitha S</td><td><a href="mailto:240061.cs@rmkec.ac.in" class="email">240061.cs@rmkec.ac.in</a></td></tr>
+                    <tr><td>Khushaldhia Giduthuri</td><td><a href="mailto:khushaldhiagiduthuri@gmail.com" class="email">khushaldhiagiduthuri@gmail.com</a></td></tr>
+                    <tr><td>Bhaskar Mekala</td><td><a href="mailto:bhaskarmekala209@gmail.com" class="email">bhaskarmekala209@gmail.com</a></td></tr>
+                    <tr><td>Chaganti Sai Sarvani</td><td><a href="mailto:saisarvani.chaganti@gmail.com" class="email">saisarvani.chaganti@gmail.com</a></td></tr>
+                    <tr><td>Yasaswita</td><td><a href="mailto:yasaswita9@gmail.com" class="email">yasaswita9@gmail.com</a></td></tr>
+                    <tr><td>Sumithra G</td><td><a href="mailto:sumiad107@rmkec.ac.in" class="email">sumiad107@rmkec.ac.in</a></td></tr>
+                    <tr><td>Sai Sathwik Balabhadra</td><td><a href="mailto:balabhadrasaisathwik@gmail.com" class="email">balabhadrasaisathwik@gmail.com</a></td></tr>
+                    <tr><td>Krushna Shinde</td><td><a href="mailto:krushnashinde9860@gmail.com" class="email">krushnashinde9860@gmail.com</a></td></tr>
+                    <tr><td>Omkar Marakwar</td><td><a href="mailto:omkarmarakwar5680@gmail.com" class="email">omkarmarakwar5680@gmail.com</a></td></tr>
+                    <tr><td>Vitesh Bhardwaj Mallibhat</td><td><a href="mailto:viteshbhardwaj2186@gmail.com" class="email">viteshbhardwaj2186@gmail.com</a></td></tr>
+                    <tr><td>Mohan Raaj C</td><td><a href="mailto:cmohanraaj0319@gmail.com" class="email">cmohanraaj0319@gmail.com</a></td></tr>
+                    <tr><td>Aarifa R</td><td><a href="mailto:roylamd02@gmail.com" class="email">roylamd02@gmail.com</a></td></tr>
+                    <tr><td>Katherine Olivia R</td><td><a href="mailto:katherineolivia.r@gmail.com" class="email">katherineolivia.r@gmail.com</a></td></tr>
+                    <tr><td>Naga Lakshmi Durga Enugu</td><td><a href="mailto:24b05a1206@svcew.edu.in" class="email">24b05a1206@svcew.edu.in</a></td></tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="team-size">
+            <p>Total Team Members: <strong>26</strong></p>
+        </div>
+    </div>
+</body>
+</html>
