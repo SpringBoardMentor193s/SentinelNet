@@ -69,16 +69,16 @@ The project uses the **NSL-KDD dataset**, which includes features describing net
 
 * **Training dataset:** `https://github.com/SpringBoardMentor193s/SentinelNet/blob/amityadav/data/NSL-KDD/KDDTrain%2B.txt`
 * Explore dataset via Pandas for statistics and visualizations.
-
+```
 ##  CICIDS2017 Dataset
 
 Since the dataset is too large for GitHub, you can download and extract it automatically:
 
-```bash
+
 pip install gdown
 python download_data.py
 
-
+```
 ---
 
 ## 📖 Documentation
@@ -87,6 +87,7 @@ Refer to [Data Overview](https://github.com/SpringBoardMentor193s/SentinelNet/bl
 
 ```bash
 ---
+```
 ## 👥 Team Members
 
 | Name                        | Email                                         |
@@ -116,3 +117,5 @@ Refer to [Data Overview](https://github.com/SpringBoardMentor193s/SentinelNet/bl
 | Aarifa R                     | [roylamd02@gmail.com](mailto:roylamd02@gmail.com) |
 | Katherine Olivia R          | [katherineolivia.r@gmail.com](mailto:katherineolivia.r@gmail.com) |
 | Naga Lakshmi Durga Enugu    | [24b05a1206@svcew.edu.in](mailto:24b05a1206@svcew.edu.in) |
+
+```
