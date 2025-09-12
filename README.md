@@ -41,7 +41,6 @@ SENTINELNET/
 └── requirements.txt
 
 ---
----
 ````
 ## 🐍 Setup & Installation
 
