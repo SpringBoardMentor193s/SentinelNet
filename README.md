@@ -175,7 +175,7 @@ Cyber threats are constantly evolving, and organizations require proactive defen
 | Krushna Shinde              | [krushnashinde9860@gmail.com](mailto:krushnashinde9860@gmail.com) |
 | Omkar Marakwar              | [omkarmarakwar5680@gmail.com](mailto:omkarmarakwar5680@gmail.com) |
 | Vitesh Bhardwaj Mallibhat   | [viteshbhardwaj2186@gmail.com](mailto:viteshbhardwaj2186@gmail.com) |
-| Mohan Raaj C                | [cmohanraaj0319@gmail.com](mailto:cmohanraaj0319@gmail.com) |
+| Mohan Raaj C                | [cmohanraaj0313@gmail.com](mailto:cmohanraaj0313@gmail.com) |
 | Aarifa R                     | [roylamd02@gmail.com](mailto:roylamd02@gmail.com) |
 | Katherine Olivia R          | [katherineolivia.r@gmail.com](mailto:katherineolivia.r@gmail.com) |
 | Naga Lakshmi Durga Enugu    | [24b05a1206@svcew.edu.in](mailto:24b05a1206@svcew.edu.in) |
