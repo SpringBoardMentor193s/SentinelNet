@@ -3,7 +3,6 @@
 ## 1. Linear Regression  
 - **What it is:** A supervised learning algorithm used for predicting continuous values (e.g., house prices, sales).  
 - **How it works:** Fits a straight line (or hyperplane) to the data by minimizing the error between predicted and actual values.  
-  - Formula:  \( y = \beta_0 + \beta_1x_1 + \beta_2x_2 + ... + \beta_nx_n \)  
 - **Pros:**
   - Easy to understand and implement.  
   - Works well for simple relationships.  
@@ -17,7 +16,6 @@
 ## 2. Logistic Regression  
 - **What it is:** A supervised algorithm used for **classification** (binary or multi-class).  
 - **How it works:** Uses the logistic (sigmoid) function to map predictions into probabilities between 0 and 1.  
-  - Formula: \( P(y=1) = \frac{1}{1 + e^{-(\beta_0 + \beta_1x_1 + ... + \beta_nx_n)}} \)  
 - **Pros:**
   - Simple, interpretable results.  
   - Outputs probabilities.  
