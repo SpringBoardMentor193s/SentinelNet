@@ -25,28 +25,28 @@ Attack Categorization: Classifies connections as normal or anomalous, and furthe
 SentinelNet/
 
 │── data/ # Datasets (NSL-KDD, CIC-IDS 2017)
-
+|
 │   ├── nslkdd/ # Raw + processed NSL-KDD dataset files
-
+|   |
 │   └── cicids2017/ # Raw + processed CIC-IDS 2017 dataset
-
+|
 │
 │── notebooks/ # Colab notebooks
-
+|
 │
 │── docs/ # Documentation, reports, research notes
-
+|   |
 │   ├── reflection_docs/ # Reflections & notes
-
+|    |
 │   ├── linear_regression.md
-
+|   |
 │   ├── mlmodels.md
-
+|   |
 │   └── documentation.md
-
+|
 │
 │── requirements.txt # Python dependencies
-
+|
 │── README.md # Project documentation
 
 
