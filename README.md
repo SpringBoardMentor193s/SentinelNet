@@ -22,12 +22,14 @@ Attack Categorization: Classifies connections as normal or anomalous, and furthe
 
 ## Project Structure
 
-SentinelNet/
 
 SentinelNet/
 │── data/ # Datasets (NSL-KDD, CIC-IDS 2017)
 │ ├── nslkdd/ # Raw + processed NSL-KDD dataset files
 │ └── cicids2017/ # Raw + processed CIC-IDS 2017 dataset
+│
+│── scripts/ # Python scripts for modular workflows
+│ └── main.py # Main pipeline script
 │
 │── notebooks/ # Colab notebooks
 │
@@ -37,15 +39,16 @@ SentinelNet/
 │ ├── mlmodels.md
 │ └── documentation.md
 │
+│── LICENSE
 │── requirements.txt # Python dependencies
 │── README.md # Project documentation
-│── main.py # Main pipeline script
 
 
 ## Datasets Used
 The project uses well-known public network intrusion datasets for training and testing:
 
 NSL-KDD Dataset: https://www.unb.ca/cic/datasets/nsl.html
+
 CICIDS2017 Dataset: https://www.unb.ca/cic/datasets/ids-2017.html
 
 ## 🔧 Tools & Technologies
