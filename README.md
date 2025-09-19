@@ -23,19 +23,21 @@ Attack Categorization: Classifies connections as normal or anomalous, and furthe
 ## Project Structure
 
 SentinelNet/
-│── data/                 # Datasets (NSL-KDD, CIC-IDS 2017)
-│   ├── nslkdd/           # Raw + processed NSL-KDD dataset
-│   └── cicids2017/       # Raw + processed CIC-IDS 2017 dataset
+│── data/ # Datasets (NSL-KDD, CIC-IDS 2017)
+│   ├── nslkdd/ # Raw + processed NSL-KDD dataset files
+│   └── cicids2017/ # Raw + processed CIC-IDS 2017 dataset
 │
-│── notebooks/            # Research & experimentation notebooks
+│── notebooks/ # Colab notebooks
 │
-│── docs/                 # Documentation & reports
-│   ├── reflection_docs/  # Notes and reflections
-│   ├── data_overview.md  # Dataset summary
-│   └── Dataset_Analysis.md # Detailed analysis
+│── docs/ # Documentation, reports, research notes
+│   ├── reflection_docs/ # Reflections & notes
+│   ├── linear_regression.md
+│   ├── mlmodels.md
+│   └── documentation.md
 │
-│── requirements.txt      # Dependencies
-│── README.md             # Project documentation
+│── requirements.txt # Python dependencies
+│── README.md # Project documentation
+
 
 ## Datasets Used
 The project uses well-known public network intrusion datasets for training and testing:
@@ -46,6 +48,7 @@ CICIDS2017 Dataset: https://www.unb.ca/cic/datasets/ids-2017.html
 ## 🔧 Tools & Technologies
 
 Language: Python
+
 Libraries: Pandas, NumPy, Matplotlib, Scikit-learn, Seaborn
 
 
