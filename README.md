@@ -1,14 +1,14 @@
 # SentinelNet – AI-Powered Network Intrusion Detection System
-## Overview
+## Overview:
 
 SentinelNet is an intelligent Network Intrusion Detection System (NIDS) that harnesses the power of machine learning (ML) and deep learning (DL) to secure networks against malicious activity. It analyzes traffic flows, identifies anomalies, and classifies cyber threats to strengthen modern defense mechanisms.
 
 
-## Project Goal
+## Project Goal:
 
 The main objective of SentinelNet is to build a next-generation NIDS capable of detecting cyber-attacks and abnormal traffic in real time. By applying ML algorithms to historical and live data, the system learns to distinguish between legitimate traffic and suspicious activity, supporting proactive cybersecurity.
 
-## Key Features
+## Key Features:
 
 Traffic Processing: Data cleaning, preprocessing, and feature engineering on benchmark datasets (NSL-KDD & CIC-IDS 2017).
 
@@ -20,7 +20,7 @@ Planned Real-Time Module: Future integration for live packet capture and streami
 
 Attack Categorization: Classifies connections as normal or anomalous, and further categorizes anomalies into attack families.
 
-## Project Structure
+## Project Structure:
 
 
 SentinelNet/
@@ -44,7 +44,8 @@ SentinelNet/
 │── README.md # Project documentation
 
 
-## Datasets Used
+## Datasets Used:
+
 The project uses well-known public network intrusion datasets for training and testing:
 
 NSL-KDD Dataset: https://www.unb.ca/cic/datasets/nsl.html
@@ -58,12 +59,14 @@ Language: Python
 Libraries: Pandas, NumPy, Matplotlib, Scikit-learn, Seaborn
 
 
-## Future Work
+## Future Work:
+
 Real-Time Intrusion Detection – Extend the system to analyze live network traffic using packet sniffing for on-the-fly attack detection.
 
 Deep Learning Models – Integrate advanced models (LSTM, CNN, Transformers) to improve detection accuracy for complex attack patterns.
 
 Visualization Dashboard – Build an interactive dashboard to display attack trends, detection results, and system performance in real time.
 
-## License
+## License:
+
 This project is licensed under the MIT License – see LICENSE for details.
