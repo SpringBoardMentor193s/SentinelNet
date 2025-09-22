@@ -42,7 +42,7 @@ Key Highlights:
 19. Krushna Shinde – krushnashinde9860@gmail.com  
 20. Omkar Marakwar – omkarmarakwar5680@gmail.com  
 21. Vitesh Bhardwaj Mallibhat – viteshbhardwaj2186@gmail.com  
-22. Mohan Raaj C – cmohanraaj0319@gmail.com  
+22. Mohan Raaj C – cmohanraaj0313@gmail.com  
 23. Aarifa R – roylamd02@gmail.com  
 24. Katherine Olivia R – katherineolivia.r@gmail.com  
 25. Naga Lakshmi Durga Enugu – 24b05a1206@svcew.edu.in  
