@@ -68,7 +68,7 @@ Here are recommended datasets for intrusion detection:
 | Krushna Shinde              | krushnashinde9860@gmail.com           |
 | Omkar Marakwar              | omkarmarakwar5680@gmail.com           |
 | Vitesh Bhardwaj Mallibhat   | viteshbhardwaj2186@gmail.com          |
-| Mohan Raaj C                | cmohanraaj0319@gmail.com              |
+| Mohan Raaj C                | cmohanraaj0313@gmail.com              |
 | Aarifa R                    | roylamd02@gmail.com                   |
 | Katherine Olivia R          | katherineolivia.r@gmail.com           |
 | Naga Lakshmi Durga Enugu    | 24b05a1206@svcew.edu.in               |
