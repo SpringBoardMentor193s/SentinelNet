@@ -1,8 +1,9 @@
 # Enforce LF for all text files
 * text=auto eol=lf
-
 # Explicitly set LF for Python and Jupyter notebooks
 *.py     text eol=lf
 *.ipynb  text eol=lf
 *.md     text eol=lf
 *.yml    text eol=lf
+*.csv filter=lfs diff=lfs merge=lfs -text
+*.png filter=lfs diff=lfs merge=lfs -text
