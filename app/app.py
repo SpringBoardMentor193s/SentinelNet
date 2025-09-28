@@ -35,6 +35,7 @@ class NetworkIntrusionDetector:
         self.normal_count = 0
         self.packet_data = []
         self.detection_history = []
+        self.csv_results = []
         
     def inspect_model(self, model_path):
         """Inspect the structure of the model file"""
@@ -49,8 +50,30 @@ class NetworkIntrusionDetector:
         except Exception as e:
             st.error(f"Inspection error: {str(e)}")
             return None
+    
+    def load_scaler(self, dataset):
+        """Load the scaler for the specific dataset"""
+        try:
+            if dataset == "NSL-KDD":
+                scaler_path = r"C:\Users\amity\SentinelNet\models\nslkdd\scaler.pkl"
+            elif dataset == "CICIDS2017":
+                scaler_path = r"C:\Users\amity\SentinelNet\models\cicids2017\scaler.pkl"
+            else:
+                st.warning(f"No scaler defined for dataset: {dataset}")
+                return None
+            
+            if os.path.exists(scaler_path):
+                self.scaler = joblib.load(scaler_path)
+                st.success(f"✅ Scaler loaded successfully for {dataset}!")
+                return True
+            else:
+                st.warning(f"Scaler file not found at: {scaler_path}")
+                return False
+        except Exception as e:
+            st.error(f"Error loading scaler: {str(e)}")
+            return False
         
-    def load_model(self, model_path):
+    def load_model(self, model_path, dataset):
         """Load the trained model with flexible structure handling"""
         try:
             model_data = joblib.load(model_path)
@@ -59,7 +82,11 @@ class NetworkIntrusionDetector:
             if isinstance(model_data, dict):
                 if 'model' in model_data:
                     self.model = model_data['model']
-                    self.scaler = model_data.get('scaler', None)
+                    # Try to get scaler from model data, otherwise load separately
+                    if 'scaler' in model_data:
+                        self.scaler = model_data['scaler']
+                    else:
+                        self.load_scaler(dataset)
                     self.feature_names = model_data.get('feature_names', None)
                 else:
                     # Try to find the model in the dictionary
@@ -67,11 +94,14 @@ class NetworkIntrusionDetector:
                         if hasattr(value, 'predict') or hasattr(value, 'predict_proba'):
                             self.model = value
                             break
+                    # Load scaler separately
+                    self.load_scaler(dataset)
                     
             # Case 2: Model is directly the trained model
             elif hasattr(model_data, 'predict') or hasattr(model_data, 'predict_proba'):
                 self.model = model_data
-                self.scaler = None
+                # Load scaler separately
+                self.load_scaler(dataset)
                 self.feature_names = self.get_default_feature_names()
                 
             # Case 3: Model is a tuple or list (common in some training scripts)
@@ -80,7 +110,8 @@ class NetworkIntrusionDetector:
                     if hasattr(item, 'predict') or hasattr(item, 'predict_proba'):
                         self.model = item
                         break
-                self.scaler = None
+                # Load scaler separately
+                self.load_scaler(dataset)
                 self.feature_names = self.get_default_feature_names()
             
             else:
@@ -281,6 +312,7 @@ class NetworkIntrusionDetector:
                 scaled_features = self.scaler.transform(feature_df)
             else:
                 scaled_features = feature_df.values
+                st.warning("Using unscaled features - scaler not available")
             
             # Make prediction
             if hasattr(self.model, 'predict'):
@@ -320,6 +352,53 @@ class NetworkIntrusionDetector:
                 
         except Exception as e:
             st.warning(f"Prediction error: {str(e)}")
+    
+    def predict_csv(self, df):
+        """Perform batch prediction on CSV data"""
+        try:
+            results = []
+            
+            # Ensure the dataframe has the required features
+            if self.feature_names:
+                # Align columns with feature names
+                for feature in self.feature_names:
+                    if feature not in df.columns:
+                        df[feature] = 0  # Add missing features with default value
+                
+                # Reorder columns to match feature names
+                df = df[self.feature_names]
+            
+            # Scale features if scaler is available
+            if self.scaler is not None:
+                features_scaled = self.scaler.transform(df)
+            else:
+                features_scaled = df.values
+            
+            # Make predictions
+            predictions = self.model.predict(features_scaled)
+            
+            # Get probabilities if available
+            if hasattr(self.model, 'predict_proba'):
+                probabilities = self.model.predict_proba(features_scaled)
+                confidences = np.max(probabilities, axis=1)
+            else:
+                confidences = [0.5] * len(predictions)
+            
+            # Create results
+            for i, (prediction, confidence) in enumerate(zip(predictions, confidences)):
+                result = {
+                    'row_id': i + 1,
+                    'prediction': 'Intrusion' if prediction == 1 else 'Normal',
+                    'confidence': confidence,
+                    'risk_level': 'High' if confidence > 0.8 else 'Medium' if confidence > 0.6 else 'Low'
+                }
+                results.append(result)
+            
+            return results
+            
+        except Exception as e:
+            st.error(f"CSV prediction error: {str(e)}")
+            return []
     
     def get_protocol_name(self, protocol_type):
         """Convert protocol type to name"""
@@ -377,6 +456,18 @@ def get_available_models():
     
     return models
 
+def check_scaler_files():
+    """Check if scaler files exist"""
+    scalers = {}
+    
+    nslkdd_scaler = r"C:\Users\amity\SentinelNet\models\nslkdd\scaler.pkl"
+    cicids_scaler = r"C:\Users\amity\SentinelNet\models\cicids2017\scaler.pkl"
+    
+    scalers['NSL-KDD'] = os.path.exists(nslkdd_scaler)
+    scalers['CICIDS2017'] = os.path.exists(cicids_scaler)
+    
+    return scalers
+
 def main():
     st.title("🛡️ Sentinel-Net: AI-Powered Network Intrusion Detection System")
     st.markdown("---")
@@ -390,15 +481,31 @@ def main():
     # Get available models
     available_models = get_available_models()
     
+    # Check scaler files
+    scaler_status = check_scaler_files()
+    
     # Sidebar for model selection and configuration
     with st.sidebar:
         st.header("Configuration")
+        
+        # Detection Mode Selection
+        detection_mode = st.radio(
+            "Select Detection Mode",
+            ["Live Network Monitoring", "CSV File Analysis"]
+        )
         
         # Dataset selection
         dataset_option = st.selectbox(
             "Select Dataset",
             ["NSL-KDD", "CICIDS2017"]
         )
+        
+        # Display scaler status
+        if dataset_option in scaler_status:
+            if scaler_status[dataset_option]:
+                st.success(f"✅ Scaler available for {dataset_option}")
+            else:
+                st.warning(f"⚠️ Scaler not found for {dataset_option}")
         
         # Model selection based on dataset
         if dataset_option in available_models and available_models[dataset_option]:
@@ -425,8 +532,8 @@ def main():
         
         # Load model button
         if st.button("Load Model", type="primary", disabled=selected_path is None):
-            with st.spinner("Loading model..."):
-                if detector.load_model(selected_path):
+            with st.spinner("Loading model and scaler..."):
+                if detector.load_model(selected_path, dataset_option):
                     detector.selected_model = f"{model_option} ({dataset_option})"
                     detector.selected_dataset = dataset_option
                 else:
@@ -434,33 +541,80 @@ def main():
         
         st.markdown("---")
         
-        # Network interface selection
-        interfaces = psutil.net_if_addrs().keys()
-        selected_interface = st.selectbox(
-            "Network Interface",
-            list(interfaces)
-        )
+        if detection_mode == "Live Network Monitoring":
+            # Network interface selection
+            interfaces = psutil.net_if_addrs().keys()
+            selected_interface = st.selectbox(
+                "Network Interface",
+                list(interfaces)
+            )
+            
+            # Monitoring controls
+            col1, col2 = st.columns(2)
+            with col1:
+                if st.button("Start Monitoring", type="primary"):
+                    if detector.model is None:
+                        st.error("Please load a model first!")
+                    else:
+                        # Start monitoring in separate thread
+                        monitor_thread = threading.Thread(
+                            target=detector.start_monitoring,
+                            args=(selected_interface,)
+                        )
+                        monitor_thread.daemon = True
+                        monitor_thread.start()
+                        st.success("🚀 Monitoring started!")
+            
+            with col2:
+                if st.button("Stop Monitoring"):
+                    detector.stop_monitoring()
+                    st.warning("🛑 Monitoring stopped!")
         
-        # Monitoring controls
-        col1, col2 = st.columns(2)
-        with col1:
-            if st.button("Start Monitoring", type="primary"):
-                if detector.model is None:
-                    st.error("Please load a model first!")
-                else:
-                    # Start monitoring in separate thread
-                    monitor_thread = threading.Thread(
-                        target=detector.start_monitoring,
-                        args=(selected_interface,)
-                    )
-                    monitor_thread.daemon = True
-                    monitor_thread.start()
-                    st.success("🚀 Monitoring started!")
-        
-        with col2:
-            if st.button("Stop Monitoring"):
-                detector.stop_monitoring()
-                st.warning("🛑 Monitoring stopped!")
+        elif detection_mode == "CSV File Analysis":
+            st.subheader("CSV File Upload")
+            uploaded_file = st.file_uploader(
+                "Upload network traffic CSV file", 
+                type=['csv'],
+                help="Upload a CSV file containing network traffic features for batch analysis"
+            )
+            
+            if uploaded_file is not None:
+                try:
+                    # Read the CSV file
+                    df = pd.read_csv(uploaded_file)
+                    st.success(f"✅ CSV file loaded successfully! Shape: {df.shape}")
+                    
+                    # Show preview
+                    with st.expander("Preview uploaded data"):
+                        st.dataframe(df.head(10))
+                    
+                    # Analyze button
+                    if st.button("Analyze CSV File", type="primary"):
+                        if detector.model is None:
+                            st.error("Please load a model first!")
+                        else:
+                            with st.spinner("Analyzing CSV file..."):
+                                results = detector.predict_csv(df)
+                                detector.csv_results = results
+                                
+                                if results:
+                                    st.success(f"✅ Analysis complete! Processed {len(results)} records")
+                                    
+                                    # Display results
+                                    results_df = pd.DataFrame(results)
+                                    st.subheader("Analysis Results")
+                                    st.dataframe(results_df)
+                                    
+                                    # Download results
+                                    csv = results_df.to_csv(index=False)
+                                    st.download_button(
+                                        label="Download Results as CSV",
+                                        data=csv,
+                                        file_name="intrusion_detection_results.csv",
+                                        mime="text/csv"
+                                    )
+                except Exception as e:
+                    st.error(f"Error reading CSV file: {str(e)}")
         
         st.markdown("---")
         
@@ -483,125 +637,208 @@ def main():
             if detector.feature_names:
                 st.write(f"**Features:** {len(detector.feature_names)}")
             if detector.scaler is not None:
-                st.write("**Scaler:** Available")
+                st.success("**Scaler:** ✅ Available and loaded")
             else:
-                st.write("**Scaler:** Not available (using raw features)")
+                st.warning("**Scaler:** ⚠️ Not available (using raw features)")
     
     # Main content area
-    col1, col2 = st.columns([2, 1])
-    
-    with col1:
-        st.subheader("📊 Real-time Detection Dashboard")
-        
-        # Display current model info
-        if detector.model is not None:
-            st.success(f"🔍 Active Model: **{detector.selected_model}**")
-        else:
-            st.warning("⚠️ No model loaded. Please select and load a model from the sidebar.")
-        
-        # Detection history table
-        if detector.detection_history:
-            recent_detections = detector.detection_history[-10:]  # Last 10 detections
-            df_detections = pd.DataFrame(recent_detections)
-            
-            # Style the dataframe based on risk level
-            def color_risk_level(val):
-                if val == 'High':
-                    return 'color: red; font-weight: bold'
-                elif val == 'Medium':
-                    return 'color: orange'
-                elif val == 'Low':
-                    return 'color: green'
-                else:
-                    return ''
-            
-            styled_df = df_detections.style.applymap(
-                color_risk_level, 
-                subset=['risk_level']
-            )
-            
-            st.dataframe(styled_df, use_container_width=True)
-        else:
-            st.info("No detections yet. Start monitoring to see live network traffic analysis.")
-    
-    with col2:
-        st.subheader("🚨 Threat Overview")
-        
-        # Threat indicators
-        if detector.detection_history:
-            recent_intrusions = [d for d in detector.detection_history[-20:] if d['prediction'] == 'Intrusion']
-            
-            if recent_intrusions:
-                st.error(f"🚨 {len(recent_intrusions)} recent intrusions detected!")
-                
-                # Show high confidence threats
-                high_threats = [d for d in recent_intrusions if d['confidence'] > 0.8]
-                if high_threats:
-                    st.warning(f"⚠️ {len(high_threats)} high-confidence threats!")
-                    
-                # Show threat by protocol
-                threat_protocols = pd.Series([d['protocol'] for d in recent_intrusions]).value_counts()
-                for protocol, count in threat_protocols.items():
-                    st.write(f"• {protocol}: {count} threats")
-            else:
-                st.success("✅ No recent intrusions detected")
-        else:
-            st.info("Waiting for network traffic...")
-        
-        # Quick actions
-        st.markdown("---")
-        st.subheader("Quick Actions")
-        if st.button("Clear History"):
-            detector.detection_history.clear()
-            detector.packets_captured = 0
-            detector.intrusion_count = 0
-            detector.normal_count = 0
-            st.success("History cleared!")
-            st.rerun()
-    
-    # Charts and visualizations
-    if detector.detection_history:
-        st.markdown("---")
-        st.subheader("📈 Detection Analytics")
-        
-        col1, col2, col3 = st.columns(3)
+    if detection_mode == "Live Network Monitoring":
+        col1, col2 = st.columns([2, 1])
         
         with col1:
-            # Prediction distribution
-            pred_counts = pd.Series([d['prediction'] for d in detector.detection_history]).value_counts()
-            fig, ax = plt.subplots(figsize=(8, 6))
-            colors = ['#ff6b6b' if pred == 'Intrusion' else '#51cf66' for pred in pred_counts.index]
-            ax.pie(pred_counts.values, labels=pred_counts.index, autopct='%1.1f%%', 
-                   startangle=90, colors=colors)
-            ax.set_title('Traffic Classification')
-            st.pyplot(fig)
+            st.subheader("📊 Real-time Detection Dashboard")
+            
+            # Display current model info
+            if detector.model is not None:
+                st.success(f"🔍 Active Model: **{detector.selected_model}**")
+                if detector.scaler is not None:
+                    st.success("✅ Feature scaling enabled")
+                else:
+                    st.warning("⚠️ Feature scaling disabled - using raw features")
+            else:
+                st.warning("⚠️ No model loaded. Please select and load a model from the sidebar.")
+            
+            # Detection history table
+            if detector.detection_history:
+                recent_detections = detector.detection_history[-10:]  # Last 10 detections
+                df_detections = pd.DataFrame(recent_detections)
+                
+                # Style the dataframe based on risk level
+                def color_risk_level(val):
+                    if val == 'High':
+                        return 'color: red; font-weight: bold'
+                    elif val == 'Medium':
+                        return 'color: orange'
+                    elif val == 'Low':
+                        return 'color: green'
+                    else:
+                        return ''
+                
+                styled_df = df_detections.style.applymap(
+                    color_risk_level, 
+                    subset=['risk_level']
+                )
+                
+                st.dataframe(styled_df, use_container_width=True)
+            else:
+                st.info("No detections yet. Start monitoring to see live network traffic analysis.")
         
         with col2:
-            # Protocol distribution
-            protocol_counts = pd.Series([d['protocol'] for d in detector.detection_history]).value_counts()
-            fig, ax = plt.subplots(figsize=(8, 6))
-            ax.bar(protocol_counts.index, protocol_counts.values, color='#339af0')
-            ax.set_xticklabels(protocol_counts.index, rotation=45)
-            ax.set_title('Protocol Distribution')
-            ax.set_ylabel('Count')
-            st.pyplot(fig)
+            st.subheader("🚨 Threat Overview")
+            
+            # Threat indicators
+            if detector.detection_history:
+                recent_intrusions = [d for d in detector.detection_history[-20:] if d['prediction'] == 'Intrusion']
+                
+                if recent_intrusions:
+                    st.error(f"🚨 {len(recent_intrusions)} recent intrusions detected!")
+                    
+                    # Show high confidence threats
+                    high_threats = [d for d in recent_intrusions if d['confidence'] > 0.8]
+                    if high_threats:
+                        st.warning(f"⚠️ {len(high_threats)} high-confidence threats!")
+                        
+                    # Show threat by protocol
+                    threat_protocols = pd.Series([d['protocol'] for d in recent_intrusions]).value_counts()
+                    for protocol, count in threat_protocols.items():
+                        st.write(f"• {protocol}: {count} threats")
+                else:
+                    st.success("✅ No recent intrusions detected")
+            else:
+                st.info("Waiting for network traffic...")
+            
+            # Quick actions
+            st.markdown("---")
+            st.subheader("Quick Actions")
+            if st.button("Clear History"):
+                detector.detection_history.clear()
+                detector.packets_captured = 0
+                detector.intrusion_count = 0
+                detector.normal_count = 0
+                st.success("History cleared!")
+                st.rerun()
         
-        with col3:
-            # Risk level distribution
-            risk_counts = pd.Series([d['risk_level'] for d in detector.detection_history]).value_counts()
-            fig, ax = plt.subplots(figsize=(8, 6))
-            colors = ['#ff6b6b', '#ffa94d', '#51cf66']  # Red, Orange, Green
-            sns.barplot(x=risk_counts.index, y=risk_counts.values, ax=ax, 
-                       palette=colors, order=['High', 'Medium', 'Low'])
-            ax.set_title('Risk Level Distribution')
-            ax.set_ylabel('Count')
-            st.pyplot(fig)
+        # Charts and visualizations for live monitoring
+        if detector.detection_history:
+            st.markdown("---")
+            st.subheader("📈 Detection Analytics")
+            
+            col1, col2, col3 = st.columns(3)
+            
+            with col1:
+                # Prediction distribution
+                pred_counts = pd.Series([d['prediction'] for d in detector.detection_history]).value_counts()
+                fig, ax = plt.subplots(figsize=(8, 6))
+                colors = ['#ff6b6b' if pred == 'Intrusion' else '#51cf66' for pred in pred_counts.index]
+                ax.pie(pred_counts.values, labels=pred_counts.index, autopct='%1.1f%%', 
+                       startangle=90, colors=colors)
+                ax.set_title('Traffic Classification')
+                st.pyplot(fig)
+            
+            with col2:
+                # Protocol distribution
+                protocol_counts = pd.Series([d['protocol'] for d in detector.detection_history]).value_counts()
+                fig, ax = plt.subplots(figsize=(8, 6))
+                ax.bar(protocol_counts.index, protocol_counts.values, color='#339af0')
+                ax.set_xticklabels(protocol_counts.index, rotation=45)
+                ax.set_title('Protocol Distribution')
+                ax.set_ylabel('Count')
+                st.pyplot(fig)
+            
+            with col3:
+                # Risk level distribution
+                risk_counts = pd.Series([d['risk_level'] for d in detector.detection_history]).value_counts()
+                fig, ax = plt.subplots(figsize=(8, 6))
+                colors = ['#ff6b6b', '#ffa94d', '#51cf66']  # Red, Orange, Green
+                sns.barplot(x=risk_counts.index, y=risk_counts.values, ax=ax, 
+                           palette=colors, order=['High', 'Medium', 'Low'])
+                ax.set_title('Risk Level Distribution')
+                ax.set_ylabel('Count')
+                st.pyplot(fig)
     
-    # Real-time updates
-    if detector.is_monitoring:
+    elif detection_mode == "CSV File Analysis":
+        st.subheader("📁 CSV File Analysis")
+        
+        if detector.model is not None:
+            st.success(f"🔍 Active Model: **{detector.selected_model}**")
+            
+            if detector.csv_results:
+                results_df = pd.DataFrame(detector.csv_results)
+                
+                # Display summary statistics
+                col1, col2, col3, col4 = st.columns(4)
+                
+                total_records = len(results_df)
+                intrusions = len(results_df[results_df['prediction'] == 'Intrusion'])
+                normal = len(results_df[results_df['prediction'] == 'Normal'])
+                intrusion_rate = (intrusions / total_records) * 100 if total_records > 0 else 0
+                
+                with col1:
+                    st.metric("Total Records", total_records)
+                with col2:
+                    st.metric("Intrusions", intrusions)
+                with col3:
+                    st.metric("Normal", normal)
+                with col4:
+                    st.metric("Intrusion Rate", f"{intrusion_rate:.2f}%")
+                
+                # Display results table
+                st.subheader("Detailed Results")
+                st.dataframe(results_df, use_container_width=True)
+                
+                # Visualization for CSV analysis
+                st.subheader("Analysis Visualization")
+                
+                col1, col2 = st.columns(2)
+                
+                with col1:
+                    # Prediction distribution
+                    pred_counts = results_df['prediction'].value_counts()
+                    fig, ax = plt.subplots(figsize=(6, 6))
+                    colors = ['#ff6b6b' if pred == 'Intrusion' else '#51cf66' for pred in pred_counts.index]
+                    ax.pie(pred_counts.values, labels=pred_counts.index, autopct='%1.1f%%', 
+                           startangle=90, colors=colors)
+                    ax.set_title('Prediction Distribution')
+                    st.pyplot(fig)
+                
+                with col2:
+                    # Risk level distribution
+                    risk_counts = results_df['risk_level'].value_counts()
+                    fig, ax = plt.subplots(figsize=(6, 6))
+                    colors = ['#ff6b6b', '#ffa94d', '#51cf66']  # Red, Orange, Green
+                    sns.barplot(x=risk_counts.index, y=risk_counts.values, ax=ax, 
+                               palette=colors, order=['High', 'Medium', 'Low'])
+                    ax.set_title('Risk Level Distribution')
+                    ax.set_ylabel('Count')
+                    st.pyplot(fig)
+        else:
+            st.warning("⚠️ Please load a model first to analyze CSV files.")
+    
+    # Real-time updates for live monitoring
+    if detection_mode == "Live Network Monitoring" and detector.is_monitoring:
         st.sidebar.info("🔴 Live monitoring active...")
         time.sleep(2)
         st.rerun()
+    
+    # About Me section at the bottom
+    st.markdown("---")
+    st.markdown(
+        """
+          <div style='text-align: center; padding: 20px; font-family: Arial, sans-serif;'>
+        <h3 style='margin-bottom: 5px;'>Made with ❤️ by <a href='https://github.com/theamityadavv' target='_blank' style='color:inherit; text-decoration:none;'>Amityadav</a></h3>
+        <!-- Horizontal line -->
+        <hr style='width: 150px; border: 1px solid #ccc; margin: 10px auto;'>
+        <p style='margin: 5px 0;'>
+            Connect with me: 
+            <a href='https://github.com/theamityadavv' target='_blank' style='color:inherit; text-decoration:none;'>GitHub</a> •
+            <a href='https://www.linkedin.com/in/amityadavv/' target='_blank' style='color:inherit; text-decoration:none;'>LinkedIn</a> •
+            <a href='https://theamityadavv.github.io/portfolio/' target='_blank' style='color:inherit; text-decoration:none;'>Portfolio</a> •
+            <a href='mailto:amityadavv@outlook.in' style='color:inherit; text-decoration:none;'>Email</a>
+        </p>
+    </div>
+        """,
+        unsafe_allow_html=True
+    )
 
 if __name__ == "__main__":
     main()
