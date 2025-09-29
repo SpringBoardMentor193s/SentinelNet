@@ -1,27 +1,16 @@
-# Core Libraries
-numpy
-pandas
-scipy
-
-# Machine Learning
-scikit-learn
-xgboost
-lightgbm
-joblib
-
-# Visualization
+numpy==1.26.4
+pandas==2.2.2
+scipy==1.14.1
+scikit-learn==1.5.1
+joblib==1.3.2
+streamlit==1.26.1
 matplotlib
 seaborn
 plotly
-
-# Web / UI
-streamlit
-
-# Data Handling
+xgboost
+lightgbm
 pyarrow
 fastparquet
 h5py
-
-# Networking (optional)
-scapy
 psutil
+scapy
