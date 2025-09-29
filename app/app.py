@@ -469,8 +469,15 @@ def check_scaler_files():
     return scalers
 
 def main():
-    st.title("🛡️ Sentinel-Net: AI-Powered Network Intrusion Detection System")
+    # Main heading
+    st.markdown("<h1 style='text-align: center; color: #0a4d8c;'>🛡️SentinelNet</h1>", unsafe_allow_html=True)
+
+    # Subtitle
+    st.markdown("<h3 style='text-align: center; color: #1f77b4;'>AI-Powered Network Intrusion Detection System</h3>", unsafe_allow_html=True)
+
+    # Horizontal line
     st.markdown("---")
+
     
     # Initialize detector
     if 'detector' not in st.session_state:
@@ -825,7 +832,6 @@ def main():
     st.markdown(
         """
           <div style='text-align: center; padding: 20px; font-family: Arial, sans-serif;'>
-        <h3 style='margin-bottom: 5px;'>Made with ❤️ by <a href='https://github.com/theamityadavv' target='_blank' style='color:inherit; text-decoration:none;'>Amit Yadav</a></h3>
         <!-- Horizontal line -->
         <hr style='width: 150px; border: 1px solid #ccc; margin: 10px auto;'>
         <p style='margin: 5px 0;'>
