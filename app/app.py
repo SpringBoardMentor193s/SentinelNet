@@ -825,7 +825,7 @@ def main():
     st.markdown(
         """
           <div style='text-align: center; padding: 20px; font-family: Arial, sans-serif;'>
-        <h3 style='margin-bottom: 5px;'>Made with ❤️ by <a href='https://github.com/theamityadavv' target='_blank' style='color:inherit; text-decoration:none;'>Amityadav</a></h3>
+        <h3 style='margin-bottom: 5px;'>Made with ❤️ by <a href='https://github.com/theamityadavv' target='_blank' style='color:inherit; text-decoration:none;'>Amit Yadav</a></h3>
         <!-- Horizontal line -->
         <hr style='width: 150px; border: 1px solid #ccc; margin: 10px auto;'>
         <p style='margin: 5px 0;'>
