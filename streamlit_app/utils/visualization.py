@@ -1,23 +1,17 @@
-import matplotlib.pyplot as plt
-import seaborn as sns
 import plotly.graph_objects as go
 import plotly.express as px
 from sklearn.metrics import confusion_matrix, roc_curve, auc
 import numpy as np
 import pandas as pd
 
-def plot_confusion_matrix(y_true, y_pred, labels=None, title='Confusion Matrix'):
-    """Create an interactive confusion matrix"""
+def plot_confusion_matrix(y_true, y_pred, title="Confusion Matrix"):
+    """Plot confusion matrix using Plotly"""
     cm = confusion_matrix(y_true, y_pred)
     
-    if labels is None:
-        labels = np.unique(np.concatenate([y_true, y_pred]))
-    
-    # Create heatmap
     fig = go.Figure(data=go.Heatmap(
         z=cm,
-        x=labels,
-        y=labels,
+        x=[f'Predicted {i}' for i in range(len(cm))],
+        y=[f'Actual {i}' for i in range(len(cm))],
         colorscale='Blues',
         text=cm,
         texttemplate='%{text}',
@@ -27,18 +21,16 @@ def plot_confusion_matrix(y_true, y_pred, labels=None, title='Confusion Matrix')
     
     fig.update_layout(
         title=title,
-        xaxis_title='Predicted Label',
-        yaxis_title='Actual Label',
-        width=600,
-        height=600
+        xaxis_title="Predicted Label",
+        yaxis_title="True Label",
+        height=500
     )
     
     return fig
 
-
-def plot_roc_curve(y_true, y_pred_proba, title='ROC Curve'):
-    """Create ROC curve"""
-    fpr, tpr, _ = roc_curve(y_true, y_pred_proba)
+def plot_roc_curve(y_true, y_score, title="ROC Curve"):
+    """Plot ROC curve using Plotly"""
+    fpr, tpr, _ = roc_curve(y_true, y_score)
     roc_auc = auc(fpr, tpr)
     
     fig = go.Figure()
@@ -46,7 +38,7 @@ def plot_roc_curve(y_true, y_pred_proba, title='ROC Curve'):
     fig.add_trace(go.Scatter(
         x=fpr, y=tpr,
         mode='lines',
-        name=f'ROC curve (AUC = {roc_auc:.4f})',
+        name=f'ROC curve (AUC = {roc_auc:.2f})',
         line=dict(color='darkorange', width=2)
     ))
     
@@ -61,148 +53,95 @@ def plot_roc_curve(y_true, y_pred_proba, title='ROC Curve'):
         title=title,
         xaxis_title='False Positive Rate',
         yaxis_title='True Positive Rate',
-        width=700,
-        height=600,
-        showlegend=True
-    )
-    
-    return fig
-
-
-def plot_feature_importance(importance_dict, top_n=20, title='Top Feature Importances'):
-    """Plot feature importance"""
-    # Sort by importance
-    sorted_features = sorted(importance_dict.items(), key=lambda x: x[1], reverse=True)[:top_n]
-    features, importances = zip(*sorted_features)
-    
-    fig = go.Figure(go.Bar(
-        x=importances,
-        y=features,
-        orientation='h',
-        marker=dict(color=importances, colorscale='Viridis')
-    ))
-    
-    fig.update_layout(
-        title=title,
-        xaxis_title='Importance',
-        yaxis_title='Features',
-        height=max(400, top_n * 25),
-        width=800
-    )
-    
-    return fig
-
-
-def plot_prediction_distribution(predictions, title='Prediction Distribution'):
-    """Plot distribution of predictions"""
-    pred_counts = pd.Series(predictions).value_counts()
-    
-    fig = go.Figure(data=[go.Pie(
-        labels=pred_counts.index,
-        values=pred_counts.values,
-        hole=0.3,
-        marker=dict(colors=px.colors.qualitative.Set3)
-    )])
-    
-    fig.update_layout(
-        title=title,
-        width=600,
-        height=500
-    )
-    
-    return fig
-
-
-def plot_metrics_comparison(metrics_dict, title='Model Performance Comparison'):
-    """Compare metrics across different models"""
-    models = list(metrics_dict.keys())
-    metrics = list(metrics_dict[models[0]].keys())
-    
-    fig = go.Figure()
-    
-    for metric in metrics:
-        values = [metrics_dict[model][metric] for model in models]
-        fig.add_trace(go.Bar(
-            name=metric,
-            x=models,
-            y=values,
-            text=[f'{v:.4f}' for v in values],
-            textposition='auto'
-        ))
-    
-    fig.update_layout(
-        title=title,
-        xaxis_title='Model',
-        yaxis_title='Score',
-        barmode='group',
-        width=900,
-        height=500
-    )
-    
-    return fig
-
-
-def create_attack_type_chart(predictions, dataset_type='nsl_kdd'):
-    """Create pie chart for attack type distribution"""
-    attack_counts = pd.Series(predictions).value_counts()
-    
-    colors = {
-        'Normal': '#2ecc71',
-        'Benign': '#2ecc71',
-        'DoS': '#e74c3c',
-        'Probe': '#f39c12',
-        'R2L': '#9b59b6',
-        'U2R': '#e67e22',
-        'Attack': '#c0392b'
-    }
-    
-    fig = go.Figure(data=[go.Pie(
-        labels=attack_counts.index,
-        values=attack_counts.values,
-        hole=0.4,
-        marker=dict(colors=[colors.get(label, '#95a5a6') for label in attack_counts.index]),
-        textinfo='label+percent',
-        textfont_size=14
-    )])
-    
-    fig.update_layout(
-        title='Attack Type Distribution',
-        width=700,
         height=500,
         showlegend=True
     )
     
     return fig
 
-
-def plot_model_performance_radar(metrics_dict, title='Model Performance Radar Chart'):
-    """Create radar chart for model performance comparison"""
-    metrics = list(list(metrics_dict.values())[0].keys())
+def plot_feature_importance(importance_dict, top_n=20, title="Feature Importance"):
+    """Plot feature importance using Plotly"""
+    sorted_features = sorted(importance_dict.items(), key=lambda x: x[1], reverse=True)[:top_n]
+    features, importances = zip(*sorted_features)
     
+    fig = go.Figure(data=[
+        go.Bar(x=list(importances), y=list(features), orientation='h')
+    ])
+    
+    fig.update_layout(
+        title=title,
+        xaxis_title="Importance",
+        yaxis_title="Features",
+        height=600,
+        yaxis={'categoryorder': 'total ascending'}
+    )
+    
+    return fig
+
+def plot_prediction_distribution(predictions, title="Prediction Distribution"):
+    """Plot distribution of predictions using Plotly"""
+    pred_counts = pd.Series(predictions).value_counts()
+    
+    fig = go.Figure(data=[
+        go.Pie(
+            labels=pred_counts.index,
+            values=pred_counts.values,
+            hole=0.3,
+            textinfo='label+percent',
+            textfont_size=14
+        )
+    ])
+    
+    fig.update_layout(
+        title=title,
+        height=400
+    )
+    
+    return fig
+
+def plot_metrics_comparison(metrics_dict, title="Model Metrics Comparison"):
+    """Plot comparison of different metrics"""
     fig = go.Figure()
     
-    for model_name, model_metrics in metrics_dict.items():
-        values = [model_metrics[m] for m in metrics]
-        values.append(values[0])  # Close the radar chart
-        
-        fig.add_trace(go.Scatterpolar(
-            r=values,
-            theta=metrics + [metrics[0]],
-            fill='toself',
-            name=model_name
+    for metric_name, values in metrics_dict.items():
+        fig.add_trace(go.Bar(
+            name=metric_name,
+            x=list(values.keys()),
+            y=list(values.values())
         ))
     
     fig.update_layout(
-        polar=dict(
-            radialaxis=dict(
-                visible=True,
-                range=[0, 1]
-            )
-        ),
         title=title,
-        showlegend=True,
-        width=700,
-        height=600
+        xaxis_title="Models",
+        yaxis_title="Score",
+        barmode='group',
+        height=500
+    )
+    
+    return fig
+
+def create_attack_type_chart(predictions, dataset_type='nsl_kdd', title="Attack Type Distribution"):
+    """Create a bar chart for attack type distribution"""
+    pred_counts = pd.Series(predictions).value_counts()
+    
+    colors = ['#636EFA', '#EF553B', '#00CC96', '#AB63FA', '#FFA15A']
+    
+    fig = go.Figure(data=[
+        go.Bar(
+            x=pred_counts.index,
+            y=pred_counts.values,
+            marker_color=colors[:len(pred_counts)],
+            text=pred_counts.values,
+            textposition='auto',
+        )
+    ])
+    
+    fig.update_layout(
+        title=title,
+        xaxis_title="Attack Type",
+        yaxis_title="Count",
+        height=400,
+        showlegend=False
     )
     
     return fig
