@@ -25,11 +25,13 @@ class DataPreprocessor:
             'dst_host_rerror_rate','dst_host_srv_rerror_rate'
         ]
 
+        # Remove unwanted columns
         cols_to_remove = ['attack_binary', 'attack_category', 'Unnamed: 0']
         for col in cols_to_remove:
             if col in df.columns:
                 df = df.drop(col, axis=1)
 
+        # Check if we need to assign column names
         required_cols_present = all(col in df.columns for col in self.categorical_columns)
 
         if not required_cols_present:
@@ -44,6 +46,7 @@ class DataPreprocessor:
         else:
             df.columns = df.columns.str.strip()
 
+        # Extract label if present
         y = None
         for col in ['label', 'class', 'Label']:
             if col in df.columns:
@@ -56,38 +59,60 @@ class DataPreprocessor:
             if 'difficulty' in X.columns:
                 X = X.drop('difficulty', axis=1)
 
-        X.replace([np.inf, -np.inf], np.nan, inplace=True)
-        X.fillna(0, inplace=True)
+        # Clean data
+        X = X.replace([np.inf, -np.inf], np.nan)
+        
+        # Ensure categorical columns are strings
+        for col in self.categorical_columns:
+            if col in X.columns:
+                X[col] = X[col].astype(str).str.strip()
 
         if is_training:
+            # Store categorical mappings during training
             for col in self.categorical_columns:
                 if col in X.columns:
-                    self.categorical_mappings[col] = sorted(X[col].astype(str).unique().tolist())
+                    self.categorical_mappings[col] = sorted(X[col].unique().tolist())
             
-            X_encoded = pd.get_dummies(X, columns=self.categorical_columns, dummy_na=False)
+            # One-hot encode
+            X_encoded = pd.get_dummies(X, columns=self.categorical_columns, drop_first=False)
+            X_encoded = X_encoded.fillna(0)
+            
+            # Store feature names
             self.feature_names = X_encoded.columns.tolist()
+            
+            # Scale
             X_scaled = self.scaler.fit_transform(X_encoded)
         else:
-            # Build all dummy columns at once to avoid fragmentation
+            # Prediction mode - match training encoding exactly
             non_cat_cols = [col for col in X.columns if col not in self.categorical_columns]
-            dummy_dfs = [X[non_cat_cols]]
+            X_non_cat = X[non_cat_cols].copy()
+            X_non_cat = X_non_cat.fillna(0)
+            
+            # Build dummy columns to match training
+            dummy_dfs = [X_non_cat]
             
             for col in self.categorical_columns:
                 if col in X.columns:
                     training_categories = self.categorical_mappings.get(col, [])
-                    col_dummies = pd.DataFrame()
+                    col_dummies = pd.DataFrame(index=X.index)
+                    
                     for category in training_categories:
                         dummy_col_name = f"{col}_{category}"
-                        col_dummies[dummy_col_name] = (X[col].astype(str) == category).astype(int)
+                        col_dummies[dummy_col_name] = (X[col] == category).astype(int)
+                    
                     dummy_dfs.append(col_dummies)
             
             X_encoded = pd.concat(dummy_dfs, axis=1)
             
+            # Ensure all training features exist
             for feature in self.feature_names:
                 if feature not in X_encoded.columns:
                     X_encoded[feature] = 0
             
+            # Reorder to match training
             X_encoded = X_encoded[self.feature_names]
+            
+            # Scale
             X_scaled = self.scaler.transform(X_encoded)
 
         X_scaled_df = pd.DataFrame(X_scaled, columns=self.feature_names, index=X.index)
@@ -97,6 +122,7 @@ class DataPreprocessor:
         df = df.copy()
         df.columns = df.columns.str.strip()
 
+        # Extract label
         y = None
         for col in ['Label', 'label', 'class']:
             if col in df.columns:
@@ -106,21 +132,29 @@ class DataPreprocessor:
         else: 
             X = df.copy()
 
-        X.replace([np.inf, -np.inf], np.nan, inplace=True)
-        numeric_cols = X.select_dtypes(include=np.number).columns.tolist()
-        if len(numeric_cols) > 0:
-            X[numeric_cols] = X[numeric_cols].fillna(X[numeric_cols].median())
+        # Clean data
+        X = X.replace([np.inf, -np.inf], np.nan)
         X = X.select_dtypes(include=np.number)
+        
+        if len(X.columns) > 0:
+            X = X.fillna(X.median())
+        X = X.fillna(0)
 
         if is_training:
+            # Initialize empty categorical_mappings for CICIDS
+            self.categorical_mappings = {}
+            
+            # Remove zero variance columns
             X = X.loc[:, X.var() > 0]
             self.feature_names = X.columns.tolist()
             X_scaled = self.scaler.fit_transform(X)
         else:
-            current_cols = X.columns
-            missing_cols = set(self.feature_names) - set(current_cols)
-            for c in missing_cols: 
-                X[c] = 0
+            # Add missing columns
+            for c in self.feature_names:
+                if c not in X.columns:
+                    X[c] = 0
+            
+            # Reorder and select only training features
             X = X[self.feature_names]
             X_scaled = self.scaler.transform(X)
 
@@ -155,27 +189,35 @@ class DataPreprocessor:
 
 def get_attack_category(label, dataset_type='nsl_kdd'):
     if dataset_type == 'nsl_kdd':
-        dos = ['neptune', 'smurf', 'pod', 'teardrop', 'land', 'back']
-        probe = ['portsweep', 'ipsweep', 'nmap', 'satan']
-        r2l = ['ftp_write', 'guess_passwd', 'imap', 'multihop', 'phf', 'spy', 'warezclient', 'warezmaster']
-        u2r = ['buffer_overflow', 'loadmodule', 'perl', 'rootkit']
+        dos = ['neptune', 'smurf', 'pod', 'teardrop', 'land', 'back', 'apache2', 'mailbomb', 'processtable', 'udpstorm']
+        probe = ['portsweep', 'ipsweep', 'nmap', 'satan', 'saint', 'mscan']
+        r2l = ['ftp_write', 'guess_passwd', 'imap', 'multihop', 'phf', 'spy', 'warezclient', 'warezmaster', 'xlock', 'xsnoop', 'snmpguess', 'snmpgetattack', 'httptunnel', 'sendmail', 'named']
+        u2r = ['buffer_overflow', 'loadmodule', 'perl', 'rootkit', 'ps', 'sqlattack', 'xterm']
 
         if isinstance(label, str):
-            l = label.lower()
-            if 'normal' in l: return 'Normal'
-            elif any(a in l for a in dos): return 'DoS'
-            elif any(a in l for a in probe): return 'Probe'
-            elif any(a in l for a in r2l): return 'R2L'
-            elif any(a in l for a in u2r): return 'U2R'
-            else: return 'Attack'
+            l = label.lower().strip()
+            if 'normal' in l: 
+                return 'Normal'
+            elif any(a in l for a in dos): 
+                return 'DoS'
+            elif any(a in l for a in probe): 
+                return 'Probe'
+            elif any(a in l for a in r2l): 
+                return 'R2L'
+            elif any(a in l for a in u2r): 
+                return 'U2R'
+            else: 
+                return 'Attack'
         else:
             mapping = {0: 'Normal', 1: 'DoS', 2: 'Probe', 3: 'R2L', 4: 'U2R'}
             return mapping.get(label, 'Attack')
     elif dataset_type == 'cicids':
         if isinstance(label, str):
-            l = label.lower()
-            if 'benign' in l or 'normal' in l: return 'Benign'
-            else: return 'Attack'
+            l = label.lower().strip()
+            if 'benign' in l or 'normal' in l: 
+                return 'Benign'
+            else: 
+                return 'Attack'
         else:
             return 'Benign' if label == 0 else 'Attack'
     return str(label)

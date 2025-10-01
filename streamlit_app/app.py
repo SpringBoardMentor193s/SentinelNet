@@ -14,7 +14,7 @@ from utils.visualization import (
     plot_prediction_distribution, create_attack_type_chart
 )
 
-# Page configuration - INCREASE MESSAGE SIZE LIMIT
+# Page configuration 
 st.set_page_config(
     page_title="SentinelNet - Network Intrusion Detection",
     page_icon="🛡️",
