@@ -2,7 +2,7 @@ import streamlit as st
 
 st.set_page_config(page_title="SentinelNet", layout="centered")
 
-st.title("🔐 SentinelNet IDS - Model Selection")
+st.title("SentinelNet NSL_KDD Dataset - Model Selection")
 
 # Dropdown for models
 model_choice = st.selectbox(
@@ -14,3 +14,6 @@ model_choice = st.selectbox(
 if st.button("Next ➡️"):
     st.session_state["selected_model"] = model_choice
     st.switch_page("pages/Feature_Input.py")
+
+
+# Showing accuracy
