@@ -6,29 +6,58 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-
-from utils.preprocessing import DataPreprocessor
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, confusion_matrix, roc_curve, auc
+from utils.preprocessing import DataPreprocessor
 
-st.set_page_config(page_title="SentinelNet (minimal)", layout="wide")
-st.title("SentinelNet - Minimal App")
+st.set_page_config(page_title="SentinelNet", layout="wide")
+st.title("SentinelNet: Network Intrusion Detection")
 
-# Sidebar config
+# ---------------- Sidebar ----------------
 dataset_choice = st.sidebar.selectbox("Dataset", ["CICIDS2017", "NSL-KDD"])
 classification_choice = st.sidebar.selectbox("Classification", ["Binary"])
-model_choice = st.sidebar.selectbox("Model", ["Random Forest", "Gradient Boosting", "Decision Tree", "Logistic Regression"])
+
+available_models = {
+    "CICIDS2017": ["Random Forest", "Gradient Boosting", "Decision Tree", "Logistic Regression"],
+    "NSL-KDD": ["Random Forest", "Gradient Boosting", "Decision Tree", "Logistic Regression", "XGBoost"]
+}
+
+model_choice = st.sidebar.selectbox("Model", available_models[dataset_choice])
 debug = st.sidebar.checkbox("Debug", False)
 
-# Map to file paths
-def model_and_preproc_paths(dataset, model_name):
-    ds = 'cicids' if 'CICIDS' in dataset.upper() else 'nsl_kdd'
-    cls = 'binary'
-    model_file = f"streamlit_app/models/{ds}_{cls}/{model_name.lower().replace(' ', '_')}.pkl"
-    preproc_file = f"streamlit_app/scalers/{ds}_{cls}_preprocessor.pkl"
-    return model_file, preproc_file
+# ---------------- Paths (Updated) ----------------
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
+def model_and_preproc_paths(dataset):
+    if 'CICIDS' in dataset.upper():
+        model_file = os.path.join(BASE_DIR, "models", "cicids_models.pkl")
+        preproc_file = os.path.join(BASE_DIR, "scalers", "cicids_binary_preprocessor.pkl")
+        dataset_type = "cicids"
+    else:
+        model_file = os.path.join(BASE_DIR, "models", "nslkdd_models.pkl")
+        preproc_file = os.path.join(BASE_DIR, "scalers", "nsl_kdd_binary_preprocessor.pkl")
+        dataset_type = "nsl_kdd"
+    return model_file, preproc_file, dataset_type
+
+# ---------------- File Upload ----------------
 uploaded = st.file_uploader("Upload CSV file (optional)", type=["csv"])
+model_path, preproc_path, dataset_type = model_and_preproc_paths(dataset_choice)
 
+def load_artifacts(model_path, preproc_path, model_name, dataset_type):
+    """
+    Load trained model and preprocessing artifacts.
+    """
+    try:
+        all_models = joblib.load(model_path)
+        model = all_models[model_name]
+        preprocessor = DataPreprocessor(dataset_type).load_preprocessor(preproc_path)
+        return model, preprocessor
+    except Exception as e:
+        print(f"Error loading artifacts: {e}")
+        return None, None
+
+# If no CSV uploaded, ask user for manual feature inputs
 if uploaded:
     try:
         df = pd.read_csv(uploaded)
@@ -38,52 +67,50 @@ if uploaded:
         st.stop()
 else:
     st.info("No CSV uploaded. Enter feature values manually below:")
-    # Define features manually (replace with actual feature names)
-    feature_names = ['feature1', 'feature2', 'feature3', 'feature4']  
+
+    # Load preprocessor just to fetch feature names
+    try:
+        _, preprocessor_tmp = load_artifacts(model_path, preproc_path, model_choice, dataset_type)
+        feature_names = preprocessor_tmp.features
+    except Exception as e:
+        st.warning(f"Could not load preprocessor features: {e}")
+        feature_names = [f"feature{i}" for i in range(1, 6)]
+
+    # Build manual input form
     input_data = {}
     for feature in feature_names:
         input_data[feature] = st.number_input(f"{feature}", value=0.0)
     df = pd.DataFrame([input_data])
 
-# Load model + preprocessor
-model_path, preproc_path = model_and_preproc_paths(dataset_choice, model_choice)
-if debug:
-    st.sidebar.write("Model path:", model_path)
-    st.sidebar.write("Preprocessor path:", preproc_path)
-
+# ---------------- Load Model + Preprocessor ----------------
 if not os.path.exists(model_path) or not os.path.exists(preproc_path):
     st.error("Model or preprocessor file not found.")
     st.stop()
 
 @st.cache_resource
-def load_artifacts(mp, pp):
-    m = joblib.load(mp)
-    pre = DataPreprocessor('cicids' if 'cicids' in pp else 'nsl_kdd').load_preprocessor(pp)
-    return m, pre
+def get_model_and_preprocessor(mp, pp, model_name, dataset_type):
+    return load_artifacts(mp, pp, model_name, dataset_type)
 
-model, preprocessor = load_artifacts(model_path, preproc_path)
+model, preprocessor = get_model_and_preprocessor(model_path, preproc_path, model_choice, dataset_type)
 
+# ---------------- Preprocess ----------------
 X_proc, y_true = preprocessor.preprocess(df, is_training=False)
+st.error("Preprocessing failed.") if X_proc is None else None
 st.write("Processed shape:", X_proc.shape)
 
-# Predict
+# ---------------- Predict ----------------
 with st.spinner("Running prediction..."):
     preds = model.predict(X_proc)
     probs = model.predict_proba(X_proc) if hasattr(model, "predict_proba") else None
 
-# Show metrics if true labels are present
+# ---------------- Metrics ----------------
 if y_true is not None:
     y_true = y_true.reset_index(drop=True)
     preds_series = pd.Series(preds)
-    acc = accuracy_score(y_true, preds_series)
-    prec = precision_score(y_true, preds_series)
-    rec = recall_score(y_true, preds_series)
-    f1 = f1_score(y_true, preds_series)
-
-    st.metric("Accuracy", f"{acc*100:.2f}%")
-    st.metric("Precision", f"{prec:.4f}")
-    st.metric("Recall", f"{rec:.4f}")
-    st.metric("F1-score", f"{f1:.4f}")
+    st.metric("Accuracy", f"{accuracy_score(y_true, preds_series)*100:.2f}%")
+    st.metric("Precision", f"{precision_score(y_true, preds_series):.4f}")
+    st.metric("Recall", f"{recall_score(y_true, preds_series):.4f}")
+    st.metric("F1-score", f"{f1_score(y_true, preds_series):.4f}")
 
     # Confusion matrix
     cm = confusion_matrix(y_true, preds)
@@ -102,11 +129,12 @@ if y_true is not None:
         fig2, ax2 = plt.subplots(figsize=(5,4))
         ax2.plot(fpr, tpr, label=f"AUC = {roc_auc:.3f}")
         ax2.plot([0,1],[0,1], linestyle="--", color="gray")
-        ax2.set_xlabel("FPR"); ax2.set_ylabel("TPR"); ax2.set_title("ROC Curve")
+        ax2.set_xlabel("FPR"); ax2.set_ylabel("TPR")
+        ax2.set_title("ROC Curve")
         ax2.legend()
         st.pyplot(fig2)
 
-# Feature importance
+# ---------------- Feature Importance ----------------
 if hasattr(model, "feature_importances_"):
     importances = model.feature_importances_
     feat_names = X_proc.columns
@@ -117,7 +145,7 @@ if hasattr(model, "feature_importances_"):
     ax3.set_title("Top 20 Feature Importances")
     st.pyplot(fig3)
 
-# Download predictions
+# ---------------- Download Predictions ----------------
 out_df = df.reset_index(drop=True).copy()
 out_df["predicted"] = preds
 if probs is not None:

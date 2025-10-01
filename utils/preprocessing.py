@@ -1,4 +1,3 @@
-# utils/preprocessing.py
 import joblib
 import pandas as pd
 import numpy as np
@@ -13,7 +12,7 @@ class DataPreprocessor:
         self.features = None
 
     def load_preprocessor(self, preprocessor_path):
-        bundle = joblib.load(preprocessor_path)   # should contain {'scaler':..., 'features':[...]}
+        bundle = joblib.load(preprocessor_path)   
         self.scaler = bundle['scaler']
         self.features = bundle['features']
         return self
