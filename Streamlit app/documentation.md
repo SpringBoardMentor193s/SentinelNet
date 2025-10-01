@@ -1,0 +1,93 @@
+# 🛡️ Sentinel-Net: AI-Powered Network Intrusion Detection System
+
+**Project Developer:** Mohan Raaj C
+
+This document outlines the methodology, implementation, and evaluation of an advanced Network Intrusion Detection System (NIDS). The project is structured around a comparative analysis of machine learning models and deployed using a Streamlit web application for practical use against network traffic data. The structure adheres to a standard academic research format.
+
+---
+
+## I. Introduction
+
+The modern digital landscape faces an escalating volume and complexity of cyber threats, necessitating intelligent defense systems capable of moving beyond simple signature matching. Traditional firewalls and intrusion prevention systems often fail against zero-day and polymorphic attacks, creating a demand for robust anomaly-based detection solutions. This project addresses this critical gap by leveraging machine learning to develop a NIDS that accurately classifies network traffic as either benign or malicious. Our focus is on maximizing the model's ability to detect actual attacks while maintaining high efficiency, a crucial balance for any production security environment. The core output is a functional, deployable system validated against public datasets.
+
+---
+
+## II. Literature Review
+
+The academic literature consistently demonstrates the limitations of purely signature-based NIDS, which cannot identify threats without a pre-existing pattern. Anomaly-based detection, particularly using data mining and machine learning, is the preferred approach for comprehensive defense. Early studies relied heavily on statistical methods, which were quickly superseded by classical ML algorithms like Decision Trees (DT) and Support Vector Machines (SVM). Recent research confirms that **ensemble methods**, such as **Random Forest (RF)** and **Gradient Boosting (GB)**, offer superior performance, especially in handling the high-dimensional, noisy, and severely imbalanced nature of network flow data. The current trend emphasizes balancing high **Recall** (to minimize False Negatives, i.e., missed attacks) with processing speed, guiding our model selection criteria.
+
+---
+
+## III. Methodology
+
+The implementation follows a rigorous, data-centric pipeline ensuring model reliability and performance consistency.
+
+### 3.1 Database (Data Sources)
+
+The project leverages two critical datasets:
+* **CICIDS 2017:** This is the primary and most current dataset used for training, providing comprehensive network flow features and diverse, modern attack categories (DDoS, brute force, etc.).
+* **NSL-KDD:** This dataset is included as a reference and directory placeholder to maintain compatibility with a wide range of legacy NIDS research, facilitating future comparative studies.
+* The raw data initially contains **79 features** and is loaded after resolving issues with file paths and formats.
+
+### 3.2 Preprocessing
+
+Data preparation is the foundation of the NIDS, specifically tailored to handle network traffic anomalies:
+* **Data Cleaning:** Initial steps involved the systematic removal of **24025 duplicate flow entries** to prevent training bias.
+* **Missing Data:** The project successfully handled and dropped the **201 missing values** found across the dataset, often concentrated in rate-based features like `Flow Bytes/s`.
+* **Outlier Handling:** Network features (e.g., duration, byte counts) inherently contain extreme outliers. The dataset was cleaned by identifying and replacing infinite values (`np.inf`) with standard numerical placeholders before scaling.
+* **Feature Scaling:** To achieve robust performance insensitive to these extreme values, the **RobustScaler** was employed. This method uses the Interquartile Range (IQR) rather than the mean and standard deviation, making it exceptionally effective for this domain.
+
+### 3.3 Proposed Method (Model Training)
+
+A strong ensemble-based approach was implemented to maximize detection performance against the minority attack class:
+* **Target Creation:** Flows were mapped into a **Binary** class (BENIGN vs. Attack) and a **Multi-Class** target (identifying specific attack types like FTP-Patator).
+* **Model Selection:** The models chosen—**Random Forest, Decision Tree, Logistic Regression, and Gradient Boosting**—were selected for their high predictive power and efficiency.
+* **Evaluation Focus:** Given the severe class imbalance (approximately 97.8% Benign), evaluation was strictly focused on **Macro-Averaged F1-Scores** and **Recall** for the minority classes.
+
+---
+
+## IV. Results and Evaluation
+
+The model's performance was rigorously quantified to ensure validity for deployment.
+
+### 4.1 Evaluation Metrics
+
+The results confirm the efficacy of ensemble learning in this domain:
+* **Multi-Class Performance:** The **Random Forest** model achieved the highest performance in the sampled multi-class test set evaluation, with a high accuracy of **99.88%** and a corresponding **macro F1-Score of 0.9765**.
+* **Specificity Check:** For the binary classification task, models demonstrated near-perfect **Specificity** (correctly identifying benign traffic), crucial for minimizing false alarms that degrade system usability.
+* **Training Time Analysis:** Training time was also logged, demonstrating the balance between the rapid training of the **Decision Tree** and the higher performance cost of **Random Forest**.
+
+### 4.2 ROC-AUC Curves
+ROC curves were generated for all models, with the **Area Under the Curve (AUC)** score serving as the primary metric for overall discriminatory power. The ensemble models consistently exhibited AUCs near 1.0, signifying excellent separation capability between the Normal and Attack classes across all probability thresholds. This confirmed their suitability as the final deployed solution.
+
+---
+
+## V. Streamlit Deployment
+
+The final phase focused on packaging the entire pipeline for practical use.
+
+### 5.1 Architecture
+The Streamlit application (`streamlit_app.py`) is designed as a standalone interface. It uses the Python **`joblib`** library to load the serialized **`RobustScaler`** and the chosen final models. This guarantees that the deployed application executes the exact transformations and predictions learned during the training phase, making the system robust.
+
+### 5.2 Real-time Operation
+The app integrates the **`scapy`** library to enable non-blocking packet sniffing. Incoming packets are immediately feature-extracted (using a simplified real-time function), passed through the loaded **`RobustScaler`**, and fed into the active model for instantaneous classification. The results are displayed in a real-time table and statistical metrics.
+
+---
+
+## VI. Conclusion and Future Work
+
+### 6.1 Conclusion
+The project successfully developed and validated a high-performance NIDS using ensemble machine learning techniques on the challenging CICIDS 2017 dataset. The **Random Forest** model, coupled with the **RobustScaler** preprocessing, proved to be the most effective solution for both binary and multi-class intrusion detection. The Streamlit deployment successfully integrates the entire pipeline into a user-friendly and functionally viable security tool.
+
+### 6.2 Future Works
+Several avenues exist for enhancing the Sentinel-Net system:
+* **Model Expansion:** Integrating and comparing **Deep Learning** models (e.g., 1D-CNNs, LSTMs) to explore non-linear dependencies in network sequences.
+* **Unsupervised Detection:** Implementing **Autoencoder-based anomaly detection** for baseline drift monitoring and unsupervised discovery of novel attacks.
+* **Dataset Diversity:** Completing the integration of the **NSL-KDD** dataset and incorporating newer benchmarks like **UNSW-NB15** for broader generalization testing.
+* **Performance Optimization:** Further optimizing model hyperparameters and feature sets to minimize inference latency for high-speed network application.
+
+---
+
+## 🖤 Credit and Acknowledgment
+
+This project was developed by **Mohan Raaj C**.
