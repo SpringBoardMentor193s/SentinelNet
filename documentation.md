@@ -52,6 +52,8 @@ train_df, test_df = load_data("KDDTrain+.txt", "KDDTest+.txt")
 
 
 🧹 Preprocessing Steps
+
+
 1. Drop Unnecessary Columns
 
 Remove difficulty column as it does not contribute to classification.
@@ -88,6 +90,8 @@ Numerical features are scaled using StandardScaler to standardize ranges.
 
 
 📈 Exploratory Data Analysis (EDA)
+
+
 Binary Classification Visualization
 
 Create a new column binary:
