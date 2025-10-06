@@ -49,6 +49,8 @@ The **difficulty** column is removed as it is not relevant for classification.
 
 ```python
 train_df, test_df = load_data("KDDTrain+.txt", "KDDTest+.txt")
+
+
 🧹 Preprocessing Steps
 1. Drop Unnecessary Columns
 
@@ -66,6 +68,8 @@ flag (e.g., SF, S0, REJ)
 
 These are converted into numeric values using One-Hot Encoding:
 df = pd.get_dummies(df, columns=['protocol_type', 'service', 'flag'])
+
+
 3. Label Encoding
 
 Binary classification:
@@ -81,6 +85,8 @@ Preserve all unique attack labels and encode numerically using LabelEncoder.
 4. Feature Scaling
 
 Numerical features are scaled using StandardScaler to standardize ranges.
+
+
 📈 Exploratory Data Analysis (EDA)
 Binary Classification Visualization
 
@@ -103,6 +109,8 @@ plt.xlabel('Protocol Type')
 plt.ylabel('Count')
 plt.legend(title='Attack Types', bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.show()
+
+
 🏗 Train-Test Preparation
 
 After preprocessing:
@@ -119,6 +127,8 @@ Example shapes:
 | -------- | ------------- |
 | Training | (125973, 120) |
 | Testing  | (22544, 120)  |
+
+
 ✅ Conclusion
 
 Preprocessing of the NSL-KDD dataset involves:
