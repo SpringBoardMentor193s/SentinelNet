@@ -5,3 +5,4 @@ data/CICIDS2017/
 data\CICIDS2017
 data\processed
 venv_sentinel/
+venv/
