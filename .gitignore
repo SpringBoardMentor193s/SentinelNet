@@ -7,3 +7,4 @@ data\processed
 venv_sentinel/
 venv/
 "venv_sentinel/" 
+"data/processed/cicids2017/X_selected.pkl" 
