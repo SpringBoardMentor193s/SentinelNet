@@ -1,11 +1,22 @@
-# Ignore CICIDS dataset
-data/CICIDS2017/
-data/CICIDS2017.zip
-data/CICIDS2017/ 
-data\CICIDS2017
-data\processed
+# Virtual environments
 venv_sentinel/
 venv/
-"venv_sentinel/" 
-"data/processed/cicids2017/X_selected.pkl" 
-"data/processed/cicids2017/X_selected.pkl" 
+
+# Raw and processed datasets
+data/CICIDS2017/
+data/CICIDS2017.zip
+data/processed/
+
+# Specific large files
+data/processed/cicids2017/X_selected.pkl
+data/processed/cicids2017/y_binary.pkl
+data/processed/cicids2017/X_selected.csv
+data/processed/cicids2017/cicids2017_processed.csv
+data/processed/nsl_kdd/X_selected.pkl
+data/processed/nsl_kdd/y_binary.pkl
+data/processed/nsl_kdd/X_selected.csv
+data/processed/nsl_kdd/nslkdd_processed.csv
+
+
+data/processed/**/*.pkl
+data/processed/**/*.csv
