@@ -110,7 +110,7 @@ SENTINELNET/
     <td><a href="mailto:bhavithaanisetty@gmail.com">bhavithaanisetty@gmail.com</a></td>
   </tr>
   <tr>
-    <td>Prathyay V</td>
+    <td>Prathap V</td>
     <td><a href="mailto:vprathap0703@gmail.com">vprathap0703@gmail.com</a></td>
   </tr>
   <tr>
@@ -126,7 +126,7 @@ SENTINELNET/
     <td><a href="mailto:240061.cs@rmkec.ac.in">240061.cs@rmkec.ac.in</a></td>
   </tr>
   <tr>
-    <td>Khushaldhia Giduthuri</td>
+    <td>Khushala Giduthuri</td>
     <td><a href="mailto:khushaldhiagiduthuri@gmail.com">khushaldhiagiduthuri@gmail.com</a></td>
   </tr>
   <tr>
