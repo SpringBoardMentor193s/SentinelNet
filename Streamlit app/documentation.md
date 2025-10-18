@@ -87,7 +87,3 @@ Several avenues exist for enhancing the Sentinel-Net system:
 * **Performance Optimization:** Further optimizing model hyperparameters and feature sets to minimize inference latency for high-speed network application.
 
 ---
-
-## 🖤 Credit and Acknowledgment
-
-This project was developed by **Mohan Raaj C**.
