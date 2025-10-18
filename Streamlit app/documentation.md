@@ -1,6 +1,6 @@
 # 🛡️ Sentinel-Net: AI-Powered Network Intrusion Detection System
 
-**Project Developer:** Mohan Raaj C
+**INTERN NAME:** Mohan Raaj C
 
 This document outlines the methodology, implementation, and evaluation of an advanced Network Intrusion Detection System (NIDS). The project is structured around a comparative analysis of machine learning models and deployed using a Streamlit web application for practical use against network traffic data. The structure adheres to a standard academic research format.
 
@@ -87,3 +87,4 @@ Several avenues exist for enhancing the Sentinel-Net system:
 * **Performance Optimization:** Further optimizing model hyperparameters and feature sets to minimize inference latency for high-speed network application.
 
 ---
+
