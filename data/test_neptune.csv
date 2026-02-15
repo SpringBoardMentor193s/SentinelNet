@@ -1,0 +1,11 @@
+duration,protocol_type,service,flag,src_bytes,dst_bytes,land,wrong_fragment,urgent,hot,num_failed_logins,logged_in,num_compromised,root_shell,su_attempted,num_root,num_file_creations,num_shells,num_access_files,num_outbound_cmds,is_host_login,is_guest_login,count,srv_count,serror_rate,srv_serror_rate,rerror_rate,srv_rerror_rate,same_srv_rate,diff_srv_rate,srv_diff_host_rate,dst_host_count,dst_host_srv_count,dst_host_same_srv_rate,dst_host_diff_srv_rate,dst_host_same_src_port_rate,dst_host_srv_diff_host_rate,dst_host_serror_rate,dst_host_srv_serror_rate,dst_host_rerror_rate,dst_host_srv_rerror_rate,label
+491,tcp,http,SF,3000,1300,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,5,5,0.0,0.0,0.0,0.0,1.0,0.0,0.0,30,30,1.0,0.0,0.03,0.0,0.0,0.0,0.0,0.0,normal
+0,tcp,private,REJ,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,229,10,0.0,0.0,1.0,1.0,0.04,0.06,0.0,255,10,0.04,0.06,0.0,0.0,0.0,0.0,1.0,1.0,neptune
+120,tcp,ftp,SF,4500,2100,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,8,8,0.0,0.0,0.0,0.0,1.0,0.0,0.0,45,45,1.0,0.0,0.02,0.0,0.0,0.0,0.0,0.0,normal
+0,tcp,http,S0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,123,123,1.0,1.0,0.0,0.0,1.0,0.0,0.0,255,255,1.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,smurf
+350,tcp,smtp,SF,2500,800,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,3,3,0.0,0.0,0.0,0.0,1.0,0.0,0.0,25,25,1.0,0.0,0.04,0.0,0.0,0.0,0.0,0.0,normal
+0,tcp,telnet,RSTO,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,89,5,0.0,0.0,0.9,0.9,0.11,0.22,0.0,200,10,0.05,0.11,0.0,0.0,0.0,0.0,0.9,0.9,neptune
+215,tcp,http,SF,1800,950,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,6,6,0.0,0.0,0.0,0.0,1.0,0.0,0.0,38,38,1.0,0.0,0.026,0.0,0.0,0.0,0.0,0.0,normal
+1,icmp,ecr_i,SF,520,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,511,511,0.0,0.0,0.0,0.0,1.0,0.0,0.0,255,255,1.0,0.0,1.0,0.0,0.0,0.0,0.0,0.0,smurf
+180,tcp,private,SF,1200,600,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,4,4,0.0,0.0,0.0,0.0,1.0,0.0,0.0,32,32,1.0,0.0,0.03,0.0,0.0,0.0,0.0,0.0,normal
+0,tcp,http,REJ,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,156,8,0.0,0.0,1.0,1.0,0.05,0.08,0.0,255,8,0.03,0.05,0.0,0.0,0.0,0.0,1.0,1.0,neptune
